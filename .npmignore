@@ -1,0 +1,8 @@
+_site/
+src/
+build/
+scripts/
+rollup.config.js
+snowpack.config.js
+.eleventy.js
+tsconfig.json
