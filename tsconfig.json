@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "target": "es2015",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "dist"
+    }
+}
