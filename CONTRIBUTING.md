@@ -39,7 +39,7 @@ The dev server doesn't produce an optimized build suitable for deployment.
 
 To bundle the doc site for deployment, simply run
 ```
-yarn build
+yarn build:site
 ```
 This command simply runs `snowpack build` under the hood. You can produce builds using your favorite bundler too! To learn more, read the docs [here](https://www.snowpack.dev/concepts/build-pipeline).
 
