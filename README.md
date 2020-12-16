@@ -52,7 +52,7 @@ This will display a button using the Fluo design system.
 
 ## Documentation
 
-You can find detailed documentation of `fluo` [here](https://fluo.hack.gt).
+You can find detailed documentation of `fluo` [here](https://fluo.dev.hack.gt).
 
 ## Contributing
 
