@@ -61,7 +61,7 @@ This script does not exist yet. The goal is to generate a template doc for each 
 ### `create-component <name>`
 This script does not exist yet. The goal is to generate boilerplate code for creating a new component.
 
-## Writing your own web component
+## Writing a web component
 
 All web components must be written using the [`fast-element`](https://www.fast.design/) library.
 
