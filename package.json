@@ -1,14 +1,17 @@
 {
   "name": "testing_fluo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "another web-component library",
   "main": "dist/fluo.js",
+  "types": "dist/dts/index.d.ts",
   "author": "Elton Pinto",
   "license": "MIT",
   "scripts": {
     "build:components": "rollup -c",
-    "build:dts": "tsc --declaration",
-    "build": "yarn build:components && yarn build:dts"
+    "build:dts": "tsc --emitDeclarationOnly",
+    "build:site": "yarn snowpack build",
+    "build": "yarn build:components && yarn build:dts && yarn build:site",
+    "dev": "yarn snowpack dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
@@ -16,9 +19,11 @@
     "@rollup/plugin-node-resolve": "^11.0.1",
     "@snowpack/plugin-run-script": "^2.2.1",
     "esbuild": "^0.8.23",
+    "esm": "^3.2.25",
     "lodash-es": "^4.17.15",
     "rollup": "^2.35.1",
     "rollup-plugin-esbuild": "^2.6.1",
+    "rollup-plugin-terser": "^7.0.2",
     "snowpack": "2.10.0"
   },
   "dependencies": {
