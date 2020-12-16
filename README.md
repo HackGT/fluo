@@ -38,9 +38,9 @@ FluoDesignProvider;
 <html>
   <head>...</head>
   <body>
-    <fl-design-provider>
+    <fl-design-system-provider>
       <fl-button></fl-button>
-    </fl-design-provider>
+    </fl-design-system-provider>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
