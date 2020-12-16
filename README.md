@@ -49,10 +49,10 @@ This will display a button using the Fluo design system.
 
 ## Documentation
 
-You can find detailed documentation of `fluo` [here](https://example.com).
+You can find detailed documentation of `fluo` [here](https://fluo.hack.gt).
 
 ## Contributing
 
 If you're interested in contributing to this project, please see [CONTRIBUTING.md](CONTRIBUTING.md).
-If you've found a bug, or want to propose a new feature, please file an issue [here]()!
+If you've found a bug, or want to propose a new feature, please file an issue [here](https://github.com/HackGT/fluo/issues)!
 
