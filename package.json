@@ -1,6 +1,6 @@
 {
   "name": "testing_fluo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "another web-component library",
   "main": "dist/fluo.js",
   "author": "Elton Pinto",
@@ -8,7 +8,7 @@
   "scripts": {
     "build:components": "rollup -c",
     "build:dts": "tsc --declaration",
-    "publish": "yarn build:components && yarn build:dts && yarn publish"
+    "build": "yarn build:components && yarn build:dts"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
