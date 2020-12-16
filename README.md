@@ -1,4 +1,5 @@
 # fluo
+[![npm version](https://badge.fury.io/js/%40hackgt%2Ffluo.svg)](https://badge.fury.io/js/%40hackgt%2Ffluo)
 
 🎐 Another web-component library, brought to you by ninjas
 
