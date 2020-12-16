@@ -1,6 +1,7 @@
 # fluo
+[![npm version](https://badge.fury.io/js/%40hackgt%2Ffluo.svg)](https://badge.fury.io/js/%40hackgt%2Ffluo)
 
-🎐 Another web-component library, brought to you by ninjas
+🎐 just another web-component library, brought to you by ninjas
 
 ## Getting Started
 
@@ -18,18 +19,20 @@ yarn add @hackgt/fluo
 npm install @hackgt/fluo
 ```
 
-#### Using a CDN
+#### Browser
 
-TODO: serve minified version on unpkg
+```html
+<script src="https://unpkg.com/@hackgt/fluo@0.0.2/dist/fluo.min.js"></script>
+```
 
 ### Usage
 
 `index.js`
 ```js
-import { Button, FluoDesignProvider } from "@hackgt/fluo";
+import { Button, FluoDesignSystemProvider } from "@hackgt/fluo";
 
 Button;
-FluoDesignProvider;
+FluoDesignSystemProvider;
 ```
 
 `index.html`
