@@ -12,7 +12,8 @@ export default {
         },
         {
             file: "dist/fluo.min.js",
-            format: "esm",
+            format: "iife",
+            name: "main",
             plugins: [terser()]
         }
     ],
