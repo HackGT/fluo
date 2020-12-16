@@ -1,0 +1,51 @@
+{
+    "tagName": "fl-button",
+    "attributes": [
+        {
+            "name": "on",
+            "description": "is the button on or off?",
+            "type": {
+                "dataType": "boolean"
+            },
+            "defaultValue": "true"
+        },
+        {
+            "name": "hi",
+            "description": "do you want to say hi?",
+            "type": {
+                "dataType": "enum",
+                "values": [
+                    "AAA",
+                    "BBB",
+                    "CCC",
+                    "DDD"
+                ]
+            },
+            "defaultValue": ""
+        },
+        {
+            "name": "val",
+            "description": "how high can you go?",
+            "type": {
+                "dataType": "number",
+                "range": {
+                    "start": 0,
+                    "end": 10
+                }
+            },
+            "defaultValue": "0"
+        }
+    ],
+    "cssProperties": [
+        {
+            "name": "--testing-background-color",
+            "description": "this is to test the interact component",
+            "defaultValue": "#fff"
+        },
+        {
+            "name": "--font-size-large",
+            "description": "how big should the font be?",
+            "defaultValue": "idk?"
+        }
+    ]
+}

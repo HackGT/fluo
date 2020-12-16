@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/wind-chime_1f390.png" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>fl</title>
+        <style>
+            :not(:defined) {
+                visibility: hidden;
+            }
+        </style>
+        <!-- 
+            <link href="_dist_/style.css" rel="stylesheet" />
+        -->
+    </head>
+    <body>
+        <fl-design-system-provider use-defaults>
+            <header>
+                <fl-nav title="fluo">
+                    <fl-nav-item><fl-a href="https://www.github.com">github</fl-a></fl-nav-item>
+                    <fl-nav-item>link 2</fl-nav-item>
+                    <fl-nav-item>link 3</fl-nav-item>
+                </fl-nav>
+            </header>
+            <div class="site-wrapper">
+                <section>
+                    <!--
+                        TODO: add side nav bar
+                    -->
+                    <ul>
+                        <li><a href="/">Home</a></li><a href="/components/interact/">
+                                <li>Interact</li>
+                            </a><a href="/components/button/">
+                                <li>Button</li>
+                            </a></ul>
+                </section>
+                <section>
+                    <h1><code>fl-interact</code></h1>
+<p>A component to provide an interactive playground for a web component.</p>
+<h2>api</h2>
+<p><code>src</code> -&gt; path to custom-elements.json file</p>
+<p>... bunch of toggles for certain features</p>
+<h2>features</h2>
+<ul>
+<li>live-editor (editable or not)</li>
+<li>toggles</li>
+<li>display</li>
+</ul>
+
+                </section>
+                <section>
+                    <!--
+                        TODO: add docs scroll indicator nav bar
+                    -->
+                </section>
+            </div>
+
+            <footer>
+            </footer>
+        </fl-design-system-provider>
+        <script type="module" src="/index.js"></script>
+    </body>
+</html>

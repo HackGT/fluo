@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@microsoft/fast-element": "./@microsoft/fast-element.js",
+    "@microsoft/fast-foundation": "./@microsoft/fast-foundation.js"
+  }
+}
