@@ -20,7 +20,7 @@ npm install @hackgt/fluo
 
 #### Browser
 
-```
+```html
 <script src="https://unpkg.com/@hackgt/fluo@0.0.1/dist/fluo.min.js"></script>
 ```
 
