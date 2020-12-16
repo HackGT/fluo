@@ -1,5 +1,5 @@
 {
-  "name": "fluo",
+  "name": "@hackgt/fluo",
   "version": "1.0.0",
   "description": "another web-component library",
   "main": "dist/fluo.js",

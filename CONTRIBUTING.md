@@ -1,4 +1,4 @@
-# Contributing to `fluo`
+# Contributing to fluo
 
 Hey there! Thank you for taking the time to contribute to this project.
 
