@@ -1,4 +1,4 @@
-import esbuild from "rollup-plugin-esbuild";
+import typescript from "rollup-plugin-typescript2";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
@@ -18,5 +18,5 @@ export default {
         }
     ],
     context: "this",
-    plugins: [nodeResolve(), commonjs(), esbuild()]
+    plugins: [nodeResolve(), commonjs(), typescript()]
 };

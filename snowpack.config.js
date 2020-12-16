@@ -8,6 +8,10 @@ module.exports = {
         [
             "@snowpack/plugin-run-script",
             { cmd: "eleventy", watch: "$1 --watch" }
-        ]
-    ]
+        ],
+        [ "@intrnl/snowpack-bundle-rollup"],
+    ],
+    buildOptions: {
+        clean: true
+    }
 };

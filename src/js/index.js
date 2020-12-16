@@ -2,10 +2,12 @@ import {
     Button,
     Interact,
     NavBar,
-    NavBarItem
-} from "../components";
+    NavBarItem,
+    FluoDesignSystemProvider
+} from "/components/index";
 
 Button;
 Interact;
 NavBar;
 NavBarItem;
+FluoDesignSystemProvider;
