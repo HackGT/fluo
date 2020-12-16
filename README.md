@@ -18,9 +18,11 @@ yarn add @hackgt/fluo
 npm install @hackgt/fluo
 ```
 
-#### Using a CDN
+#### Browser
 
-TODO: serve minified version on unpkg
+```
+<script src="https://unpkg.com/@hackgt/fluo@0.0.1/dist/fluo.min.js"></script>
+```
 
 ### Usage
 
