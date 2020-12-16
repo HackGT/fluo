@@ -27,12 +27,12 @@ All source code exists in the `src/` folder.
 - `src/components/` -> source for components
 - `src/js` -> scripts used in the doc site
 
-All other files in `src/` are templates that will be processed using `11ty`.
+All other files in `src/` are templates that will be processed using 11ty.
 
 ## How does the dev server work?
-The dev server serves the doc site. It uses `11ty` to process the templates, and `snowpack` to build and serve the site. Snowpack comes with HMR enabled, and it handles re-building your source incrementatlly, and allows faster unbundled development.
+The dev server serves the doc site. It uses 11ty to process the templates, and snowpack to build and serve the site. Snowpack comes with HMR enabled, and it handles re-building your source incrementatlly, and allows faster unbundled development.
 
-`11ty` generates the `_site/` folder with the processed templates, and `snowpack` generates the `build/` folder with the final doc site. Since the `_site/` folder contains intermediate output, it is not version controlled.
+11ty generates the `_site/` folder with the processed templates, and snowpack generates the `build/` folder with the final doc site. Since the `_site/` folder contains intermediate output, it is not version controlled.
 
 ## Bundling for deployment
 The dev server doesn't produce an optimized build suitable for deployment.
