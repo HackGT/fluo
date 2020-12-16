@@ -29,10 +29,10 @@ npm install @hackgt/fluo
 
 `index.js`
 ```js
-import { Button, FluoDesignProvider } from "@hackgt/fluo";
+import { Button, FluoDesignSystemProvider } from "@hackgt/fluo";
 
 Button;
-FluoDesignProvider;
+FluoDesignSystemProvider;
 ```
 
 `index.html`
