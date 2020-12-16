@@ -24,7 +24,30 @@ TODO: serve minified version on unpkg
 
 ### Usage
 
-TODO: write an example
+`index.js`
+```js
+import { Button, FluoDesignProvider } from "@hackgt/fluo";
+
+Button;
+FluoDesignProvider;
+```
+
+`index.html`
+```html
+<!doctype html>
+<html>
+  <head>...</head>
+  <body>
+    <fl-design-provider>
+      <fl-button></fl-button>
+    </fl-design-provider>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
+```
+This will display a button using the Fluo design system.
+
+## Documentation
 
 You can find detailed documentation of `fluo` [here](https://example.com).
 
