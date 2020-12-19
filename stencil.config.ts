@@ -20,6 +20,8 @@ export const config: Config = {
     },
   ],
   plugins: [
-    sass()
+    sass({
+      includePaths: ['./src/styles']
+    })
   ]
 };
