@@ -529,6 +529,11 @@
     eslint-utils "^2.0.0"
     tsutils "^3.0.0"
 
+"@stencil/react-output-target@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@stencil/react-output-target/-/react-output-target-0.0.9.tgz#b225611c5743f0285c37d92bb47d9369ba462c54"
+  integrity sha512-t2sSkm/VGftBqewK47eZonaHIXW7CYWlsDy6Ln4jqNVpr93CuPWkg7rsnPiZrJrU1NBuTgA0hC2xoRcAJVm7Sw==
+
 "@stencil/sass@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@stencil/sass/-/sass-1.4.1.tgz"
