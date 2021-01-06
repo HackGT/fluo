@@ -2,41 +2,42 @@
 
 // Global Variables
 :root {
+  // Grayscale Colors
   --fl-color-black: #000000;
   --fl-color-light-gray: #9ca3af;
   --fl-color-dark-gray: #70757e;
   --fl-color-white: #ffffff;
-
+  // Primary Colors
   --fl-color-primary: #f14382;
   --sl-color-primary-tint: #f5699c;
   --sl-color-primary-shade: #d32263;
   --fl-color-primary-text: var(--fl-color-white);
-
+  // Secondary Colors
   --fl-color-secondary: #7b69ec;
   --sl-color-secondary-tint: #9385f0;
   --sl-color-secondary-shade: #6856dd;
   --fl-color-secondary-text: var(--fl-color-white);
-
+  // Tertiary Colors
   --fl-color-tertiary: #33c2ff;
   --sl-color-tertiary-tint: #68d0fd;
   --sl-color-tertiary-shade: #21b2f0;
   --fl-color-tertiary-text: var(--fl-color-white);
-
+  // Success Colors
   --fl-color-success: #16a34a;
   --sl-color-success-tint: #22c55e;
   --sl-color-success-shade: #15803d;
   --fl-color-success-text: var(--fl-color-white);
-
+  // Info Colors
   --fl-color-info: #4b5563;
   --sl-color-info-tint: #6b7280;
   --sl-color-info-shade: #374151;
   --fl-color-info-text: var(--fl-color-white);
-
+  // Warning Colors
   --fl-color-warning: #d97706;
   --sl-color-warning-tint: #f59e0b;
   --sl-color-warning-shade: #b45309;
   --fl-color-warning-text: var(--fl-color-white);
-
+  // Danger Colors
   --fl-color-danger: #dc2626;
   --sl-color-danger-tint: #ef4444;
   --sl-color-danger-shade: #b91c1c;

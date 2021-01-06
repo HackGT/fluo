@@ -7,6 +7,50 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled": boolean;
+        /**
+          * Tells the browser to download the linked file as this filename. Only used when `href` is set.
+         */
+        "download"?: string;
+        /**
+          * When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * An optional name for the button. Ignored when `href` is set.
+         */
+        "name": string;
+        /**
+          * Specifies the relationship of the target object to the link object. Only used when `href` is set.
+         */
+        "rel"?: string;
+        /**
+          * The button's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link. Only used when `href` is set.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The button's type. Ignored when `href` is set.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button. Ignored when `href` is set.
+         */
+        "value": string;
+        /**
+          * The button's type
+         */
+        "variant": "default" | "primary" | "success" | "info" | "warning" | "danger";
     }
 }
 declare global {
@@ -22,6 +66,50 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tells the browser to download the linked file as this filename. Only used when `href` is set.
+         */
+        "download"?: string;
+        /**
+          * When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * An optional name for the button. Ignored when `href` is set.
+         */
+        "name"?: string;
+        /**
+          * Specifies the relationship of the target object to the link object. Only used when `href` is set.
+         */
+        "rel"?: string;
+        /**
+          * The button's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link. Only used when `href` is set.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The button's type. Ignored when `href` is set.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button. Ignored when `href` is set.
+         */
+        "value"?: string;
+        /**
+          * The button's type
+         */
+        "variant"?: "default" | "primary" | "success" | "info" | "warning" | "danger";
     }
     interface IntrinsicElements {
         "fl-button": FlButton;
