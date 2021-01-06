@@ -1,0 +1,13 @@
+:host {
+  display: inline-block;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fl-color-white);
+  box-shadow: 0 0 8px 0 var(--fl-color-black);
+  border: solid 1px var(--fl-color-black);
+  border-radius: 5%;
+  padding: 20px;
+}
