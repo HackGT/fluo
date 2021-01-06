@@ -29,5 +29,6 @@ export const config: Config = {
     sass({
       includePaths: ['./src/styles']
     })
-  ]
+  ],
+  globalStyle: './src/styles/fluo.scss'
 };
