@@ -4,5 +4,8 @@
   ],
   "plugins": [
     "stylelint-scss"
-  ]
+  ],
+  "rules": {
+    "font-family-no-duplicate-names": null
+  }
 }
