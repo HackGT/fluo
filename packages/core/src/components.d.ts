@@ -12,6 +12,8 @@ export namespace Components {
     }
     interface FlCardBody {
     }
+    interface FlCardCover {
+    }
     interface FlCardFooter {
     }
     interface FlCardHeader {
@@ -36,6 +38,12 @@ declare global {
         prototype: HTMLFlCardBodyElement;
         new (): HTMLFlCardBodyElement;
     };
+    interface HTMLFlCardCoverElement extends Components.FlCardCover, HTMLStencilElement {
+    }
+    var HTMLFlCardCoverElement: {
+        prototype: HTMLFlCardCoverElement;
+        new (): HTMLFlCardCoverElement;
+    };
     interface HTMLFlCardFooterElement extends Components.FlCardFooter, HTMLStencilElement {
     }
     var HTMLFlCardFooterElement: {
@@ -52,6 +60,7 @@ declare global {
         "fl-button": HTMLFlButtonElement;
         "fl-card": HTMLFlCardElement;
         "fl-card-body": HTMLFlCardBodyElement;
+        "fl-card-cover": HTMLFlCardCoverElement;
         "fl-card-footer": HTMLFlCardFooterElement;
         "fl-card-header": HTMLFlCardHeaderElement;
     }
@@ -63,6 +72,8 @@ declare namespace LocalJSX {
     }
     interface FlCardBody {
     }
+    interface FlCardCover {
+    }
     interface FlCardFooter {
     }
     interface FlCardHeader {
@@ -71,6 +82,7 @@ declare namespace LocalJSX {
         "fl-button": FlButton;
         "fl-card": FlCard;
         "fl-card-body": FlCardBody;
+        "fl-card-cover": FlCardCover;
         "fl-card-footer": FlCardFooter;
         "fl-card-header": FlCardHeader;
     }
@@ -82,6 +94,7 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-card-body": LocalJSX.FlCardBody & JSXBase.HTMLAttributes<HTMLFlCardBodyElement>;
+            "fl-card-cover": LocalJSX.FlCardCover & JSXBase.HTMLAttributes<HTMLFlCardCoverElement>;
             "fl-card-footer": LocalJSX.FlCardFooter & JSXBase.HTMLAttributes<HTMLFlCardFooterElement>;
             "fl-card-header": LocalJSX.FlCardHeader & JSXBase.HTMLAttributes<HTMLFlCardHeaderElement>;
         }

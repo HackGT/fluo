@@ -1,3 +1,8 @@
 :host {
-  display: block;
+  display: inline-block;
+}
+
+.card-header {
+  border-bottom: solid var(--border-width) var(--border-color);
+  padding: var(--padding);
 }

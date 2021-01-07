@@ -1,17 +1,17 @@
-import { Component, Host, h } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "fl-card-body",
   styleUrl: "card-body.scss",
   shadow: true,
 })
-export class Card {
+export class CardBody {
 
   render() {
     return (
-      <Host>
+      <div class="card-body">
         <slot></slot>
-      </Host>
+      </div>
     );
   }
 

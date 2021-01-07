@@ -1,3 +1,8 @@
 :host {
-  display: block;
+  display: inline-block;
+}
+
+.card-footer {
+  border-top: solid var(--border-width) var(--border-color);
+  padding: var(--padding);
 }

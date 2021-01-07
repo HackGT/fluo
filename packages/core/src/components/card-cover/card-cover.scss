@@ -1,0 +1,14 @@
+:host {
+  display: inline-block;
+}
+
+.card-cover {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  overflow: hidden;
+
+  ::slotted(img) {
+    display: block;
+    width: 100%;
+  }
+}

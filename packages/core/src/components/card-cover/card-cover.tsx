@@ -1,15 +1,15 @@
 import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: "fl-card-header",
-  styleUrl: "card-header.scss",
+  tag: "fl-card-cover",
+  styleUrl: "card-cover.scss",
   shadow: true,
 })
-export class CardHeader {
+export class CardCover {
 
   render() {
     return (
-      <div class="card-header">
+      <div class="card-cover">
         <slot></slot>
       </div>
     );

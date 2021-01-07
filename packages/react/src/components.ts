@@ -11,5 +11,6 @@ defineCustomElements();
 export const FlButton = /*@__PURE__*/createReactComponent<JSX.FlButton, HTMLFlButtonElement>('fl-button');
 export const FlCard = /*@__PURE__*/createReactComponent<JSX.FlCard, HTMLFlCardElement>('fl-card');
 export const FlCardBody = /*@__PURE__*/createReactComponent<JSX.FlCardBody, HTMLFlCardBodyElement>('fl-card-body');
+export const FlCardCover = /*@__PURE__*/createReactComponent<JSX.FlCardCover, HTMLFlCardCoverElement>('fl-card-cover');
 export const FlCardFooter = /*@__PURE__*/createReactComponent<JSX.FlCardFooter, HTMLFlCardFooterElement>('fl-card-footer');
 export const FlCardHeader = /*@__PURE__*/createReactComponent<JSX.FlCardHeader, HTMLFlCardHeaderElement>('fl-card-header');

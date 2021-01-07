@@ -1,13 +1,16 @@
 :host {
   display: inline-block;
+
+  --border-radius: 10px;
+  --border-color: var(--fl-color-light-gray);
+  --border-width: 1px;
+  --padding: 30px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  background-color: var(--fl-color-white);
-  box-shadow: 0 0 8px 0 var(--fl-color-black);
-  border: solid 1px var(--fl-color-black);
-  border-radius: 5%;
-  padding: 20px;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 4px 16px;
+  border-radius: var(--border-radius);
 }
