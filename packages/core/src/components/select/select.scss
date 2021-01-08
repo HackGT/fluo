@@ -6,6 +6,17 @@
   display: none;
 }
 
+.select {
+  width: 200px;
+  height: 30px;
+  border: solid 2px black;
+}
+
+.select__display {
+  width: 100%;
+  height: 100%;
+}
+
 .select__content {
   transition: 10s all ease-out;
 }

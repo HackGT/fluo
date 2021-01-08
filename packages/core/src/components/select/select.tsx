@@ -1,4 +1,5 @@
 import { Component, h, Prop, Method, State, Element, Watch } from "@stencil/core";
+import { getTextContent } from "../../utils/slot";
 
 @Component({
   tag: "fl-select",
@@ -14,6 +15,8 @@ export class Select {
   @Element() host: HTMLFlSelectElement;
 
   @State() hasFocus = false;
+  @State() displayLabel = "";
+  @State() displayTags = [];
 
   /** Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods. */
   @Prop({ mutable: true, reflect: true }) open = false;
@@ -82,11 +85,8 @@ export class Select {
   }
 
   /** Shows the dropdown content */
-  
-
-  /** Shows the dropdown content */
   @Method()
-  async  show() {
+  async show() {
     // Prevent subsequent calls to the method
     if (this.isVisible) {
       return;
@@ -102,11 +102,8 @@ export class Select {
   }
 
   /** Hides the dropdown content */
-  
-
-  /** Hides the dropdown content */
   @Method()
-  async  hide() {
+  async hide() {
     // Prevent subsequent calls to the method
     if (!this.isVisible) {
       return;
@@ -122,8 +119,17 @@ export class Select {
     this.container.focus();
   }
 
+  connectedCallback() {
+    this.handleSlotChange = this.handleSlotChange.bind(this); // Necessary to define function before load
+  }
+
   getItems = () => {
     return Array.from(this.host.querySelectorAll("fl-select-item"));
+  }
+
+  getItemLabel = (item: HTMLFlSelectItemElement) => {
+    const slot = item.shadowRoot.querySelector("slot:not([name])") as HTMLSlotElement;
+    return getTextContent(slot);
   }
 
   updateValue = (item: HTMLFlSelectItemElement) => {
@@ -229,56 +235,74 @@ export class Select {
     }
   }
 
+  handleTagInteraction(event: KeyboardEvent | MouseEvent) {
+    // Don't toggle the menu when a tag's clear button is activated
+    const path = event.composedPath() as Array<EventTarget>;
+    const clearButton = path.find(el => {
+      if (el instanceof HTMLElement) {
+        const element = el as HTMLElement;
+        return element.getAttribute("part") === "clear";
+      }
+    });
+
+    if (clearButton) {
+      event.stopPropagation();
+    }
+  }
+
+  handleSlotChange() {
+    this.syncItemsFromValue();
+  }
+
   syncItemsFromValue() {
-    // const items = this.getItems();
-    // const value = this.getValueAsArray();
+    const items = this.getItems();
+    const value = Array.isArray(this.value) ? this.value : [this.value];
 
     // Sync checked states
-    // items.map(item => (item.checked = value.includes(item.value)));
+    items.map(item => (item.checked = value.includes(item.value)));
 
-    // // Sync display label
-    // if (this.multiple) {
-    //   const checkedItems = [];
-    //   value.map(val => items.map(item => (item.value === val ? checkedItems.push(item) : null)));
+    // Sync display label
+    if (this.multiple) {
+      const checkedItems = [];
+      value.map(val => items.map(item => (item.value === val ? checkedItems.push(item) : null)));
 
-    //   this.displayTags = checkedItems.map(item => {
-    //     return (
-    //       <sl-tag
-    //         exportparts="base:tag"
-    //         type="info"
-    //         size={this.size}
-    //         pill={this.pill}
-    //         clearable
-    //         onClick={this.handleTagInteraction}
-    //         onKeyDown={this.handleTagInteraction}
-    //         onSl-clear={event => {
-    //           event.stopPropagation();
-    //           if (!this.disabled) {
-    //             item.checked = false;
-    //             this.syncValueFromItems();
-    //           }
-    //         }}
-    //       >
-    //         {this.getItemLabel(item)}
-    //       </sl-tag>
-    //     );
-    //   });
+      this.displayTags = checkedItems.map(item => {
+        return (
+          <fl-tag
+            exportparts="base:tag"
+            type="info"
+            size={this.size}
+            clearable
+            onClick={this.handleTagInteraction}
+            onKeyDown={this.handleTagInteraction}
+            onClear={event => {
+              event.stopPropagation();
+              if (!this.disabled) {
+                item.checked = false;
+                this.syncValueFromItems();
+              }
+            }}
+          >
+            {this.getItemLabel(item)}
+          </fl-tag>
+        );
+      });
 
-    //   if (this.maxTagsVisible > 0 && this.displayTags.length > this.maxTagsVisible) {
-    //     const total = this.displayTags.length;
-    //     this.displayLabel = '';
-    //     this.displayTags = this.displayTags.slice(0, this.maxTagsVisible);
-    //     this.displayTags.push(
-    //       <sl-tag exportparts="base:tag" type="info" size={this.size}>
-    //         +{total - this.maxTagsVisible}
-    //       </sl-tag>
-    //     );
-    //   }
-    // } else {
-    //   const checkedItem = items.filter(item => item.value === value[0])[0];
-    //   this.displayLabel = checkedItem ? this.getItemLabel(checkedItem) : '';
-    //   this.displayTags = [];
-    // }
+      if (this.maxTagsVisible > 0 && this.displayTags.length > this.maxTagsVisible) {
+        const total = this.displayTags.length;
+        this.displayLabel = "";
+        this.displayTags = this.displayTags.slice(0, this.maxTagsVisible);
+        this.displayTags.push(
+          <fl-tag exportparts="base:tag" type="info" size={this.size}>
+            +{total - this.maxTagsVisible}
+          </fl-tag>
+        );
+      }
+    } else {
+      const checkedItem = items.filter(item => item.value === value[0])[0];
+      this.displayLabel = checkedItem ? this.getItemLabel(checkedItem) : "";
+      this.displayTags = [];
+    }
   }
 
   syncValueFromItems() {
@@ -312,14 +336,20 @@ export class Select {
           onClick={this.handleDisplayClick}
           ref={el => this.display = el}
         >
-          {typeof this.value == "string" ? this.value : this.value.join(" ")}
+          {this.displayTags.length ? (
+            <span part="tags" class="select__tags">
+              {this.displayTags}
+            </span>
+          ) : (
+            this.displayLabel || this.placeholder
+          )}
         </div>
         <div
           class="select__content hidden"
           onClick={this.handleContentClick}
           ref={el => this.content = el}
         >
-          <slot></slot>
+          <slot onSlotchange={this.handleSlotChange}></slot>
         </div>
       </div>
     );

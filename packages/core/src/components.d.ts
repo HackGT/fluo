@@ -64,7 +64,7 @@ export namespace Components {
         /**
           * The select's size.
          */
-        "size": 'small' | 'medium' | 'large';
+        "size": "small" | "medium" | "large";
         /**
           * The value of the control. This will be a string or an array depending on `multiple`.
          */
@@ -92,6 +92,20 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable": boolean;
+        /**
+          * The tag's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type": 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -112,10 +126,17 @@ declare global {
         prototype: HTMLFlSelectItemElement;
         new (): HTMLFlSelectItemElement;
     };
+    interface HTMLFlTagElement extends Components.FlTag, HTMLStencilElement {
+    }
+    var HTMLFlTagElement: {
+        prototype: HTMLFlTagElement;
+        new (): HTMLFlTagElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
+        "fl-tag": HTMLFlTagElement;
     }
 }
 declare namespace LocalJSX {
@@ -169,7 +190,7 @@ declare namespace LocalJSX {
         /**
           * The select's size.
          */
-        "size"?: 'small' | 'medium' | 'large';
+        "size"?: "small" | "medium" | "large";
         /**
           * The value of the control. This will be a string or an array depending on `multiple`.
          */
@@ -189,10 +210,29 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface FlTag {
+        /**
+          * Set to true to make the tag clearable.
+         */
+        "clearable"?: boolean;
+        /**
+          * Emitted when the clear button is activated.
+         */
+        "onClear"?: (event: CustomEvent<any>) => void;
+        /**
+          * The tag's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The tag's type.
+         */
+        "type"?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
+        "fl-tag": FlTag;
     }
 }
 export { LocalJSX as JSX };
@@ -202,6 +242,7 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
+            "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
         }
     }
 }

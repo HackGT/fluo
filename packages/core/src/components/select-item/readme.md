@@ -11,7 +11,7 @@
 | ---------- | ---------- | --------------------------------------------------------------------------------------------------------- | --------- | ------- |
 | `checked`  | `checked`  | Set to true to draw the item in a checked state.                                                          | `boolean` | `false` |
 | `disabled` | `disabled` | Set to true to draw the menu item in a disabled state.                                                    | `boolean` | `false` |
-| `value`    | `value`    | A unique value to store in the menu item. This can be used as a way to identify menu items when selected. | `string`  | `''`    |
+| `value`    | `value`    | A unique value to store in the menu item. This can be used as a way to identify menu items when selected. | `string`  | `""`    |
 
 
 ## Methods
