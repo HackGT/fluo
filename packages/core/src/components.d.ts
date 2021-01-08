@@ -100,11 +100,11 @@ export namespace Components {
         /**
           * The tag's size.
          */
-        "size": 'small' | 'medium' | 'large';
+        "size": "small" | "medium" | "large";
         /**
           * The tag's type.
          */
-        "type": 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+        "type": "default" | "primary" | "success" | "info" | "warning" | "danger" | "text";
     }
 }
 declare global {
@@ -222,11 +222,11 @@ declare namespace LocalJSX {
         /**
           * The tag's size.
          */
-        "size"?: 'small' | 'medium' | 'large';
+        "size"?: "small" | "medium" | "large";
         /**
           * The tag's type.
          */
-        "type"?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
+        "type"?: "default" | "primary" | "success" | "info" | "warning" | "danger" | "text";
     }
     interface IntrinsicElements {
         "fl-button": FlButton;

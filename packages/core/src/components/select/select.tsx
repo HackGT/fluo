@@ -235,7 +235,7 @@ export class Select {
     }
   }
 
-  handleTagInteraction(event: KeyboardEvent | MouseEvent) {
+  handleTagInteraction = (event: KeyboardEvent | MouseEvent) => {
     // Don't toggle the menu when a tag's clear button is activated
     const path = event.composedPath() as Array<EventTarget>;
     const clearButton = path.find(el => {
@@ -250,11 +250,28 @@ export class Select {
     }
   }
 
-  handleSlotChange() {
+  handleSlotChange = () => {
     this.syncItemsFromValue();
   }
 
-  syncItemsFromValue() {
+  handleTagClear = (event: CustomEvent<any>, item: HTMLFlSelectItemElement) => {
+    event.stopPropagation();
+    if (!this.disabled) {
+      item.checked = false;
+
+      const items = this.getItems();
+      const checkedItems = items.filter(item => item.checked);
+      const checkedValues = checkedItems.map(item => item.value);
+
+      if (this.multiple) {
+        this.value = (this.value as []).filter(val => checkedValues.includes(val));
+      } else {
+        this.value = checkedValues.length > 0 ? checkedValues[0] : "";
+      }
+    }
+  }
+
+  syncItemsFromValue = () => {
     const items = this.getItems();
     const value = Array.isArray(this.value) ? this.value : [this.value];
 
@@ -263,7 +280,7 @@ export class Select {
 
     // Sync display label
     if (this.multiple) {
-      const checkedItems = [];
+      const checkedItems: HTMLFlSelectItemElement[] = [];
       value.map(val => items.map(item => (item.value === val ? checkedItems.push(item) : null)));
 
       this.displayTags = checkedItems.map(item => {
@@ -275,13 +292,7 @@ export class Select {
             clearable
             onClick={this.handleTagInteraction}
             onKeyDown={this.handleTagInteraction}
-            onClear={event => {
-              event.stopPropagation();
-              if (!this.disabled) {
-                item.checked = false;
-                this.syncValueFromItems();
-              }
-            }}
+            onClear={event => this.handleTagClear(event, item)}
           >
             {this.getItemLabel(item)}
           </fl-tag>
@@ -302,18 +313,6 @@ export class Select {
       const checkedItem = items.filter(item => item.value === value[0])[0];
       this.displayLabel = checkedItem ? this.getItemLabel(checkedItem) : "";
       this.displayTags = [];
-    }
-  }
-
-  syncValueFromItems() {
-    const items = this.getItems();
-    const checkedItems = items.filter(item => item.checked);
-    const checkedValues = checkedItems.map(item => item.value);
-
-    if (this.multiple) {
-      this.value = (this.value as []).filter(val => checkedValues.includes(val));
-    } else {
-      this.value = checkedValues.length > 0 ? checkedValues[0] : "";
     }
   }
 

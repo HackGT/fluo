@@ -14,7 +14,7 @@
   white-space: nowrap;
   cursor: pointer;
 
-  &.select-item--focused:not(.select-item--disabled) {
+  &.select-item:focus:not(.select-item--disabled) {
     outline: none;
     background-color: var(--fl-color-primary-tint);
   }
