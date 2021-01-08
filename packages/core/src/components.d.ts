@@ -8,6 +8,90 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable": boolean;
+        /**
+          * Closes dropdown when an item is selected. Only applies when multiple is false.
+         */
+        "closeOnSelect": boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled": boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText": string;
+        /**
+          * Hides the dropdown content
+         */
+        "hide": () => Promise<void>;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label": string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible": number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple": boolean;
+        /**
+          * The select's name.
+         */
+        "name": string;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open": boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder": string;
+        /**
+          * The select's required attribute.
+         */
+        "required": boolean;
+        /**
+          * Shows the dropdown content
+         */
+        "show": () => Promise<void>;
+        /**
+          * The select's size.
+         */
+        "size": 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value": string | Array<string>;
+    }
+    interface FlSelectItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked": boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled": boolean;
+        /**
+          * Removes focus from the button.
+         */
+        "removeFocus": () => Promise<void>;
+        /**
+          * Sets focus on the button.
+         */
+        "setFocus": (options?: FocusOptions) => Promise<void>;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value": string;
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -16,15 +100,99 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlSelectElement extends Components.FlSelect, HTMLStencilElement {
+    }
+    var HTMLFlSelectElement: {
+        prototype: HTMLFlSelectElement;
+        new (): HTMLFlSelectElement;
+    };
+    interface HTMLFlSelectItemElement extends Components.FlSelectItem, HTMLStencilElement {
+    }
+    var HTMLFlSelectItemElement: {
+        prototype: HTMLFlSelectItemElement;
+        new (): HTMLFlSelectItemElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-select": HTMLFlSelectElement;
+        "fl-select-item": HTMLFlSelectItemElement;
     }
 }
 declare namespace LocalJSX {
     interface FlButton {
     }
+    interface FlSelect {
+        /**
+          * Set to true to add a clear button when the select is populated.
+         */
+        "clearable"?: boolean;
+        /**
+          * Closes dropdown when an item is selected. Only applies when multiple is false.
+         */
+        "closeOnSelect"?: boolean;
+        /**
+          * Set to true to disable the select control.
+         */
+        "disabled"?: boolean;
+        /**
+          * The select's help text. Alternatively, you can use the help-text slot.
+         */
+        "helpText"?: string;
+        /**
+          * The select's label. Alternatively, you can use the label slot.
+         */
+        "label"?: string;
+        /**
+          * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
+         */
+        "maxTagsVisible"?: number;
+        /**
+          * Set to true to enable multiselect.
+         */
+        "multiple"?: boolean;
+        /**
+          * The select's name.
+         */
+        "name"?: string;
+        /**
+          * Indicates whether or not the dropdown is open. You can use this in lieu of the show/hide methods.
+         */
+        "open"?: boolean;
+        /**
+          * The select's placeholder text.
+         */
+        "placeholder"?: string;
+        /**
+          * The select's required attribute.
+         */
+        "required"?: boolean;
+        /**
+          * The select's size.
+         */
+        "size"?: 'small' | 'medium' | 'large';
+        /**
+          * The value of the control. This will be a string or an array depending on `multiple`.
+         */
+        "value"?: string | Array<string>;
+    }
+    interface FlSelectItem {
+        /**
+          * Set to true to draw the item in a checked state.
+         */
+        "checked"?: boolean;
+        /**
+          * Set to true to draw the menu item in a disabled state.
+         */
+        "disabled"?: boolean;
+        /**
+          * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-select": FlSelect;
+        "fl-select-item": FlSelectItem;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +200,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
+            "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
         }
     }
 }

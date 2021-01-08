@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.select__content {
+  transition: 10s all ease-out;
+}
+
+.select--focused {
+  background-color: green;
+}
