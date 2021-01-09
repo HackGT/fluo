@@ -125,18 +125,16 @@ export class Select {
 
   getItems = () => {
     return Array.from(this.host.querySelectorAll("fl-select-item"));
-  }
+  };
 
   getItemLabel = (item: HTMLFlSelectItemElement) => {
     const slot = item.shadowRoot.querySelector("slot:not([name])") as HTMLSlotElement;
     return getTextContent(slot);
-  }
+  };
 
   updateValue = (item: HTMLFlSelectItemElement) => {
     if (this.multiple) {
-      this.value = this.value.includes(item.value)
-        ? (this.value as []).filter(v => v !== item.value)
-        : [...this.value, item.value];
+      this.value = this.value.includes(item.value) ? (this.value as []).filter(v => v !== item.value) : [...this.value, item.value];
     } else {
       this.value = item.value;
     }
@@ -144,11 +142,11 @@ export class Select {
     if (this.closeOnSelect && !this.multiple) {
       this.hide();
     }
-  }
+  };
 
   handleDisplayClick = () => {
     this.open ? this.hide() : this.show();
-  }
+  };
 
   handleOnKeyDown = (event: KeyboardEvent) => {
     const items = this.getItems();
@@ -209,7 +207,7 @@ export class Select {
         items[index].setFocus();
       }
     }
-  }
+  };
 
   handleContentClick = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
@@ -217,7 +215,7 @@ export class Select {
     if (target.tagName.toLowerCase() === "fl-select-item") {
       this.updateValue(event.target as HTMLFlSelectItemElement);
     }
-  }
+  };
 
   handleDocumentKeyDown = (event: KeyboardEvent) => {
     // Close dropdown when escape is pressed
@@ -225,7 +223,7 @@ export class Select {
       this.hide();
       this.display.focus();
     }
-  }
+  };
 
   handleDocumentMouseDown = (event: KeyboardEvent) => {
     // Close when clicking outside containing element
@@ -233,7 +231,7 @@ export class Select {
     if (!path.includes(this.container)) {
       this.hide();
     }
-  }
+  };
 
   handleTagInteraction = (event: KeyboardEvent | MouseEvent) => {
     // Don't toggle the menu when a tag's clear button is activated
@@ -248,11 +246,11 @@ export class Select {
     if (clearButton) {
       event.stopPropagation();
     }
-  }
+  };
 
   handleSlotChange = () => {
     this.syncItemsFromValue();
-  }
+  };
 
   handleTagClear = (event: CustomEvent<any>, item: HTMLFlSelectItemElement) => {
     event.stopPropagation();
@@ -269,7 +267,7 @@ export class Select {
         this.value = checkedValues.length > 0 ? checkedValues[0] : "";
       }
     }
-  }
+  };
 
   syncItemsFromValue = () => {
     const items = this.getItems();
@@ -314,7 +312,7 @@ export class Select {
       this.displayLabel = checkedItem ? this.getItemLabel(checkedItem) : "";
       this.displayTags = [];
     }
-  }
+  };
 
   render() {
     return (
@@ -325,16 +323,12 @@ export class Select {
           "select--focused": this.hasFocus
         }}
         onKeyDown={this.handleOnKeyDown}
-        ref={el => this.container = el}
+        ref={el => (this.container = el)}
         tabIndex={this.disabled ? -1 : 0}
-        onFocus={() => this.hasFocus = true}
-        onBlur={() => this.hasFocus = false}
+        onFocus={() => (this.hasFocus = true)}
+        onBlur={() => (this.hasFocus = false)}
       >
-        <div
-          class="select__display"
-          onClick={this.handleDisplayClick}
-          ref={el => this.display = el}
-        >
+        <div class="select__display" onClick={this.handleDisplayClick} ref={el => (this.display = el)}>
           {this.displayTags.length ? (
             <span part="tags" class="select__tags">
               {this.displayTags}
@@ -343,15 +337,10 @@ export class Select {
             this.displayLabel || this.placeholder
           )}
         </div>
-        <div
-          class="select__content hidden"
-          onClick={this.handleContentClick}
-          ref={el => this.content = el}
-        >
+        <div class="select__content hidden" onClick={this.handleContentClick} ref={el => (this.content = el)}>
           <slot onSlotchange={this.handleSlotChange}></slot>
         </div>
       </div>
     );
   }
-
 }

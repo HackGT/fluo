@@ -10,8 +10,8 @@
 | Property    | Attribute   | Description                            | Type                                                                               | Default     |
 | ----------- | ----------- | -------------------------------------- | ---------------------------------------------------------------------------------- | ----------- |
 | `clearable` | `clearable` | Set to true to make the tag clearable. | `boolean`                                                                          | `false`     |
-| `size`      | `size`      | The tag's size.                        | `"large" \| "medium" \| "small"`                                                   | `'medium'`  |
-| `type`      | `type`      | The tag's type.                        | `"danger" \| "default" \| "info" \| "primary" \| "success" \| "text" \| "warning"` | `'default'` |
+| `size`      | `size`      | The tag's size.                        | `"large" \| "medium" \| "small"`                                                   | `"medium"`  |
+| `type`      | `type`      | The tag's type.                        | `"danger" \| "default" \| "info" \| "primary" \| "success" \| "text" \| "warning"` | `"default"` |
 
 
 ## Events

@@ -8,6 +8,32 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlFormControl {
+        /**
+          * The help text (if the help-text slot isn't used)
+         */
+        "helpText"?: string;
+        /**
+          * The help text id, used to map the input to the help text
+         */
+        "helpTextId"?: string;
+        /**
+          * The input id, used to map the input to the label
+         */
+        "inputId": string;
+        /**
+          * The label text (if the label slot isn't used)
+         */
+        "label"?: string;
+        /**
+          * The label id, used to map the label to the input
+         */
+        "labelId"?: string;
+        /**
+          * The size of the form control
+         */
+        "size": 'small' | 'medium' | 'large';
+    }
     interface FlSelect {
         /**
           * Set to true to add a clear button when the select is populated.
@@ -114,6 +140,12 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlFormControlElement extends Components.FlFormControl, HTMLStencilElement {
+    }
+    var HTMLFlFormControlElement: {
+        prototype: HTMLFlFormControlElement;
+        new (): HTMLFlFormControlElement;
+    };
     interface HTMLFlSelectElement extends Components.FlSelect, HTMLStencilElement {
     }
     var HTMLFlSelectElement: {
@@ -134,6 +166,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-form-control": HTMLFlFormControlElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
         "fl-tag": HTMLFlTagElement;
@@ -141,6 +174,32 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlButton {
+    }
+    interface FlFormControl {
+        /**
+          * The help text (if the help-text slot isn't used)
+         */
+        "helpText"?: string;
+        /**
+          * The help text id, used to map the input to the help text
+         */
+        "helpTextId"?: string;
+        /**
+          * The input id, used to map the input to the label
+         */
+        "inputId"?: string;
+        /**
+          * The label text (if the label slot isn't used)
+         */
+        "label"?: string;
+        /**
+          * The label id, used to map the label to the input
+         */
+        "labelId"?: string;
+        /**
+          * The size of the form control
+         */
+        "size"?: 'small' | 'medium' | 'large';
     }
     interface FlSelect {
         /**
@@ -230,6 +289,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-form-control": FlFormControl;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
         "fl-tag": FlTag;
@@ -240,6 +300,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-form-control": LocalJSX.FlFormControl & JSXBase.HTMLAttributes<HTMLFlFormControlElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
