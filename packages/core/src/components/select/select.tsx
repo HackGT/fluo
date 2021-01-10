@@ -43,7 +43,7 @@ export class Select {
   @Prop() size: "small" | "medium" | "large" = "medium";
 
   /** The value of the control. This will be a string or an array depending on `multiple`. */
-  @Prop({ mutable: true }) value: string | Array<string> = "Value";
+  @Prop({ mutable: true }) value: string | Array<string> = "";
 
   /** The select's label. Alternatively, you can use the label slot. */
   @Prop() label = "";

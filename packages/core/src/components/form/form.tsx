@@ -2,7 +2,7 @@ import { Component, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
 
 interface FormControl {
   tag: string;
-  serialize: (el: HTMLElement, formData: FormData) => void;
+  serialize: (el: HTMLElement, formData: any) => void;
 }
 
 @Component({
@@ -23,7 +23,7 @@ export class Form {
    * event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional
    * around the XHR request you use to submit the form's data with.
    */
-  @Event({ eventName: "fl-submit" }) flSubmit: EventEmitter<{ formData: FormData; formElements: HTMLElement[] }>;
+  @Event({ eventName: "fl-submit" }) flSubmit: EventEmitter<{ formData: any; formElements: HTMLElement[] }>;
 
   connectedCallback() {
     this.formControls = [
@@ -32,14 +32,9 @@ export class Form {
         serialize: (el: HTMLFlSelectElement, formData) => {
           if (el.name && !el.disabled) {
             if (el.multiple) {
-              const selectedOptions = [...el.value];
-              if (selectedOptions.length) {
-                selectedOptions.map(value => formData.append(el.name, value));
-              } else {
-                formData.append(el.name, "");
-              }
+              formData[el.name] = [...el.value];
             } else {
-              formData.append(el.name, el.value + "");
+              formData[el.name] = el.value + "";
             }
           }
         }
@@ -47,11 +42,11 @@ export class Form {
     ];
   }
 
-  /** Serializes all form controls elements and returns a `FormData` object. */
+  /** Serializes all form controls elements and returns form data. */
   @Method()
   async getFormData() {
-    const formData = new FormData();
     const formElements = await this.getFormElements();
+    const formData = {};
 
     formElements.forEach(element => {
       const elementTag = element.tagName.toLowerCase();
@@ -80,7 +75,6 @@ export class Form {
    */
   @Method()
   async submit() {
-    console.log("Submittttt");
     const formData = await this.getFormData();
     const formElements = await this.getFormElements();
 

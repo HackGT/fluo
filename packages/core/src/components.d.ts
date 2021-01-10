@@ -10,9 +10,9 @@ export namespace Components {
     }
     interface FlForm {
         /**
-          * Serializes all form controls elements and returns a `FormData` object.
+          * Serializes all form controls elements and returns form data.
          */
-        "getFormData": () => Promise<FormData>;
+        "getFormData": () => Promise<{}>;
         /**
           * Gets all form control elements two levels deep. Filters elements to only those in formControls.
          */
@@ -212,7 +212,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute. Note that there is never a need to prevent this event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional around the XHR request you use to submit the form's data with.
          */
-        "onFl-submit"?: (event: CustomEvent<{ formData: FormData; formElements: HTMLElement[] }>) => void;
+        "onFl-submit"?: (event: CustomEvent<{ formData: any; formElements: HTMLElement[] }>) => void;
     }
     interface FlFormControl {
         /**
