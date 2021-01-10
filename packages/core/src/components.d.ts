@@ -8,6 +8,28 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlForm {
+        /**
+          * Serializes all form controls elements and returns a `FormData` object.
+         */
+        "getFormData": () => Promise<FormData>;
+        /**
+          * Gets all form control elements two levels deep. Filters elements to only those in formControls.
+         */
+        "getFormElements": () => Promise<HTMLElement[]>;
+        /**
+          * Prevent the form from validating inputs before submitting.
+         */
+        "novalidate": boolean;
+        /**
+          * Resets the form
+         */
+        "reset": () => Promise<void>;
+        /**
+          * Submits the form. If all controls are valid, the `fl-submit` event will be emitted and the promise will resolve with `true`. If any form control is invalid, the promise will resolve with `false` and no event will be emitted.
+         */
+        "submit": () => Promise<boolean>;
+    }
     interface FlFormControl {
         /**
           * The help text (if the help-text slot isn't used)
@@ -32,7 +54,7 @@ export namespace Components {
         /**
           * The size of the form control
          */
-        "size": 'small' | 'medium' | 'large';
+        "size": "small" | "medium" | "large";
     }
     interface FlSelect {
         /**
@@ -140,6 +162,12 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlFormElement extends Components.FlForm, HTMLStencilElement {
+    }
+    var HTMLFlFormElement: {
+        prototype: HTMLFlFormElement;
+        new (): HTMLFlFormElement;
+    };
     interface HTMLFlFormControlElement extends Components.FlFormControl, HTMLStencilElement {
     }
     var HTMLFlFormControlElement: {
@@ -166,6 +194,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-form": HTMLFlFormElement;
         "fl-form-control": HTMLFlFormControlElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
@@ -174,6 +203,16 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlButton {
+    }
+    interface FlForm {
+        /**
+          * Prevent the form from validating inputs before submitting.
+         */
+        "novalidate"?: boolean;
+        /**
+          * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute. Note that there is never a need to prevent this event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional around the XHR request you use to submit the form's data with.
+         */
+        "onFl-submit"?: (event: CustomEvent<{ formData: FormData; formElements: HTMLElement[] }>) => void;
     }
     interface FlFormControl {
         /**
@@ -199,7 +238,7 @@ declare namespace LocalJSX {
         /**
           * The size of the form control
          */
-        "size"?: 'small' | 'medium' | 'large';
+        "size"?: "small" | "medium" | "large";
     }
     interface FlSelect {
         /**
@@ -289,6 +328,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-form": FlForm;
         "fl-form-control": FlFormControl;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
@@ -300,6 +340,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-form": LocalJSX.FlForm & JSXBase.HTMLAttributes<HTMLFlFormElement>;
             "fl-form-control": LocalJSX.FlFormControl & JSXBase.HTMLAttributes<HTMLFlFormControlElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
