@@ -16,7 +16,7 @@ git clone https://github.com/HackGT/fluo
 
 ### Building the doc site
 
-TODO (the doc site is still in progress: [tracking
+TODO (the doc site is under construction: [tracking
 issue](https://github.com/HackGT/fluo/issues/2))
 
 ## Adding a component
