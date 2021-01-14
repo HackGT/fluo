@@ -1,6 +1,8 @@
 # Contributing to fluo
 
-## Setting up a dev environment ### Pre-requisites
+## Setting up a dev environment 
+
+### Pre-requisites
 
 - node (>= 14.15.0)
 - yarn (>= 1.22.0)
@@ -41,7 +43,7 @@ All PRs must have:
 - Links to any relevant test cases (if any)
 
 When creating a PR for adding a new component to the library, please use [this
-template](.github/PULL_REQUEST_TEMPLATE/component.md).
+template](https://raw.githubusercontent.com/HackGT/fluo/main/.github/PULL_REQUEST_TEMPLATE/component.md).
 
 *Note: Instead of copying over the template yourself, you can use the
 `template` query param that tells github to do it for you. For more
