@@ -30,6 +30,9 @@ Provide references to example implementations/specs/demos of your proposed compo
 *Slots:*
 * What slots does your component receive?
 
+*CSS Parts:*
+* What CSS Parts does your component expose?
+
 ## Example usage
 Provide a short snippet of code showing how your component could potentially be used
 
