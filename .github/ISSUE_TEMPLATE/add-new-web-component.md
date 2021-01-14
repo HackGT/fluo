@@ -2,7 +2,7 @@
 name: Add new web component
 about: Issue template for adding a web component to the library
 title: ''
-labels: ''
+labels: component
 assignees: ''
 
 ---
