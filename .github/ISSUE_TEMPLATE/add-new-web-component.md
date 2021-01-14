@@ -36,3 +36,6 @@ Provide a short snippet of code showing how your component could potentially be 
 ```
 <code snippet goes here>
 ```
+
+## Questions to be Answered
+Use this section to ask questions regarding implementation details, the api of the component, etc
