@@ -12,14 +12,6 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Tells the browser to download the linked file as this filename. Only used when `href` is set.
-         */
-        "download"?: string;
-        /**
-          * When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`.
-         */
-        "href"?: string;
-        /**
           * Set to true to draw the button in a loading state.
          */
         "loading": boolean;
@@ -28,17 +20,9 @@ export namespace Components {
          */
         "name": string;
         /**
-          * Specifies the relationship of the target object to the link object. Only used when `href` is set.
-         */
-        "rel"?: string;
-        /**
           * The button's size
          */
         "size": "small" | "medium" | "large";
-        /**
-          * Tells the browser where to open the link. Only used when `href` is set.
-         */
-        "target"?: "_blank" | "_parent" | "_self" | "_top";
         /**
           * The button's type. Ignored when `href` is set.
          */
@@ -52,6 +36,40 @@ export namespace Components {
          */
         "variant": "default" | "primary" | "success" | "info" | "warning" | "danger";
     }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled": boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant": "default" | "primary" | "success" | "info" | "warning" | "danger";
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -60,8 +78,15 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlLinkElement extends Components.FlLink, HTMLStencilElement {
+    }
+    var HTMLFlLinkElement: {
+        prototype: HTMLFlLinkElement;
+        new (): HTMLFlLinkElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-link": HTMLFlLinkElement;
     }
 }
 declare namespace LocalJSX {
@@ -71,14 +96,6 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Tells the browser to download the linked file as this filename. Only used when `href` is set.
-         */
-        "download"?: string;
-        /**
-          * When set, the underlying button will be rendered as an `<a>` with this `href` instead of a `<button>`.
-         */
-        "href"?: string;
-        /**
           * Set to true to draw the button in a loading state.
          */
         "loading"?: boolean;
@@ -87,17 +104,9 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Specifies the relationship of the target object to the link object. Only used when `href` is set.
-         */
-        "rel"?: string;
-        /**
           * The button's size
          */
         "size"?: "small" | "medium" | "large";
-        /**
-          * Tells the browser where to open the link. Only used when `href` is set.
-         */
-        "target"?: "_blank" | "_parent" | "_self" | "_top";
         /**
           * The button's type. Ignored when `href` is set.
          */
@@ -111,8 +120,43 @@ declare namespace LocalJSX {
          */
         "variant"?: "default" | "primary" | "success" | "info" | "warning" | "danger";
     }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant"?: "default" | "primary" | "success" | "info" | "warning" | "danger";
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-link": FlLink;
     }
 }
 export { LocalJSX as JSX };
@@ -120,6 +164,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
         }
     }
 }
