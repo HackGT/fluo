@@ -3,6 +3,9 @@
   "description": "Fluo mono repo. This package is not published to npm.",
   "private": true,
   "scripts": {
+    "build:server": "cd server && yarn install",
+    "build:client": "cd client && yarn install && yarn build",
+    "build": "yarn build:client && yarn build:server"
   },
   "license": "MIT"
 }
