@@ -9,13 +9,9 @@
 
 | Property     | Attribute    | Description | Type                                                                                                         | Default          |
 | ------------ | ------------ | ----------- | ------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `count`      | `count`      |             | `number \| string`                                                                                           | `undefined`      |
-| `cust_color` | `cust_color` |             | `string`                                                                                                     | `undefined`      |
-| `cust_style` | `cust_style` |             | `string`                                                                                                     | `undefined`      |
-| `pill`       | `pill`       |             | `boolean`                                                                                                    | `false`          |
-| `position`   | `position`   |             | `positions.BOTTOMLEFT \| positions.BOTTOMRIGHT \| positions.NONE \| positions.TOPLEFT \| positions.TOPRIGHT` | `positions.NONE` |
-| `type`       | `type`       |             | `btypes.DANGER \| btypes.INFO \| btypes.PRIMARY \| btypes.SUCCESS \| btypes.WARNING`                         | `btypes.PRIMARY` |
-
+| `pill`       | `pill`       | `This attribute rounds the edges of desired badge and gives it the look of a pill.`            | `boolean`                                                                                                    | `false`          |
+| `position`   | `position`   | `This attribute pushes the pill slightly over the desired corner on its parent element.`            | `BOTTOMLEFT \| BOTTOMRIGHT \| NONE \| TOPLEFT \| TOPRIGHT` | `NONE` |
+| `type`       | `type`       | `These badge types adjust text defaults and background colors for the desired badge.`            | `DANGER \| INFO \| PRIMARY \| SUCCESS \| WARNING`                         | `PRIMARY` |
 
 ----------------------------------------------
 
