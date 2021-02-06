@@ -10,7 +10,7 @@ describe("fl-badge", () => {
       html: `<fl-badge></fl-badge>`,
     });
     expect(page.root).toEqualHtml(`
-      <fl-badge style="background-color: #B10DC9; border-radius: 0px; position: absolute; padding-top: 3px; padding-bottom: 4px; padding-left: 6px; padding-right: 6px; text-align: center;">
+      <fl-badge class="badge badge-- badge--primary">
         <mock:shadow-root>
 	  primary
           <slot></slot>

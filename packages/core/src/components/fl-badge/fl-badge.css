@@ -1,5 +1,0 @@
-:host {
-  --background-main: lightblue;
-  display: block;
-  background-color: var(--background-main); 
-}

@@ -1,0 +1,64 @@
+:host {
+  display: block;
+
+  --fl-badge-border-radius: 16px;
+  --fl-badge-position: absolute;
+}
+
+:host(.badge) {
+
+  // For position changes to the pill, this badge must maintain an absolute position.
+  position: var(--fl-badge-position);
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  text-align: center;
+
+  // Attributes of different badge types.
+  :host(&.badge--primary) {
+    background-color: var(--fl-color-primary);
+  }
+
+  :host(&.badge--success) {
+    background-color: var(--fl-color-success);
+  }
+
+  :host(&.badge--danger) {
+    background-color: var(--fl-color-danger);
+  }
+
+  :host(&.badge--info) {
+    background-color: var(--fl-color-info);
+  }
+
+  :host(&.badge--warning) {
+    background-color: var(--fl-color-warning);
+  }
+
+  // Optional pill shape styling which rounds edges
+  :host(&.badge-pill) {
+    border-radius: var(--fl-badge-border-radius);
+  }
+
+  // Attributes to shift badge to desired corner.
+  :host(&.badge--top-left) {
+    top: -10px;
+    left: -10px;
+  }
+
+  :host(&.badge--top-right) {
+    top: -10px;
+    right: -10px;
+  }
+
+  :host(&.badge--bottom-left) {
+    bottom: -10px;
+    left: -10px;
+  }
+
+  :host(&.badge--bottom-right) {
+    bottom: -10px;
+    right: -10px;
+  }
+}
