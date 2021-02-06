@@ -1,5 +1,6 @@
 # fl-badge
 
+If curious about how this component works, see ../../index.html for examples and how they look!
 
 
 <!-- Auto Generated Below -->
