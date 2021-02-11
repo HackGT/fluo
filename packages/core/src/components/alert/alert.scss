@@ -1,13 +1,8 @@
 @import 'component';
-@import 'mixins/hidden';
 
-/**
- * @prop --box-shadow: The alert's box shadow.
- */
 :host {
   display: contents;
 
-  // For better DX, we'll reset the margin here so the base part can inherit it
   margin: 0;
 }
 
@@ -15,18 +10,14 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  background-color: var(--fl-color-white);
-  border: solid 1px var(--fl-color-gray-200);
+  border: solid 1px var(--fl-color-white);
   border-top-width: 3px;
-  border-radius: var(--fl-border-radius-medium);
-  box-shadow: var(--box-shadow);
+  border-radius: 8px;
   font-family: var(--fl-font-sans);
   font-size: var(--fl-font-size-small);
   font-weight: var(--fl-font-weight-normal);
-  line-height: 1.6;
-  color: var(--fl-color-gray-700);
+  color: var(--fl-color-white);
   opacity: 0;
-  transform: scale(0.9);
   transition: var(--fl-transition-medium) opacity ease, var(--fl-transition-medium) transform ease;
   margin: inherit;
 
@@ -56,38 +47,6 @@
 
   .alert__icon {
     color: var(--fl-color-primary-500);
-  }
-}
-
-.alert--success {
-  border-top-color: var(--fl-color-success-500);
-
-  .alert__icon {
-    color: var(--fl-color-success-500);
-  }
-}
-
-.alert--info {
-  border-top-color: var(--fl-color-info-500);
-
-  .alert__icon {
-    color: var(--fl-color-info-500);
-  }
-}
-
-.alert--warning {
-  border-top-color: var(--fl-color-warning-500);
-
-  .alert__icon {
-    color: var(--fl-color-warning-500);
-  }
-}
-
-.alert--danger {
-  border-top-color: var(--fl-color-danger-500);
-
-  .alert__icon {
-    color: var(--fl-color-danger-500);
   }
 }
 
