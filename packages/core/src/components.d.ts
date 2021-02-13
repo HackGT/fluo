@@ -44,6 +44,10 @@ export namespace Components {
     }
     interface FlMenu {
     }
+    interface FlSpinner {
+        "color": any;
+        "transparant": boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -94,6 +98,12 @@ declare global {
         prototype: HTMLFlMenuElement;
         new (): HTMLFlMenuElement;
     };
+    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    }
+    var HTMLFlSpinnerElement: {
+        prototype: HTMLFlSpinnerElement;
+        new (): HTMLFlSpinnerElement;
+    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -106,6 +116,7 @@ declare global {
         "fl-checkbox": HTMLFlCheckboxElement;
         "fl-item": HTMLFlItemElement;
         "fl-menu": HTMLFlMenuElement;
+        "fl-spinner": HTMLFlSpinnerElement;
         "fl-switch": HTMLFlSwitchElement;
     }
 }
@@ -151,6 +162,10 @@ declare namespace LocalJSX {
          */
         "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
+    interface FlSpinner {
+        "color"?: any;
+        "transparant"?: boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -175,6 +190,7 @@ declare namespace LocalJSX {
         "fl-checkbox": FlCheckbox;
         "fl-item": FlItem;
         "fl-menu": FlMenu;
+        "fl-spinner": FlSpinner;
         "fl-switch": FlSwitch;
     }
 }
@@ -187,6 +203,7 @@ declare module "@stencil/core" {
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
+            "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
         }
     }
