@@ -14,6 +14,10 @@ export namespace Components {
     }
     interface FlButton {
     }
+    interface FlSpinner {
+        "color": any;
+        "transparant": boolean;
+    }
 }
 declare global {
     interface HTMLFlBadgeElement extends Components.FlBadge, HTMLStencilElement {
@@ -28,9 +32,16 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    }
+    var HTMLFlSpinnerElement: {
+        prototype: HTMLFlSpinnerElement;
+        new (): HTMLFlSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
+        "fl-spinner": HTMLFlSpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -41,9 +52,14 @@ declare namespace LocalJSX {
     }
     interface FlButton {
     }
+    interface FlSpinner {
+        "color"?: any;
+        "transparant"?: boolean;
+    }
     interface IntrinsicElements {
         "fl-badge": FlBadge;
         "fl-button": FlButton;
+        "fl-spinner": FlSpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -52,6 +68,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
         }
     }
 }
