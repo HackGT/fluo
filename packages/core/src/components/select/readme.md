@@ -21,7 +21,7 @@
 | `placeholder`    | `placeholder`      | The select's placeholder text.                                                                                                                                                                 | `string`                         | `""`       |
 | `required`       | `required`         | The select's required attribute.                                                                                                                                                               | `boolean`                        | `false`    |
 | `size`           | `size`             | The select's size.                                                                                                                                                                             | `"large" \| "medium" \| "small"` | `"medium"` |
-| `value`          | `value`            | The value of the control. This will be a string or an array depending on `multiple`.                                                                                                           | `string \| string[]`             | `"Value"`  |
+| `value`          | `value`            | The value of the control. This will be a string or an array depending on `multiple`.                                                                                                           | `string \| string[]`             | `""`       |
 
 
 ## Methods

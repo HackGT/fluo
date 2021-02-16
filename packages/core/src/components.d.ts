@@ -7,6 +7,34 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled": boolean;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * An optional name for the button.
+         */
+        "name": string;
+        /**
+          * The button's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * The button's type.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button.
+         */
+        "value": string;
+        /**
+          * The button's type
+         */
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlForm {
         /**
@@ -55,6 +83,40 @@ export namespace Components {
           * The size of the form control
          */
         "size": "small" | "medium" | "large";
+    }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled": boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlSelect {
         /**
@@ -174,6 +236,12 @@ declare global {
         prototype: HTMLFlFormControlElement;
         new (): HTMLFlFormControlElement;
     };
+    interface HTMLFlLinkElement extends Components.FlLink, HTMLStencilElement {
+    }
+    var HTMLFlLinkElement: {
+        prototype: HTMLFlLinkElement;
+        new (): HTMLFlLinkElement;
+    };
     interface HTMLFlSelectElement extends Components.FlSelect, HTMLStencilElement {
     }
     var HTMLFlSelectElement: {
@@ -196,6 +264,7 @@ declare global {
         "fl-button": HTMLFlButtonElement;
         "fl-form": HTMLFlFormElement;
         "fl-form-control": HTMLFlFormControlElement;
+        "fl-link": HTMLFlLinkElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
         "fl-tag": HTMLFlTagElement;
@@ -203,6 +272,34 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * An optional name for the button.
+         */
+        "name"?: string;
+        /**
+          * The button's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * The button's type.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button.
+         */
+        "value"?: string;
+        /**
+          * The button's type
+         */
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlForm {
         /**
@@ -239,6 +336,40 @@ declare namespace LocalJSX {
           * The size of the form control
          */
         "size"?: "small" | "medium" | "large";
+    }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlSelect {
         /**
@@ -330,6 +461,7 @@ declare namespace LocalJSX {
         "fl-button": FlButton;
         "fl-form": FlForm;
         "fl-form-control": FlFormControl;
+        "fl-link": FlLink;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
         "fl-tag": FlTag;
@@ -342,6 +474,7 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-form": LocalJSX.FlForm & JSXBase.HTMLAttributes<HTMLFlFormElement>;
             "fl-form-control": LocalJSX.FlFormControl & JSXBase.HTMLAttributes<HTMLFlFormControlElement>;
+            "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
