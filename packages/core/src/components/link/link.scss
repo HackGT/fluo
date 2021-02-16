@@ -18,11 +18,8 @@
   white-space: nowrap;
   vertical-align: middle;
   padding: 0;
-  transition:
-    var(--fl-transition-fast) background-color,
-    var(--fl-transition-fast) color,
-    var(--fl-transition-fast) border,
-    var(--fl-transition-fast) box-shadow;
+  transition: var(--fl-transition-fast) background-color, var(--fl-transition-fast) color,
+    var(--fl-transition-fast) border, var(--fl-transition-fast) box-shadow;
   cursor: inherit;
 
   &::-moz-focus-inner {
@@ -119,31 +116,6 @@
       background-color: var(--fl-color-success-500);
       border-color: var(--fl-color-success-500);
       color: var(--fl-color-success-text);
-    }
-  }
-
-  &.link--info {
-    background-color: var(--fl-color-info-500);
-    border-color: var(--fl-color-info-500);
-    color: var(--fl-color-info-text);
-
-    &:hover:not(.link--disabled) {
-      background-color: var(--fl-color-info-400);
-      border-color: var(--fl-color-info-400);
-      color: var(--fl-color-info-text);
-    }
-
-    &:focus:not(.link--disabled) {
-      background-color: var(--fl-color-info-400);
-      border-color: var(--fl-color-info-400);
-      color: var(--fl-color-info-text);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-info);
-    }
-
-    &:active:not(.link--disabled) {
-      background-color: var(--fl-color-info-500);
-      border-color: var(--fl-color-info-500);
-      color: var(--fl-color-info-text);
     }
   }
 

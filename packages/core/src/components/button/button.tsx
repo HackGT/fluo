@@ -8,7 +8,7 @@ import { Component, h, Prop } from "@stencil/core";
 export class Button {
 
   /** The button's type */
-  @Prop({ reflect: true }) variant: "default" | "primary" | "success" | "info" | "warning" | "danger" = "default";
+  @Prop({ reflect: true }) variant: "default" | "primary" | "success" | "warning" | "danger" = "default";
 
   /** The button's size */
   @Prop({ reflect: true }) size: "small" | "medium" | "large" = "medium";
@@ -19,13 +19,13 @@ export class Button {
   /** Set to true to draw the button in a loading state. */
   @Prop({ reflect: true }) loading = false;
 
-  /** The button's type. Ignored when `href` is set. */
+  /** The button's type. */
   @Prop() type?: "submit" | "reset" | "button";
 
-  /** An optional name for the button. Ignored when `href` is set. */
+  /** An optional name for the button. */
   @Prop() name: string;
 
-  /** An optional value for the button. Ignored when `href` is set. */
+  /** An optional value for the button. */
   @Prop() value: string;
 
 

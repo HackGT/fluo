@@ -5,6 +5,7 @@
 }
 
 .button {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: stretch;
   justify-content: center;
@@ -18,11 +19,8 @@
   white-space: nowrap;
   vertical-align: middle;
   padding: 0;
-  transition:
-    var(--fl-transition-fast) background-color,
-    var(--fl-transition-fast) color,
-    var(--fl-transition-fast) border,
-    var(--fl-transition-fast) box-shadow;
+  transition: var(--fl-transition-fast) background-color, var(--fl-transition-fast) color,
+    var(--fl-transition-fast) border, var(--fl-transition-fast) box-shadow;
   cursor: inherit;
 
   &::-moz-focus-inner {
@@ -49,13 +47,13 @@
 
   &.button--default {
     background-color: var(--fl-color-white);
-    border-color: var(--fl-color-gray-300);
-    color: var(--fl-color-gray-600);
+    border-color: var(--fl-color-secondary);
+    color: var(--fl-color-secondary);
 
     &:hover:not(.button--disabled) {
-      background-color: var(--fl-color-primary-50);
+      background-color: var(--fl-color-secondary-tint);
       border-color: var(--fl-color-primary-300);
-      color: var(--fl-color-primary-600);
+      color: var(--fl-color-secondary);
     }
 
     &:focus:not(.button--disabled) {
@@ -122,31 +120,6 @@
     }
   }
 
-  &.button--info {
-    background-color: var(--fl-color-info-500);
-    border-color: var(--fl-color-info-500);
-    color: var(--fl-color-info-text);
-
-    &:hover:not(.button--disabled) {
-      background-color: var(--fl-color-info-400);
-      border-color: var(--fl-color-info-400);
-      color: var(--fl-color-info-text);
-    }
-
-    &:focus:not(.button--disabled) {
-      background-color: var(--fl-color-info-400);
-      border-color: var(--fl-color-info-400);
-      color: var(--fl-color-info-text);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-info);
-    }
-
-    &:active:not(.button--disabled) {
-      background-color: var(--fl-color-info-500);
-      border-color: var(--fl-color-info-500);
-      color: var(--fl-color-info-text);
-    }
-  }
-
   &.button--warning {
     background-color: var(--fl-color-warning-500);
     border-color: var(--fl-color-warning-500);
@@ -203,34 +176,34 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .button--small {
-  font-size: var(--fl-button-font-size-small);
+  font-size: var(--fl-font-size-small);
   height: var(--fl-input-height-small);
   line-height: calc(var(--fl-input-height-small) - var(--fl-input-border-width) * 2);
-  border-radius: var(--fl-input-border-radius-small);
+  border-radius: var(--fl-border-radius-small);
 
   .button__label {
-    padding: 0 var(--fl-spacing-small);
+    padding: 0 var(--fl-spacing-x-large);
   }
 }
 
 .button--medium {
-  font-size: var(--fl-button-font-size-medium);
+  font-size: var(--fl-font-size-medium);
   height: var(--fl-input-height-medium);
   line-height: calc(var(--fl-input-height-medium) - var(--fl-input-border-width) * 2);
-  border-radius: var(--fl-input-border-radius-medium);
+  border-radius: var(--fl-border-radius-medium);
 
   .button__label {
-    padding: 0 var(--fl-spacing-medium);
+    padding: 0 var(--fl-spacing-x-large);
   }
 }
 
 .button--large {
-  font-size: var(--fl-button-font-size-large);
+  font-size: var(--fl-font-size-large);
   height: var(--fl-input-height-large);
   line-height: calc(var(--fl-input-height-large) - var(--fl-input-border-width) * 2);
-  border-radius: var(--fl-input-border-radius-large);
+  border-radius: var(--fl-border-radius-large);
 
   .button__label {
-    padding: 0 var(--fl-spacing-large);
+    padding: 0 var(--fl-spacing-x-large);
   }
 }

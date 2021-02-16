@@ -16,7 +16,7 @@ export namespace Components {
          */
         "loading": boolean;
         /**
-          * An optional name for the button. Ignored when `href` is set.
+          * An optional name for the button.
          */
         "name": string;
         /**
@@ -24,17 +24,17 @@ export namespace Components {
          */
         "size": "small" | "medium" | "large";
         /**
-          * The button's type. Ignored when `href` is set.
+          * The button's type.
          */
         "type"?: "submit" | "reset" | "button";
         /**
-          * An optional value for the button. Ignored when `href` is set.
+          * An optional value for the button.
          */
         "value": string;
         /**
           * The button's type
          */
-        "variant": "default" | "primary" | "success" | "info" | "warning" | "danger";
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlLink {
         /**
@@ -68,7 +68,7 @@ export namespace Components {
         /**
           * The link's type
          */
-        "variant": "default" | "primary" | "success" | "info" | "warning" | "danger";
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
 }
 declare global {
@@ -100,7 +100,7 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
-          * An optional name for the button. Ignored when `href` is set.
+          * An optional name for the button.
          */
         "name"?: string;
         /**
@@ -108,17 +108,17 @@ declare namespace LocalJSX {
          */
         "size"?: "small" | "medium" | "large";
         /**
-          * The button's type. Ignored when `href` is set.
+          * The button's type.
          */
         "type"?: "submit" | "reset" | "button";
         /**
-          * An optional value for the button. Ignored when `href` is set.
+          * An optional value for the button.
          */
         "value"?: string;
         /**
           * The button's type
          */
-        "variant"?: "default" | "primary" | "success" | "info" | "warning" | "danger";
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlLink {
         /**
@@ -152,7 +152,7 @@ declare namespace LocalJSX {
         /**
           * The link's type
          */
-        "variant"?: "default" | "primary" | "success" | "info" | "warning" | "danger";
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
     }
     interface IntrinsicElements {
         "fl-button": FlButton;

@@ -8,7 +8,7 @@ import { Component, h, Prop } from "@stencil/core";
 export class Link {
 
   /** The link's type */
-  @Prop({ reflect: true }) variant: "default" | "primary" | "success" | "info" | "warning" | "danger" = "default";
+  @Prop({ reflect: true }) variant: "default" | "primary" | "success" | "warning" | "danger" = "default";
 
   /** The link's size */
   @Prop({ reflect: true }) size: "small" | "medium" | "large" = "medium";
