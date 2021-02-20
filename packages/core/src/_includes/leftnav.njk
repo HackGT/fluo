@@ -1,0 +1,31 @@
+<div class="left-nav">
+  <ul>
+    <li>
+      <a href="/"> about </a>
+    </li>
+        
+    <li>
+      <a href="/getting-started"> getting started </a>
+    </li>
+
+    <li>
+      <a href="/components"> components </a>
+      <ul>
+        {% for component in collections.components %}
+          <a href="{{ component.url }}">
+            <li> {{ component.data.title }} </li>
+          </a>
+        {% endfor %}
+      </ul>
+    </li>
+
+    <li>
+      <a href="/styling"> styling </a>
+    </li>
+
+    <li>
+      <a href="/tutorials"> tutorials </a>
+    </li>
+
+  </ul>
+</div>
