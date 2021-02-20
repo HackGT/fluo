@@ -1,4 +1,4 @@
-import { Host, Component, h } from "@stencil/core";
+import { Host, Component, State, Element, h } from "@stencil/core";
 
 @Component({
   tag: "fl-item",
@@ -6,6 +6,9 @@ import { Host, Component, h } from "@stencil/core";
   shadow: true
 })
 export class Item {
+  @State() hasMenu = false;
+  @Element() item;
+
   // Dynamically place nested menus
   placeMenu(e) {
     const menu = e.target.querySelector("fl-menu");
@@ -27,13 +30,39 @@ export class Item {
       menu.style.top = `-${mheight - rect.height}px`;
     }
   }
+  
+  componentWillRender() {
+    if (this.item.querySelector("fl-menu")) {
+      this.hasMenu = true;
+    }
+  }
 
   render() {
     return (
       <Host
         onMouseEnter={this.placeMenu}
       >
+        <slot name="prefix"></slot>
+
         <slot />
+
+        <slot name="suffix"></slot>
+        
+        { this.hasMenu
+          ?
+            (<span part="chevron">
+              <svg 
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                viewBox="0 0 256 256"
+                height="10px"
+              >
+		        <polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128"/>
+              </svg>
+            </span>)
+          : ""
+        }
       </Host>
     )
   }
