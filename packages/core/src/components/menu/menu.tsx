@@ -6,7 +6,6 @@ import { Component, Host, h } from "@stencil/core";
   shadow: true
 })
 export class Menu {
-  // TODO can we hide non-menu-item elements?
   menu: HTMLElement;
 
   // get all items in the menu (including disabled items)
