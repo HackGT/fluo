@@ -10,9 +10,7 @@ export class Button {
   render() {
     return (
       <Host>
-        <div>
-            this is a big button
-        </div>
+        <slot></slot>
       </Host>
     );
   }

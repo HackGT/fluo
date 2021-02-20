@@ -19,6 +19,7 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
+      footer: '',
     },
   ],
   plugins: [
