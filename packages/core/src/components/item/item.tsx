@@ -1,4 +1,4 @@
-import { Host, Component, State, Element, h } from "@stencil/core";
+import { Host, Component, Prop, Element, h } from "@stencil/core";
 
 @Component({
   tag: "fl-item",
@@ -6,7 +6,7 @@ import { Host, Component, State, Element, h } from "@stencil/core";
   shadow: true
 })
 export class Item {
-  @State() hasMenu = false;
+  @Prop() hasMenu = false;
   @Element() item;
 
   // Dynamically place nested menus
