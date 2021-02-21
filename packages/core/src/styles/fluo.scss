@@ -74,8 +74,8 @@
   // Fonts
   --fl-font-sans: "Roobert", sans-serif;
   // Font sizes
-  --fl-font-size-x-small: 1rem;
-  --fl-font-size-small: 1.2rem;
+  --fl-font-size-x-small: 1.2rem;
+  --fl-font-size-small: 1.4rem;
   --fl-font-size-medium: 1.6rem;
   --fl-font-size-large: 2.4rem;
   --fl-font-size-x-large: 3.8rem;
@@ -102,12 +102,11 @@
   // Input tokens
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  // Height
-  --fl-input-height-small: 2.5rem;
-  --fl-input-height-medium: 3.5rem;
-  --fl-input-height-large: 5rem;
-  // Border width
+  --fl-input-height: 3.5rem;
   --fl-input-border-width: 0.2rem;
+  --fl-input-border-radius: 0.2rem;
+  --fl-input-font-weight: var(--fl-font-weight-regular);
+  --fl-input-font-size: var(--fl-font-size-medium);
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Default tag definitions

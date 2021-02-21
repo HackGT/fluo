@@ -2,54 +2,16 @@
   display: block;
 }
 
-// Label
 .form-control__label {
   display: inline-block;
-  // color: var(--sl-input-label-color);
-  margin-bottom: var(--sl-spacing-xxx-small);
+  color: var(--fl-color-black);
+  margin-bottom: var(--fl-spacing-xxx-small);
+  font-size: var(--fl-font-size-small);
 }
 
-:host:part(base) {
-  background-color: orange;
-}
-
-// Help text
 .form-control__help-text {
   display: block;
-  color: var(--sl-input-help-text-color);
-
-  ::slotted(*) {
-    margin-top: var(--sl-spacing-xxx-small);
-  }
-}
-
-// Sizing
-.form-control--small {
-  .form-control__help-text {
-    font-size: var(--sl-input-help-text-font-size-small);
-  }
-
-  .form-control_label {
-    font-size: var(--sl-input-label-font-size-large);
-  }
-}
-
-.form-control--medium {
-  .form-control__help-text {
-    font-size: var(--sl-input-help-text-font-size-small);
-  }
-
-  .form-control_label {
-    font-size: var(--sl-input-label-font-size-large);
-  }
-}
-
-.form-control--large {
-  .form-control__help-text {
-    font-size: var(--sl-input-help-text-font-size-small);
-  }
-
-  .form-control_label {
-    font-size: var(--sl-input-label-font-size-large);
-  }
+  color: var(--fl-color-black);
+  margin-top: var(--fl-spacing-xxx-small);
+  font-size: var(--fl-font-size-small);
 }

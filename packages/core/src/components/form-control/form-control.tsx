@@ -9,9 +9,6 @@ export class FormControl {
   /** The input id, used to map the input to the label */
   @Prop() inputId: string;
 
-  /** The size of the form control */
-  @Prop() size: "small" | "medium" | "large" = "medium";
-
   /** The label id, used to map the label to the input */
   @Prop() labelId?: string;
 
@@ -29,8 +26,7 @@ export class FormControl {
       <div
         part="base"
         class={{
-          "form-control": true,
-          [`form-control--${this.size}`]: true
+          "form-control": true
         }}
       >
         {this.label &&

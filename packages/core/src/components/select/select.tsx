@@ -11,6 +11,7 @@ export class Select {
   container: HTMLElement;
   content: HTMLElement;
   display: HTMLElement;
+  input: HTMLInputElement;
 
   @Element() host: HTMLFlSelectElement;
 
@@ -38,9 +39,6 @@ export class Select {
 
   /** The select's placeholder text. */
   @Prop() placeholder = "";
-
-  /** The select's size. */
-  @Prop() size: "small" | "medium" | "large" = "medium";
 
   /** The value of the control. This will be a string or an array depending on `multiple`. */
   @Prop({ mutable: true }) value: string | Array<string> = "";
@@ -117,6 +115,12 @@ export class Select {
 
     this.content.classList.add("hidden");
     this.container.focus();
+  }
+
+  /** Checks for validity and shows the browser's validation message if the control is invalid. */
+  @Method()
+  async reportValidity() {
+    return this.input.reportValidity();
   }
 
   connectedCallback() {
@@ -286,7 +290,6 @@ export class Select {
           <fl-tag
             exportparts="base:tag"
             type="info"
-            size={this.size}
             clearable
             onClick={this.handleTagInteraction}
             onKeyDown={this.handleTagInteraction}
@@ -302,7 +305,7 @@ export class Select {
         this.displayLabel = "";
         this.displayTags = this.displayTags.slice(0, this.maxTagsVisible);
         this.displayTags.push(
-          <fl-tag exportparts="base:tag" type="info" size={this.size}>
+          <fl-tag exportparts="base:tag" type="info">
             +{total - this.maxTagsVisible}
           </fl-tag>
         );
@@ -315,11 +318,12 @@ export class Select {
   };
 
   render() {
+    const hasSelection = this.multiple ? this.value.length > 0 : this.value !== "";
+
     return (
       <div
         class={{
           select: true,
-          [`select--${this.size}`]: true,
           "select--focused": this.hasFocus
         }}
         onKeyDown={this.handleOnKeyDown}
@@ -336,6 +340,19 @@ export class Select {
           ) : (
             this.displayLabel || this.placeholder
           )}
+
+          {/*
+              The hidden input tricks the browser's built-in validation so it works as expected. We use an input instead
+              of a select because, otherwise, iOS will show a list of options during validation.
+            */}
+          <input
+            ref={el => (this.input = el)}
+            class="select__hidden-input"
+            aria-hidden="true"
+            required={this.required}
+            value={hasSelection ? "1" : ""}
+            tabIndex={-1}
+          />
         </div>
         <div class="select__content hidden" onClick={this.handleContentClick} ref={el => (this.content = el)}>
           <slot onSlotchange={this.handleSlotChange}></slot>

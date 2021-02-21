@@ -46,7 +46,7 @@ export namespace Components {
          */
         "getFormElements": () => Promise<HTMLElement[]>;
         /**
-          * Prevent the form from validating inputs before submitting.
+          * If true, the form from will not validate inputs before submitting
          */
         "novalidate": boolean;
         /**
@@ -79,10 +79,6 @@ export namespace Components {
           * The label id, used to map the label to the input
          */
         "labelId"?: string;
-        /**
-          * The size of the form control
-         */
-        "size": "small" | "medium" | "large";
     }
     interface FlLink {
         /**
@@ -164,6 +160,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * Checks for validity and shows the browser's validation message if the control is invalid.
+         */
+        "reportValidity": () => Promise<boolean>;
+        /**
           * The select's required attribute.
          */
         "required": boolean;
@@ -171,10 +171,6 @@ export namespace Components {
           * Shows the dropdown content
          */
         "show": () => Promise<void>;
-        /**
-          * The select's size.
-         */
-        "size": "small" | "medium" | "large";
         /**
           * The value of the control. This will be a string or an array depending on `multiple`.
          */
@@ -303,11 +299,11 @@ declare namespace LocalJSX {
     }
     interface FlForm {
         /**
-          * Prevent the form from validating inputs before submitting.
+          * If true, the form from will not validate inputs before submitting
          */
         "novalidate"?: boolean;
         /**
-          * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute. Note that there is never a need to prevent this event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional around the XHR request you use to submit the form's data with.
+          * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute.
          */
         "onFl-submit"?: (event: CustomEvent<{ formData: any; formElements: HTMLElement[] }>) => void;
     }
@@ -332,10 +328,6 @@ declare namespace LocalJSX {
           * The label id, used to map the label to the input
          */
         "labelId"?: string;
-        /**
-          * The size of the form control
-         */
-        "size"?: "small" | "medium" | "large";
     }
     interface FlLink {
         /**
@@ -416,10 +408,6 @@ declare namespace LocalJSX {
           * The select's required attribute.
          */
         "required"?: boolean;
-        /**
-          * The select's size.
-         */
-        "size"?: "small" | "medium" | "large";
         /**
           * The value of the control. This will be a string or an array depending on `multiple`.
          */

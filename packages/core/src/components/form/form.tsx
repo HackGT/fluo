@@ -1,10 +1,5 @@
 import { Component, Event, EventEmitter, Method, Prop, h } from "@stencil/core";
 
-interface FormControl {
-  tag: string;
-  serialize: (el: HTMLElement, formData: any) => void;
-}
-
 @Component({
   tag: "fl-form",
   styleUrl: "form.scss",
@@ -12,34 +7,72 @@ interface FormControl {
 })
 export class Form {
   form: HTMLElement;
-  formControls: FormControl[];
+  formSerialize: { [key: string]: (el: HTMLElement, formData: any) => void };
 
-  /** Prevent the form from validating inputs before submitting. */
+  /** If true, the form from will not validate inputs before submitting */
   @Prop() novalidate = false;
 
   /**
-   * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an
-   * invalid state, unless the form has the `novalidate` attribute. Note that there is never a need to prevent this
-   * event, since it doen't send a GET or POST request like native forms. To "prevent" submission, use a conditional
-   * around the XHR request you use to submit the form's data with.
+   * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute.
    */
   @Event({ eventName: "fl-submit" }) flSubmit: EventEmitter<{ formData: any; formElements: HTMLElement[] }>;
 
   connectedCallback() {
-    this.formControls = [
-      {
-        tag: "fl-select",
-        serialize: (el: HTMLFlSelectElement, formData) => {
-          if (el.name && !el.disabled) {
-            if (el.multiple) {
-              formData[el.name] = [...el.value];
-            } else {
-              formData[el.name] = el.value + "";
-            }
-          }
+    this.formSerialize = {
+      "fl-button": (el: HTMLFlButtonElement, formData) => {
+        if (el.name && !el.disabled) {
+          formData[el.name] = el.value;
         }
       },
-    ];
+
+      // 'fl-checkbox': (el: HTMLFlCheckboxElement, formData) => {
+      //   if (el.name && !el.disabled && el.checked) {
+      //     formData[el.name] = el.value;
+      //   }
+      // },
+
+      // 'fl-color-picker': (el: HTMLFlCheckboxElement, formData) => {
+      //   if (el.name && !el.disabled) {
+      //     formData[el.name] = el.value;
+      //   }
+      // },
+
+      // 'fl-input': (el: HTMLFlInputElement, formData) => {
+      //   if (el.name && !el.disabled) {
+      //     formData[el.name] = el.value;
+      //   }
+      // },
+
+      // 'fl-radio': (el: HTMLFlRadioElement, formData) => {
+      //   if (el.name && !el.disabled && el.checked) {
+      //     formData[el.name] = el.value;
+      //   }
+      // },
+
+      // 'fl-range': (el: HTMLFlRangeElement, formData) => {
+      //   if (el.name && !el.disabled) {
+      //     formData[el.name] = el.value;
+      //   }
+      // },
+
+      "fl-select": (el: HTMLFlSelectElement, formData) => {
+        if (el.name && !el.disabled) {
+          formData[el.name] = el.value;
+        }
+      },
+
+      // 'fl-switch': (el: HTMLFlSwitchElement, formData) => {
+      //   if (el.name && !el.disabled && el.checked) {
+      //     formData[el.name] = el.value;
+      //   }
+      // },
+
+      // 'fl-textarea': (el: HTMLFlTextareaElement, formData) => {
+      //   if (el.name && !el.disabled) {
+      //     formData[el.name] = el.value;
+      //   }
+      // }
+    };
   }
 
   /** Serializes all form controls elements and returns form data. */
@@ -48,10 +81,9 @@ export class Form {
     const formElements = await this.getFormElements();
     const formData = {};
 
-    formElements.forEach(element => {
-      const elementTag = element.tagName.toLowerCase();
-
-      this.formControls.find(obj => obj.tag === elementTag).serialize(element, formData);
+    formElements.forEach(el => {
+      const tagName = el.tagName.toLowerCase();
+      this.formSerialize[tagName](el, formData);
     });
 
     return formData;
@@ -61,7 +93,7 @@ export class Form {
   @Method()
   async getFormElements() {
     const slot = this.form.querySelector("slot");
-    const tags = this.formControls.map(control => control.tag);
+    const tags = Object.keys(this.formSerialize);
 
     return slot
       .assignedElements({ flatten: true })
@@ -91,7 +123,6 @@ export class Form {
     }
 
     this.flSubmit.emit({ formData, formElements });
-
     return true;
   }
 
