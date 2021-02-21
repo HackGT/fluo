@@ -7,17 +7,17 @@ import { Component, Event, EventEmitter, Host, h } from "@stencil/core";
 })
 export class Menu {
   menu: HTMLElement;
-  
-  @Event({ eventName: 'fl-select' }) flSelect: EventEmitter<{ item: HTMLFlItemElement}>;
-  
+
+  /** Emits event when item is clicked */
+  @Event({ eventName: "fl-select" }) flSelect: EventEmitter<{ item: HTMLFlItemElement }>;
+
   connectedCallback() {
     this.emitSelected = this.emitSelected.bind(this);
   }
 
-
   // get all items in the menu (including disabled items)
   getItems() {
-    const slot = this.menu.querySelector("slot"); 
+    const slot = this.menu.querySelector("slot");
 
     // only want to return "fl-item" elements
     return [...slot.assignedElements()
@@ -30,27 +30,26 @@ export class Menu {
   }
 
   // set focus item
-  setActiveItem(item) {
+  setActiveItem(item: HTMLFlItemElement) {
     item.focus();
   }
 
   // fire custom event when item is selected
-  emitSelected(e) {
-    const target = e.target;
+  emitSelected(event: MouseEvent) {
+    const target = event.target as HTMLElement;
     const item = target.closest("fl-item");
     if (item && !item.hasMenu) this.flSelect.emit({ item });
   }
 
 
-  
   // keyboard navigation
-  
+
   // search: searches through options
-    
+
   render() {
     return (
       <Host
-        ref={el => {this.menu = el}}
+        ref={el => this.menu = el}
         onClick={this.emitSelected}
       >
         <slot />

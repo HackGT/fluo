@@ -48,6 +48,13 @@ Nested Menu
 <!-- Auto Generated Below -->
 
 
+## Events
+
+| Event       | Description | Type                          |
+| ----------- | ----------- | ----------------------------- |
+| `fl-select` |             | `CustomEvent<{ item: any; }>` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
