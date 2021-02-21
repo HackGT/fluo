@@ -7,10 +7,20 @@ import { Component, Prop, Host, h } from "@stencil/core";
 })
 export class Checkbox {
   input: HTMLInputElement;
+
+  /** Name of the checkbox */
   @Prop() name: string;
+
+  /** The string to use as the value of the checkbox when submitting the form, if the checkbox is currently toggled on */
   @Prop() value: string;
+
+  /** Puts the checkbox in the checked state */
   @Prop({ reflect: true}) checked = false;
+
+  /** Disables the checkbox */
   @Prop({ reflect: true}) disabled = false;
+  
+  /** Puts the checkbox in a partially-checked state */
   @Prop({ reflect: true}) indeterminate = false;
   
   connectedCallback() {

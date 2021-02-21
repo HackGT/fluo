@@ -21,36 +21,26 @@ As the name implies, a toggle switch.
 - [shoelace](https://shoelace.style/components/switch)
 - [fast design](https://www.fast.design/docs/components/switch)
 
-## API
-*Component name:*
-* `<fl-switch>`
-
-*Attributes:*
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| on | Moves the switch to the `on` state if set to true | boolean | false |
-| disabled | Disables the switch | boolean | false |
-
-*Slots:*
-| Slot | Description |
-| --- | --- |
-| thumb | The thumb of the switch |
-
-*Note: The thumb slot is also the default slot*
-
-*CSS Parts:*
-* What CSS Parts does your component expose?
-
-## Example usage
-```html
-<fl-switch></fl-switch>
-<fl-switch on></fl-switch>
-<fl-switch>
-    <fl-icon name="icon_name" slot="thumb"></fl-icon>
-</fl-switch>
-```
-
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property   | Attribute  | Description                                     | Type      | Default     |
+| ---------- | ---------- | ----------------------------------------------- | --------- | ----------- |
+| `disabled` | `disabled` | Disables the switch                             | `boolean` | `undefined` |
+| `name`     | `name`     | `name` of the switch                            | `string`  | `undefined` |
+| `on`       | `on`       | Moves the switch to the on state if set to true | `boolean` | `undefined` |
+| `value`    | `value`    | `value` of the switch                           | `string`  | `undefined` |
+
+
+## Shadow Parts
+
+| Part      | Description |
+| --------- | ----------- |
+| `"label"` |             |
+| `"thumb"` |             |
+| `"track"` |             |
 
 
 ----------------------------------------------

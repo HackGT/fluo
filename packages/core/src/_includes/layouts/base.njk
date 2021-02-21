@@ -23,4 +23,11 @@
   <body>
     {{ content | safe }} 
   </body>
+  
+  {% set js %}
+  {% include "index.js" %}
+  {% endset %}
+  <script>
+    {{ js | safe }}
+  </script>
 </html>

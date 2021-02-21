@@ -16,10 +16,30 @@ export namespace Components {
         "value": string;
     }
     interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
+        "hasMenu": boolean;
     }
     interface FlMenu {
     }
     interface FlSwitch {
+        /**
+          * Disables the switch
+         */
+        "disabled": boolean;
+        /**
+          * `name` of the switch
+         */
+        "name": string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
+        "on": boolean;
+        /**
+          * `value` of the switch
+         */
+        "value": string;
     }
 }
 declare global {
@@ -72,6 +92,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
+        "hasMenu"?: boolean;
     }
     interface FlMenu {
         /**
@@ -80,6 +104,22 @@ declare namespace LocalJSX {
         "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
     interface FlSwitch {
+        /**
+          * Disables the switch
+         */
+        "disabled"?: boolean;
+        /**
+          * `name` of the switch
+         */
+        "name"?: string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
+        "on"?: boolean;
+        /**
+          * `value` of the switch
+         */
+        "value"?: string;
     }
     interface IntrinsicElements {
         "fl-button": FlButton;

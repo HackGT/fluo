@@ -50,9 +50,9 @@ Nested Menu
 
 ## Events
 
-| Event       | Description                      | Type                          |
-| ----------- | -------------------------------- | ----------------------------- |
-| `fl-select` | Emits event when item is clicked | `CustomEvent<{ item: any; }>` |
+| Event       | Description                      | Type                                        |
+| ----------- | -------------------------------- | ------------------------------------------- |
+| `fl-select` | Emits event when item is clicked | `CustomEvent<{ item: HTMLFlItemElement; }>` |
 
 
 ----------------------------------------------

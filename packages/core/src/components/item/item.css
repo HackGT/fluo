@@ -4,6 +4,7 @@
   
   padding: 8px 40px;
   position: relative;
+  color: var(--fl-color-black);
 }
 
 :host(:hover) {
