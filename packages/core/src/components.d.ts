@@ -8,6 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlCheckbox {
+        "checked": boolean;
+        "disabled": boolean;
+        "indeterminate": boolean;
+        "name": string;
+        "value": string;
+    }
     interface FlItem {
         /**
           * Boolean attribute used internally to check if an item has a nested menu
@@ -42,6 +49,12 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
+    }
+    var HTMLFlCheckboxElement: {
+        prototype: HTMLFlCheckboxElement;
+        new (): HTMLFlCheckboxElement;
+    };
     interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
     }
     var HTMLFlItemElement: {
@@ -62,6 +75,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-checkbox": HTMLFlCheckboxElement;
         "fl-item": HTMLFlItemElement;
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
@@ -69,6 +83,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlButton {
+    }
+    interface FlCheckbox {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "indeterminate"?: boolean;
+        "name"?: string;
+        "value"?: string;
     }
     interface FlItem {
         /**
@@ -102,6 +123,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-checkbox": FlCheckbox;
         "fl-item": FlItem;
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
@@ -112,6 +134,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
