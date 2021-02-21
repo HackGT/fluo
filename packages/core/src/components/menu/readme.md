@@ -25,12 +25,12 @@ Nested Menu
 <fl-menu>
   <fl-item> item 1 </fl-item>
   <fl-item> item 2 </fl-item>
-  <fl-item> 
+  <fl-item>
     item 3
     <fl-menu>
       <fl-item> nested item 1 </fl-item>
-      <fl-item> 
-        nested item 2 
+      <fl-item>
+        nested item 2
         <fl-menu>
           <fl-item> 'nested item 1 </fl-item>
           <fl-item> 'nested item 2 </fl-item>
@@ -50,9 +50,9 @@ Nested Menu
 
 ## Events
 
-| Event       | Description                      | Type                          |
-| ----------- | -------------------------------- | ----------------------------- |
-| `fl-select` | Emits event when item is clicked | `CustomEvent<{ item: any; }>` |
+| Event       | Description                      | Type                                        |
+| ----------- | -------------------------------- | ------------------------------------------- |
+| `fl-select` | Emits event when item is clicked | `CustomEvent<{ item: HTMLFlItemElement; }>` |
 
 
 ----------------------------------------------
