@@ -7,9 +7,17 @@ import { Component, Host, h, Prop } from "@stencil/core";
 })
 export class Switch {
   input: HTMLInputElement;
+
+  /** `name` of the switch */
   @Prop() name: string;
+
+  /** `value` of the switch */
   @Prop() value: string;
+
+  /** Moves the switch to the on state if set to true */
   @Prop({ reflect: true }) on: boolean;
+
+  /** Disables the switch */
   @Prop({ reflect: true }) disabled: boolean;
   
   connectedCallback() {
@@ -30,7 +38,7 @@ export class Switch {
               class={{
                 "track-on": this.on
               }}
-              >
+            >
               <span 
                 part="thumb"
                 class={{
@@ -53,6 +61,6 @@ export class Switch {
           </span>
         </label>
       </Host>
-    )
+    );
   }
 }

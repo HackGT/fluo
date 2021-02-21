@@ -9,9 +9,21 @@ export namespace Components {
     interface FlButton {
     }
     interface FlSwitch {
+        /**
+          * Disables the switch
+         */
         "disabled": boolean;
+        /**
+          * `name` of the switch
+         */
         "name": string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
         "on": boolean;
+        /**
+          * `value` of the switch
+         */
         "value": string;
     }
 }
@@ -37,9 +49,21 @@ declare namespace LocalJSX {
     interface FlButton {
     }
     interface FlSwitch {
+        /**
+          * Disables the switch
+         */
         "disabled"?: boolean;
+        /**
+          * `name` of the switch
+         */
         "name"?: string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
         "on"?: boolean;
+        /**
+          * `value` of the switch
+         */
         "value"?: string;
     }
     interface IntrinsicElements {
