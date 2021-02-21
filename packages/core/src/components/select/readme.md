@@ -1,5 +1,25 @@
+---
+title: select
+---
+
 # fl-select
 
+<style>
+  fl-form-control {
+    margin-bottom: 75px;
+  }
+</style>
+
+<fl-form-control label="Select 1" help-text="Help text">
+  <fl-select name="select-1" multiple>
+    <fl-select-item value="1">Item 1</fl-select-item>
+    <fl-select-item value="2">Item 2</fl-select-item>
+  </fl-select>
+</fl-form-control>
+<fl-select name="select-2">
+  <fl-select-item value="1">Item 1</fl-select-item>
+  <fl-select-item value="2">Item 2</fl-select-item>
+</fl-select>
 
 
 <!-- Auto Generated Below -->

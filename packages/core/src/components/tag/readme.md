@@ -1,6 +1,10 @@
+---
+title: tag
+---
+
 # fl-tag
 
-
+<fl-tag clearable>Tag!</fl-tag>
 
 <!-- Auto Generated Below -->
 

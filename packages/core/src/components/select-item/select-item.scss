@@ -13,6 +13,7 @@
   user-select: none;
   white-space: nowrap;
   cursor: pointer;
+  background-color: white;
 
   &.select-item:focus:not(.select-item--disabled) {
     outline: none;
