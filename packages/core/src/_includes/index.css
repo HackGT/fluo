@@ -80,10 +80,16 @@ header li {
 
 header a {
   color: #e2e2e2;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 header a:visited {
   color: #e2e2e2;
+}
+
+header a:hover {
+  color: white;
 }
 
 header fl-switch::part(track) {
