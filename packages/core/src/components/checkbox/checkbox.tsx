@@ -15,14 +15,14 @@ export class Checkbox {
   @Prop() value: string;
 
   /** Puts the checkbox in the checked state */
-  @Prop({ reflect: true}) checked = false;
+  @Prop({ reflect: true }) checked = false;
 
   /** Disables the checkbox */
-  @Prop({ reflect: true}) disabled = false;
-  
+  @Prop({ reflect: true }) disabled = false;
+
   /** Puts the checkbox in a partially-checked state */
-  @Prop({ reflect: true}) indeterminate = false;
-  
+  @Prop({ reflect: true }) indeterminate = false;
+
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);
   }
@@ -41,19 +41,19 @@ export class Checkbox {
       >
         <label>
           <div class="control">
-            {this.checked && ( 
-              <div 
-                part="checked-icon" 
+            {this.checked && (
+              <div
+                part="checked-icon"
                 class="checked"
               >
                 &#10003;
               </div>
             )
-            } 
-            
+            }
+
             {!this.checked && this.indeterminate && (
-              <div 
-                part="indeterminate-icon" 
+              <div
+                part="indeterminate-icon"
                 class="indeterminate"
               >
                 -
@@ -62,18 +62,18 @@ export class Checkbox {
             }
 
 
-            <input 
+            <input
               ref={el => this.input = el}
               type="checkbox"
               name={this.name}
               value={this.value}
-              disabled={this.disabled} 
+              disabled={this.disabled}
               checked={this.checked}
               indeterminate={this.indeterminate}
             />
           </div >
           <span part="label">
-            <slot/>
+            <slot />
           </span>
         </label>
       </Host>
