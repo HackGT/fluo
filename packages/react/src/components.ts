@@ -9,3 +9,4 @@ import { defineCustomElements } from '@fluo/core/loader';
 
 defineCustomElements();
 export const FlButton = /*@__PURE__*/createReactComponent<JSX.FlButton, HTMLFlButtonElement>('fl-button');
+export const FlCheckbox = /*@__PURE__*/createReactComponent<JSX.FlCheckbox, HTMLFlCheckboxElement>('fl-checkbox');

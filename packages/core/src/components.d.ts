@@ -8,6 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlCheckbox {
+        "checked": boolean;
+        "disabled": boolean;
+        "indeterminate": boolean;
+        "name": string;
+        "value": string;
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -16,15 +23,30 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
+    }
+    var HTMLFlCheckboxElement: {
+        prototype: HTMLFlCheckboxElement;
+        new (): HTMLFlCheckboxElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-checkbox": HTMLFlCheckboxElement;
     }
 }
 declare namespace LocalJSX {
     interface FlButton {
     }
+    interface FlCheckbox {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "indeterminate"?: boolean;
+        "name"?: string;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-checkbox": FlCheckbox;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +54,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
         }
     }
 }
