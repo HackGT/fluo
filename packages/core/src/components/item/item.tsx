@@ -1,4 +1,4 @@
-import { Host, Component, Element, h } from "@stencil/core";
+import { Host, Component, Element, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "fl-item",
@@ -6,7 +6,8 @@ import { Host, Component, Element, h } from "@stencil/core";
   shadow: true
 })
 export class Item {
-  hasMenu = false;
+  /** Determines if the item has a menu */
+  @Prop({ reflect: true, mutable: true }) hasMenu = false;
 
   @Element() host: HTMLFlItemElement;
 

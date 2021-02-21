@@ -9,6 +9,10 @@ export namespace Components {
     interface FlButton {
     }
     interface FlItem {
+        /**
+          * Determines if the item has a menu
+         */
+        "hasMenu": boolean;
     }
     interface FlMenu {
     }
@@ -67,6 +71,10 @@ declare namespace LocalJSX {
     interface FlButton {
     }
     interface FlItem {
+        /**
+          * Determines if the item has a menu
+         */
+        "hasMenu"?: boolean;
     }
     interface FlMenu {
         /**
