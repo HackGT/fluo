@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from "@stencil/core";
+import { Element, Component, Host, h, Prop, Watch } from "@stencil/core";
 
 @Component({
   tag: "fl-switch",
@@ -7,6 +7,8 @@ import { Component, Host, h, Prop } from "@stencil/core";
 })
 export class Switch {
   input: HTMLInputElement;
+  
+  @Element() host : HTMLFlSwitchElement;
 
   /** `name` of the switch */
   @Prop() name: string;
@@ -20,10 +22,20 @@ export class Switch {
   /** Disables the switch */
   @Prop({ reflect: true }) disabled: boolean;
   
+
+  @Watch("on")
+  handleOnChange() {
+    this.input.checked = this.on;
+
+    // emit 'change' event
+    const event = new Event("change");
+    this.host.dispatchEvent(event);
+  }
+
   connectedCallback() {
     this.handleClick = this.handleClick.bind(this);
   }
-
+  
   handleClick() {
     this.on = this.input.checked;
   }
