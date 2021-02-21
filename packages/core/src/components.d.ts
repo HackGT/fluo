@@ -8,8 +8,17 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { btypes, positions } from "./components/fl-badge/btypes";
 export namespace Components {
     interface FlBadge {
+        /**
+          * The optional badge pill shape
+         */
         "pill": boolean;
+        /**
+          * The badge optional position
+         */
         "position": positions;
+        /**
+          * The badge type
+         */
         "type": btypes;
     }
     interface FlButton {
@@ -234,6 +243,16 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlSpinner {
+        /**
+          * The badge optional position
+         */
+        "color": any;
+        /**
+          * The badge optional position
+         */
+        "transparant": boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -265,10 +284,6 @@ export namespace Components {
           * The tag's type.
          */
         "type": "default" | "primary" | "success" | "info" | "warning" | "danger" | "text";
-    }
-    interface FlSpinner {
-        "color": any;
-        "transparant": boolean;
     }
 }
 declare global {
@@ -332,6 +347,12 @@ declare global {
         prototype: HTMLFlSelectItemElement;
         new (): HTMLFlSelectItemElement;
     };
+    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    }
+    var HTMLFlSpinnerElement: {
+        prototype: HTMLFlSpinnerElement;
+        new (): HTMLFlSpinnerElement;
+    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -355,14 +376,24 @@ declare global {
         "fl-menu": HTMLFlMenuElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
+        "fl-spinner": HTMLFlSpinnerElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
     }
 }
 declare namespace LocalJSX {
     interface FlBadge {
+        /**
+          * The optional badge pill shape
+         */
         "pill"?: boolean;
+        /**
+          * The badge optional position
+         */
         "position"?: positions;
+        /**
+          * The badge type
+         */
         "type"?: btypes;
     }
     interface FlButton {
@@ -559,6 +590,16 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface FlSpinner {
+        /**
+          * The badge optional position
+         */
+        "color"?: any;
+        /**
+          * The badge optional position
+         */
+        "transparant"?: boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -595,10 +636,6 @@ declare namespace LocalJSX {
          */
         "type"?: "default" | "primary" | "success" | "info" | "warning" | "danger" | "text";
     }
-    interface FlSpinner {
-        "color"?: any;
-        "transparant"?: boolean;
-    }
     interface IntrinsicElements {
         "fl-badge": FlBadge;
         "fl-button": FlButton;
@@ -610,6 +647,7 @@ declare namespace LocalJSX {
         "fl-menu": FlMenu;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
+        "fl-spinner": FlSpinner;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
     }
@@ -628,6 +666,7 @@ declare module "@stencil/core" {
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
+            "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
         }
