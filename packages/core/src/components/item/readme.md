@@ -5,13 +5,6 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
-
-| Property  | Attribute  | Description | Type      | Default |
-| --------- | ---------- | ----------- | --------- | ------- |
-| `hasMenu` | `has-menu` |             | `boolean` | `false` |
-
-
 ## Shadow Parts
 
 | Part        | Description |
@@ -21,4 +14,4 @@
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+
