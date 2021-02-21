@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlSwitch {
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -16,15 +18,25 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
+    }
+    var HTMLFlSwitchElement: {
+        prototype: HTMLFlSwitchElement;
+        new (): HTMLFlSwitchElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-switch": HTMLFlSwitchElement;
     }
 }
 declare namespace LocalJSX {
     interface FlButton {
     }
+    interface FlSwitch {
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-switch": FlSwitch;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +44,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
         }
     }
 }
