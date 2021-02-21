@@ -50,11 +50,11 @@ Nested Menu
 
 ## Events
 
-| Event       | Description | Type                          |
-| ----------- | ----------- | ----------------------------- |
-| `fl-select` |             | `CustomEvent<{ item: any; }>` |
+| Event       | Description                      | Type                          |
+| ----------- | -------------------------------- | ----------------------------- |
+| `fl-select` | Emits event when item is clicked | `CustomEvent<{ item: any; }>` |
 
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+
