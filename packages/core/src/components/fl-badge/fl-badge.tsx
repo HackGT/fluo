@@ -8,10 +8,13 @@ import { btypes, positions } from "./btypes";
 })
 export class FlBadge {
 
+/** The badge type */
 @Prop() type: btypes = btypes.PRIMARY;
 
+/** The optional badge pill shape */
 @Prop() pill = false;
 
+/** The badge optional position */
 @Prop() position: positions = positions.NONE;
 
 /* stylelint-disable */

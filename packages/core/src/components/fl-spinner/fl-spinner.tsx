@@ -7,8 +7,10 @@ import { Component, Host, h, Prop } from "@stencil/core";
 })
 export class FlSpinner {
 
+/** The badge optional position */
 @Prop() transparant = false;
 
+/** The badge optional position */
 @Prop() color;
 
 render() {
