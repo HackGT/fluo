@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlItem {
+    }
+    interface FlMenu {
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -34,6 +38,18 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
+    }
+    var HTMLFlItemElement: {
+        prototype: HTMLFlItemElement;
+        new (): HTMLFlItemElement;
+    };
+    interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
+    }
+    var HTMLFlMenuElement: {
+        prototype: HTMLFlMenuElement;
+        new (): HTMLFlMenuElement;
+    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -42,11 +58,21 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-item": HTMLFlItemElement;
+        "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
     }
 }
 declare namespace LocalJSX {
     interface FlButton {
+    }
+    interface FlItem {
+    }
+    interface FlMenu {
+        /**
+          * Emits event when item is clicked
+         */
+        "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
     interface FlSwitch {
         /**
@@ -68,6 +94,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-item": FlItem;
+        "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
     }
 }
@@ -76,6 +104,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
+            "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
         }
     }
