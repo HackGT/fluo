@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { btypes, positions } from "./components/fl-badge/btypes";
+import { stypes } from "./components/fl-slider/stypes";
 export namespace Components {
     interface FlBadge {
         "pill": boolean;
@@ -13,6 +14,14 @@ export namespace Components {
         "type": btypes;
     }
     interface FlButton {
+    }
+    interface FlSlider {
+        "disabled": boolean;
+        "max": number;
+        "min": number;
+        "name": string;
+        "orient": stypes;
+        "step": number;
     }
     interface FlSpinner {
         "color": any;
@@ -32,6 +41,12 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlSliderElement extends Components.FlSlider, HTMLStencilElement {
+    }
+    var HTMLFlSliderElement: {
+        prototype: HTMLFlSliderElement;
+        new (): HTMLFlSliderElement;
+    };
     interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
     }
     var HTMLFlSpinnerElement: {
@@ -41,6 +56,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
+        "fl-slider": HTMLFlSliderElement;
         "fl-spinner": HTMLFlSpinnerElement;
     }
 }
@@ -52,6 +68,14 @@ declare namespace LocalJSX {
     }
     interface FlButton {
     }
+    interface FlSlider {
+        "disabled"?: boolean;
+        "max"?: number;
+        "min"?: number;
+        "name"?: string;
+        "orient"?: stypes;
+        "step"?: number;
+    }
     interface FlSpinner {
         "color"?: any;
         "transparant"?: boolean;
@@ -59,6 +83,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "fl-badge": FlBadge;
         "fl-button": FlButton;
+        "fl-slider": FlSlider;
         "fl-spinner": FlSpinner;
     }
 }
@@ -68,6 +93,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-slider": LocalJSX.FlSlider & JSXBase.HTMLAttributes<HTMLFlSliderElement>;
             "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
         }
     }

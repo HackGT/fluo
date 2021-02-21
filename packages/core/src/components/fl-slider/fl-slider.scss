@@ -1,0 +1,83 @@
+:host {
+  display: grid;
+  place-items: center;
+}
+
+.ticks :host(.fl-slider--vert) {
+  bottom: -150px;
+  transform: rotate(270deg);
+
+  &::before {
+    top: 40px;
+    transform: rotate(90deg);
+    //padding-left: calc(calc(0px + var(--min)) / 10px * 10px);
+  }
+
+  &::after {
+    right: -30px;
+    transform: rotate(90deg);
+    padding-left: calc(var(--min) * 1px);
+  }
+}
+
+.ticks {
+  //  --step: 10;
+  //  --min: 20;
+  //  --max: 100;
+  --ticksThickness: 2px;
+  --ticksHeight: 30%;
+  --ticksColor: silver;
+
+  display: inline-block;
+  background: silver;
+  background: linear-gradient(to right, var(--ticksColor) var(--ticksThickness), transparent 1px) repeat-x;
+  background-size: calc(100% / ((var(--max) - var(--min)) / var(--step)) - 0.1%) var(--ticksHeight);
+  background-position: 0 bottom;
+  position: relative;
+
+  /* min and max labels at the edges */
+  &::before,
+  &::after {
+    font: 12px monospace;
+    content: counter(x);
+    position: absolute;
+    bottom: -2ch;
+  }
+
+  &::before {
+    counter-reset: x var(--min);
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    counter-reset: x var(--max);
+    transform: translateX(50%);
+  }
+
+  input {
+    width: 300px;
+    margin: 0 -6px;
+    background: #d3d3d3;
+    opacity: 0.7;
+  }
+
+  input:hover {
+    opacity: 1;
+  }
+
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #f00;
+    cursor: pointer;
+  }
+
+  input::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #f00;
+    cursor: pointer;
+  }
+}
