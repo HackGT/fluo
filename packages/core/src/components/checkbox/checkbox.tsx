@@ -48,7 +48,7 @@ export class Checkbox {
               >
                 -
               </div>
-              )
+            )
             }
 
 
@@ -67,7 +67,7 @@ export class Checkbox {
           </span>
         </label>
       </Host>
-    )
+    );
   }
 }
 
