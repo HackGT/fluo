@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+
+  <link rel="stylesheet" href="/build/fluo.css" />
+
+  <script type="module" src="/build/fluo.esm.js"></script>
+  <script nomodule src="/build/fluo.js"></script>
+</head>
+
+<body>
+  <style>
+    body {
+      padding: 80px 10px;
+    }
+
+    fl-form-control {
+      margin-bottom: 100px;
+    }
+  </style>
+  <fl-form>
+    <fl-form-control label="Select 1" help-text="Help text">
+      <fl-select name="select-1" multiple>
+        <fl-select-item value="1">Item 1</fl-select-item>
+        <fl-select-item value="2">Item 2</fl-select-item>
+      </fl-select>
+    </fl-form-control>
+    <fl-select name="select-2">
+      <fl-select-item value="1">Item 1</fl-select-item>
+      <fl-select-item value="2">Item 2</fl-select-item>
+    </fl-select>
+    <button type="submit">Submit</button>
+  </fl-form>
+
+  <fl-tag clearable>Tag</fl-tag>
+  <fl-link>hi</fl-link>
+</body>
+
+</html>

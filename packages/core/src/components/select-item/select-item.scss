@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.select-item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  text-align: left;
+  color: var(--fl-color-primary);
+  padding: 5px;
+  transition: 0.2s fill;
+  user-select: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &.select-item:focus:not(.select-item--disabled) {
+    outline: none;
+    background-color: var(--fl-color-primary-tint);
+  }
+
+  &.select-item--disabled {
+    outline: none;
+    color: var(--fl-color-light-gray);
+    cursor: not-allowed;
+  }
+}

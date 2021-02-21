@@ -1,52 +1,159 @@
 @import "./normalize.scss";
+@import url("http://fonts.cdnfonts.com/css/roobert");
 
 // Global Variables
 :root {
-  // Grayscale Colors
-  --fl-color-black: #000;
-  --fl-color-light-gray: #9ca3af;
-  --fl-color-dark-gray: #70757e;
-  --fl-color-white: #fff;
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Color tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+  // Grayscale Colors
+  --fl-color-black: #212121;
+  --fl-color-dark-gray: #565656;
+  --fl-color-gray: #858585;
+  --fl-color-light-gray: #e6e6e6;
+  --fl-color-white: #fff;
   // Primary Colors
   --fl-color-primary: #f14382;
   --fl-color-primary-tint: #f5699c;
   --fl-color-primary-shade: #d32263;
   --fl-color-primary-text: var(--fl-color-white);
-
   // Secondary Colors
   --fl-color-secondary: #7b69ec;
-  --fl-color-secondary-tint: #9385f0;
+  --fl-color-secondary-tint: #e5e1fb;
   --fl-color-secondary-shade: #6856dd;
   --fl-color-secondary-text: var(--fl-color-white);
-
   // Tertiary Colors
   --fl-color-tertiary: #33c2ff;
   --fl-color-tertiary-tint: #68d0fd;
   --fl-color-tertiary-shade: #21b2f0;
   --fl-color-tertiary-text: var(--fl-color-white);
-
   // Success Colors
   --fl-color-success: #16a34a;
   --fl-color-success-tint: #22c55e;
   --fl-color-success-shade: #15803d;
   --fl-color-success-text: var(--fl-color-white);
-
   // Info Colors
   --fl-color-info: #4b5563;
   --fl-color-info-tint: #6b7280;
   --fl-color-info-shade: #374151;
   --fl-color-info-text: var(--fl-color-white);
-
   // Warning Colors
   --fl-color-warning: #d97706;
   --fl-color-warning-tint: #f59e0b;
   --fl-color-warning-shade: #b45309;
   --fl-color-warning-text: var(--fl-color-white);
-
   // Danger Colors
   --fl-color-danger: #dc2626;
   --fl-color-danger-tint: #ef4444;
   --fl-color-danger-shade: #b91c1c;
   --fl-color-danger-text: var(--fl-color-white);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Spacing tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --fl-spacing-xxx-small: 0.2rem;
+  --fl-spacing-xx-small: 0.4rem;
+  --fl-spacing-x-small: 0.8rem;
+  --fl-spacing-small: 1.2rem;
+  --fl-spacing-medium: 1.6rem;
+  --fl-spacing-large: 2rem;
+  --fl-spacing-x-large: 2.4rem;
+  --fl-spacing-xx-large: 3.2rem;
+  --fl-spacing-xxx-large: 4.8rem;
+  --fl-spacing-xxxx-large: 7.2rem;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Border radius tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --fl-border-radius-small: 0.2rem;
+  --fl-border-radius-medium: 0.4rem;
+  --fl-border-radius-large: 0.8rem;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Typography tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Fonts
+  --fl-font-sans: "Roobert", sans-serif;
+  // Font sizes
+  --fl-font-size-x-small: 1.2rem;
+  --fl-font-size-small: 1.4rem;
+  --fl-font-size-medium: 1.6rem;
+  --fl-font-size-large: 2.4rem;
+  --fl-font-size-x-large: 3.8rem;
+  --fl-font-size-xx-large: 5.2rem;
+  --fl-font-size-xxx-large: 7.2rem;
+  // Font weights
+  --fl-font-weight-light: 300;
+  --fl-font-weight-regular: 400;
+  --fl-font-weight-medium: 500;
+  --fl-font-weight-semibold: 600;
+  --fl-font-weight-bold: 700;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Transition tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --fl-transition-x-slow: 1000ms;
+  --fl-transition-slow: 500ms;
+  --fl-transition-medium: 250ms;
+  --fl-transition-fast: 150ms;
+  --fl-transition-x-fast: 50ms;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Input tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  --fl-input-height: 3.5rem;
+  --fl-input-border-width: 0.2rem;
+  --fl-input-border-radius: 0.2rem;
+  --fl-input-font-weight: var(--fl-font-weight-regular);
+  --fl-input-font-size: var(--fl-font-size-medium);
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Default tag definitions
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  font-size: 62.5%;
+  font-family: var(--fl-font-sans);
+  line-height: 1.5;
+
+  h1 {
+    font-size: var(--fl-font-size-xxx-large);
+    font-weight: var(--fl-font-weight-semibold);
+  }
+
+  h2 {
+    font-size: var(--fl-font-size-xx-large);
+    font-weight: var(--fl-font-weight-medium);
+  }
+
+  h3 {
+    font-size: var(--fl-font-size-x-large);
+    font-weight: var(--fl-font-weight-medium);
+  }
+
+  h4 {
+    font-size: var(--fl-font-size-large);
+    font-weight: var(--fl-font-weight-medium);
+  }
+
+  h5 {
+    font-size: var(--fl-font-size-medium);
+    font-weight: var(--fl-font-weight-medium);
+  }
+
+  h6 {
+    font-size: var(--fl-font-size-small);
+    font-weight: var(--fl-font-weight-medium);
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: var(--fl-font-size-medium);
+    font-weight: var(--fl-font-weight-regular);
+  }
 }
