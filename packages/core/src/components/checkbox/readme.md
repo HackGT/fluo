@@ -60,6 +60,26 @@ Provide an interface for users to select an item(s), for example to indicate pre
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property        | Attribute       | Description | Type      | Default     |
+| --------------- | --------------- | ----------- | --------- | ----------- |
+| `checked`       | `checked`       |             | `boolean` | `false`     |
+| `disabled`      | `disabled`      |             | `boolean` | `false`     |
+| `indeterminate` | `indeterminate` |             | `boolean` | `false`     |
+| `name`          | `name`          |             | `string`  | `undefined` |
+| `value`         | `value`         |             | `string`  | `undefined` |
+
+
+## Shadow Parts
+
+| Part                   | Description |
+| ---------------------- | ----------- |
+| `"checked-icon"`       |             |
+| `"indeterminate-icon"` |             |
+| `"label"`              |             |
+
+
 ----------------------------------------------
 
 
