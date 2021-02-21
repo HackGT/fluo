@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+:host([disabled]) {
+  * {
+    cursor: not-allowed;
+  }
+
+  span[part=label] {
+    opacity: 0.5; 
+  }
+}
