@@ -9,6 +9,9 @@ export namespace Components {
     interface FlButton {
     }
     interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
         "hasMenu": boolean;
     }
     interface FlMenu {
@@ -68,6 +71,9 @@ declare namespace LocalJSX {
     interface FlButton {
     }
     interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
         "hasMenu"?: boolean;
     }
     interface FlMenu {
