@@ -27,25 +27,6 @@ Provide an interface for users to select an item(s), for example to indicate pre
 - [base web](https://baseweb.design/components/checkbox/)
 - [chakra](https://chakra-ui.com/docs/form/checkbox)
 
-## API
-*Component name:*
-* `<fl-checkbox>`
-
-*Attributes:*
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| checked | Puts the checkbox in the checked state | boolean | false |
-| disabled | Disables the checkbox | boolean | false |
-| indeterminate | Puts the checkbox in a partially-checkd state | boolean | false |
-| name | Name of the checkbox | string | undefined |
-| value | The string to use as the value of the checkbox when submitting the form, if the checkbox is currently toggled on | string | undefined |
-
-*Slots:*
-* Default slot: Used to specify the label of the checkbox
-
-*CSS Parts:*
-* What CSS Parts does your component expose?
-
 ## Example usage
 ```html
 <fl-checkbox>Unchecked</fl-checkbox>
@@ -55,20 +36,18 @@ Provide an interface for users to select an item(s), for example to indicate pre
 <fl-checkbox name="name-of-checkbox">Named Checkbox</fl-checkbox>
 ```
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property        | Attribute       | Description | Type      | Default     |
-| --------------- | --------------- | ----------- | --------- | ----------- |
-| `checked`       | `checked`       |             | `boolean` | `false`     |
-| `disabled`      | `disabled`      |             | `boolean` | `false`     |
-| `indeterminate` | `indeterminate` |             | `boolean` | `false`     |
-| `name`          | `name`          |             | `string`  | `undefined` |
-| `value`         | `value`         |             | `string`  | `undefined` |
+| Property        | Attribute       | Description                                                                                                      | Type      | Default     |
+| --------------- | --------------- | ---------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `checked`       | `checked`       | Puts the checkbox in the checked state                                                                           | `boolean` | `false`     |
+| `disabled`      | `disabled`      | Disables the checkbox                                                                                            | `boolean` | `false`     |
+| `indeterminate` | `indeterminate` | Puts the checkbox in a partially-checked state                                                                   | `boolean` | `false`     |
+| `name`          | `name`          | Name of the checkbox                                                                                             | `string`  | `undefined` |
+| `value`         | `value`         | The string to use as the value of the checkbox when submitting the form, if the checkbox is currently toggled on | `string`  | `undefined` |
 
 
 ## Shadow Parts
