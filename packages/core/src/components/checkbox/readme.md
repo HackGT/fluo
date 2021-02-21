@@ -62,13 +62,13 @@ Provide an interface for users to select an item(s), for example to indicate pre
 
 ## Properties
 
-| Property        | Attribute       | Description | Type      | Default     |
-| --------------- | --------------- | ----------- | --------- | ----------- |
-| `checked`       | `checked`       |             | `boolean` | `false`     |
-| `disabled`      | `disabled`      |             | `boolean` | `false`     |
-| `indeterminate` | `indeterminate` |             | `boolean` | `false`     |
-| `name`          | `name`          |             | `string`  | `undefined` |
-| `value`         | `value`         |             | `string`  | `undefined` |
+| Property        | Attribute       | Description                                      | Type      | Default     |
+| --------------- | --------------- | ------------------------------------------------ | --------- | ----------- |
+| `checked`       | `checked`       | Determines is checkbox is checked                | `boolean` | `false`     |
+| `disabled`      | `disabled`      | Determines if checkbox is disabled               | `boolean` | `false`     |
+| `indeterminate` | `indeterminate` | Determines if checkbox is in indeterminate state | `boolean` | `false`     |
+| `name`          | `name`          | Name of checkbox                                 | `string`  | `undefined` |
+| `value`         | `value`         | Value of checkbox                                | `string`  | `undefined` |
 
 
 ## Shadow Parts

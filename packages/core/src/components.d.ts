@@ -9,10 +9,25 @@ export namespace Components {
     interface FlButton {
     }
     interface FlCheckbox {
+        /**
+          * Determines is checkbox is checked
+         */
         "checked": boolean;
+        /**
+          * Determines if checkbox is disabled
+         */
         "disabled": boolean;
+        /**
+          * Determines if checkbox is in indeterminate state
+         */
         "indeterminate": boolean;
+        /**
+          * Name of checkbox
+         */
         "name": string;
+        /**
+          * Value of checkbox
+         */
         "value": string;
     }
     interface FlItem {
@@ -85,10 +100,25 @@ declare namespace LocalJSX {
     interface FlButton {
     }
     interface FlCheckbox {
+        /**
+          * Determines is checkbox is checked
+         */
         "checked"?: boolean;
+        /**
+          * Determines if checkbox is disabled
+         */
         "disabled"?: boolean;
+        /**
+          * Determines if checkbox is in indeterminate state
+         */
         "indeterminate"?: boolean;
+        /**
+          * Name of checkbox
+         */
         "name"?: string;
+        /**
+          * Value of checkbox
+         */
         "value"?: string;
     }
     interface FlItem {
