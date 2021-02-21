@@ -8,6 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
     }
+    interface FlItem {
+        "hasMenu": boolean;
+    }
+    interface FlMenu {
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -16,15 +21,37 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
+    }
+    var HTMLFlItemElement: {
+        prototype: HTMLFlItemElement;
+        new (): HTMLFlItemElement;
+    };
+    interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
+    }
+    var HTMLFlMenuElement: {
+        prototype: HTMLFlMenuElement;
+        new (): HTMLFlMenuElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-item": HTMLFlItemElement;
+        "fl-menu": HTMLFlMenuElement;
     }
 }
 declare namespace LocalJSX {
     interface FlButton {
     }
+    interface FlItem {
+        "hasMenu"?: boolean;
+    }
+    interface FlMenu {
+        "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement}>) => void;
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-item": FlItem;
+        "fl-menu": FlMenu;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +59,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
+            "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
         }
     }
 }
