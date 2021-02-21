@@ -1,0 +1,72 @@
+:host {
+  display: inline-block;
+  
+  position: relative;
+  
+  * {
+    cursor: pointer;
+  }
+
+  // thumb
+  --thumb-size: 20px;
+  
+  // track
+  --track-width: 30px;
+  --track-height: 10px;
+  --track-color-on: red;
+  --track-color-off: white;
+
+  label, div {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+div[part=track] {
+  position: absolute; 
+  z-index: 900;
+  width: var(--track-width);
+  height: var(--track-height);
+  background: var(--track-color);
+  border: 2px solid red;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background: var(--track-color-off);
+  transition: background 0.1s ease;
+}
+
+span[part=thumb] {
+  position: absolute;
+  z-index: 1000;
+  height: var(--thumb-size);
+  width: var(--thumb-size);
+  border-radius: 100%;
+  border: 2px solid black;
+  left: calc(-1 * (var(--thumb-size)/2));
+  transition: transform 0.2s ease;
+  background: white;
+}
+
+.thumb-on {
+  transform: translateX(calc(var(--track-width) - (var(--thumb-size)/4))) !important;
+} 
+
+.track-on {
+  background: var(--track-color-on) !important;
+}
+
+input {
+  opacity: 0;
+  padding: 0px;
+  margin-left: calc(var(--track-width) + (var(--thumb-size)/2));
+}
+
+:host([disabled]) {
+  opacity: 0.5;
+  
+  * {
+    cursor: not-allowed;
+  }
+}

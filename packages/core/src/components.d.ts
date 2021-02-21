@@ -9,6 +9,10 @@ export namespace Components {
     interface FlButton {
     }
     interface FlSwitch {
+        "disabled": boolean;
+        "name": string;
+        "on": boolean;
+        "value": string;
     }
 }
 declare global {
@@ -33,6 +37,10 @@ declare namespace LocalJSX {
     interface FlButton {
     }
     interface FlSwitch {
+        "disabled"?: boolean;
+        "name"?: string;
+        "on"?: boolean;
+        "value"?: string;
     }
     interface IntrinsicElements {
         "fl-button": FlButton;

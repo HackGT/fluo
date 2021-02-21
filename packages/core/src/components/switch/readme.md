@@ -8,6 +8,12 @@ As the name implies, a toggle switch.
 
 ## Showcase
 
+<fl-switch>Off</fl-switch>
+
+<fl-switch on>On</fl-switch>
+
+<fl-switch disabled>Disabled</fl-switch>
+
 ## Use Cases
 - Toggling settings and preferences
 
