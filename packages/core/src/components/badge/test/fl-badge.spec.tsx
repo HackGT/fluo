@@ -1,5 +1,5 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { FlBadge } from "../fl-badge";
+import { FlBadge } from "../badge";
 // Gonna ignore the comment about double quotes
 // Single quotes need love too ;)
 /*eslint quotes: ["error", "double", { "allowTemplateLiterals": true }]*/

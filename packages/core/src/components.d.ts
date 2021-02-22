@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { btypes, positions } from "./components/fl-badge/btypes";
+import { btypes, positions } from "./components/badge/btypes";
 export namespace Components {
     interface FlBadge {
         /**
@@ -245,11 +245,11 @@ export namespace Components {
     }
     interface FlSpinner {
         /**
-          * The badge optional position
+          * The spinners color
          */
         "color": any;
         /**
-          * The badge optional position
+          * An optional transparancy boolean for spinner
          */
         "transparant": boolean;
     }
@@ -592,11 +592,11 @@ declare namespace LocalJSX {
     }
     interface FlSpinner {
         /**
-          * The badge optional position
+          * The spinners color
          */
         "color"?: any;
         /**
-          * The badge optional position
+          * An optional transparancy boolean for spinner
          */
         "transparant"?: boolean;
     }

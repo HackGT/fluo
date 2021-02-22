@@ -1,5 +1,5 @@
 import { newSpecPage } from "@stencil/core/testing";
-import { FlSpinner } from "../fl-spinner";
+import { FlSpinner } from "../spinner";
 
 describe("fl-spinner", () => {
   it("renders", async () => {
