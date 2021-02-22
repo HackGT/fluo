@@ -30,6 +30,12 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlDivider {
+        /**
+          * The orientation of the divider
+         */
+        "orientation": "vertical" | "horizontal";
+    }
     interface FlItem {
         /**
           * Boolean attribute used internally to check if an item has a nested menu
@@ -70,6 +76,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlDividerElement extends Components.FlDivider, HTMLStencilElement {
+    }
+    var HTMLFlDividerElement: {
+        prototype: HTMLFlDividerElement;
+        new (): HTMLFlDividerElement;
+    };
     interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
     }
     var HTMLFlItemElement: {
@@ -91,6 +103,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-divider": HTMLFlDividerElement;
         "fl-item": HTMLFlItemElement;
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
@@ -120,6 +133,12 @@ declare namespace LocalJSX {
           * Value of checkbox
          */
         "value"?: string;
+    }
+    interface FlDivider {
+        /**
+          * The orientation of the divider
+         */
+        "orientation"?: "vertical" | "horizontal";
     }
     interface FlItem {
         /**
@@ -154,6 +173,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
+        "fl-divider": FlDivider;
         "fl-item": FlItem;
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
@@ -165,6 +185,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-divider": LocalJSX.FlDivider & JSXBase.HTMLAttributes<HTMLFlDividerElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
