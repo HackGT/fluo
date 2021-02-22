@@ -5,6 +5,7 @@
 }
 
 .link {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: stretch;
   justify-content: center;
@@ -46,13 +47,13 @@
 
   &.link--default {
     background-color: var(--fl-color-white);
-    border-color: var(--fl-color-gray-300);
-    color: var(--fl-color-gray-600);
+    border-color: var(--fl-color-secondary);
+    color: var(--fl-color-secondary);
 
     &:hover:not(.link--disabled) {
-      background-color: var(--fl-color-primary-50);
+      background-color: var(--fl-color-secondary-tint);
       border-color: var(--fl-color-primary-300);
-      color: var(--fl-color-primary-600);
+      color: var(--fl-color-secondary);
     }
 
     &:focus:not(.link--disabled) {
@@ -175,34 +176,34 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .link--small {
-  font-size: var(--fl-link-font-size-small);
+  font-size: var(--fl-font-size-small);
   height: var(--fl-input-height-small);
   line-height: calc(var(--fl-input-height-small) - var(--fl-input-border-width) * 2);
-  border-radius: var(--fl-input-border-radius-small);
+  border-radius: var(--fl-border-radius-small);
 
   .link__label {
-    padding: 0 var(--fl-spacing-small);
+    padding: 0 var(--fl-spacing-x-large);
   }
 }
 
 .link--medium {
-  font-size: var(--fl-link-font-size-medium);
-  height: var(--fl-input-height-medium);
-  line-height: calc(var(--fl-input-height-medium) - var(--fl-input-border-width) * 2);
-  border-radius: var(--fl-input-border-radius-medium);
+  font-size: var(--fl-font-size-medium);
+  height: var(--fl-input-height);
+  line-height: calc(var(--fl-input-height) - var(--fl-input-border-width) * 2);
+  border-radius: var(--fl-border-radius-medium);
 
   .link__label {
-    padding: 0 var(--fl-spacing-medium);
+    padding: 0 var(--fl-spacing-x-large);
   }
 }
 
 .link--large {
-  font-size: var(--fl-link-font-size-large);
+  font-size: var(--fl-font-size-large);
   height: var(--fl-input-height-large);
   line-height: calc(var(--fl-input-height-large) - var(--fl-input-border-width) * 2);
-  border-radius: var(--fl-input-border-radius-large);
+  border-radius: var(--fl-border-radius-large);
 
   .link__label {
-    padding: 0 var(--fl-spacing-large);
+    padding: 0 var(--fl-spacing-x-large);
   }
 }

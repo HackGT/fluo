@@ -188,8 +188,8 @@
 
 .button--medium {
   font-size: var(--fl-font-size-medium);
-  height: var(--fl-input-height-medium);
-  line-height: calc(var(--fl-input-height-medium) - var(--fl-input-border-width) * 2);
+  height: var(--fl-input-height);
+  line-height: calc(var(--fl-input-height) - var(--fl-input-border-width) * 2);
   border-radius: var(--fl-border-radius-medium);
 
   .button__label {
