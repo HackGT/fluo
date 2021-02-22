@@ -6,10 +6,11 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "dist/fluo": "dist" });
 
     // passthrough assets
-    eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+    eleventyConfig.addPassthroughCopy({ "src/docs/assets": "assets" });
     return {
         dir: {
-            input: "src", 
+            input: "src",
+            includes: "docs/_includes",
             output: "www",
         },
         passthroughFileCopy: true
