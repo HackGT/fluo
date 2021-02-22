@@ -38,4 +38,4 @@ This is a button
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

@@ -2,6 +2,7 @@
   "name": "fluo",
   "description": "Fluo mono repo. This package is not published to npm.",
   "private": true,
+  "workspaces": ["packages/core", "packages/react"],
   "scripts": {
   },
   "license": "MIT"
