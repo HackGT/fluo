@@ -1,6 +1,7 @@
 ---
 layout: layouts/main.njk
 title: fluo
+permalink: /
 ---
 
 # Web Components
