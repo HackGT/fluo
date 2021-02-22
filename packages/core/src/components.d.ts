@@ -245,11 +245,11 @@ export namespace Components {
     }
     interface FlSpinner {
         /**
-          * The badge optional position
+          * The spinners color
          */
         "color": any;
         /**
-          * The badge optional position
+          * An optional transparancy boolean for spinner
          */
         "transparant": boolean;
     }
@@ -592,11 +592,11 @@ declare namespace LocalJSX {
     }
     interface FlSpinner {
         /**
-          * The badge optional position
+          * The spinners color
          */
         "color"?: any;
         /**
-          * The badge optional position
+          * An optional transparancy boolean for spinner
          */
         "transparant"?: boolean;
     }
