@@ -1,0 +1,13 @@
+:host {
+  margin: 5px 10px;
+  width: 100%;
+}
+
+.vertical {
+  position: absolute;
+  width: 1px;
+  height: 20px;
+  background: grey;
+  top: 50%;
+  transform: translateY(-50%);
+}
