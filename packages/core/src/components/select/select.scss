@@ -21,8 +21,9 @@
   transition: 10s all ease-out;
 }
 
-.select--focused {
-  background-color: green;
+.select:focus {
+  outline: none;
+  border: solid 2px var(--fl-color-primary);
 }
 
 .select__hidden-input {

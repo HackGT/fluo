@@ -1,4 +1,4 @@
-import { Component, h, Prop, Method } from "@stencil/core";
+import { Component, h, Prop, Method, State } from "@stencil/core";
 
 @Component({
   tag: "fl-select-item",
@@ -7,6 +7,8 @@ import { Component, h, Prop, Method } from "@stencil/core";
 })
 export class SelectItem {
   selectItem: HTMLElement;
+
+  @State() active = false;
 
   /** Set to true to draw the item in a checked state. */
   @Prop({ reflect: true }) checked = false;
@@ -17,16 +19,15 @@ export class SelectItem {
   /** Set to true to draw the menu item in a disabled state. */
   @Prop({ reflect: true }) disabled = false;
 
-  /** Sets focus on the button. */
+  /** Sets item as active (used when navigating via arrow keys). */
   @Method()
-  async setFocus(options?: FocusOptions) {
-    this.selectItem.focus(options);
+  async setActive(value: boolean) {
+    this.active = value;
   }
 
-  /** Removes focus from the button. */
-  @Method()
-  async removeFocus() {
-    this.selectItem.blur();
+  handleMouseDown = (event: MouseEvent) => {
+    // Prevents select item from gaining focus
+    event.preventDefault();
   }
 
   render() {
@@ -37,14 +38,14 @@ export class SelectItem {
         class={{
           "select-item": true,
           "select-item--checked": this.checked,
-          "select-item--disabled": this.disabled
+          "select-item--disabled": this.disabled,
+          "select-item--active": this.active
         }}
         role="menuitem"
         aria-disabled={this.disabled ? "true" : "false"}
         aria-checked={this.checked ? "true" : "false"}
         tabIndex={this.disabled ? null : 0}
-        onMouseEnter={() => this.setFocus()}
-        onMouseLeave={() => this.removeFocus()}
+        onMouseDown={this.handleMouseDown}
       >
         {this.checked && "Checked"}
         <slot></slot>

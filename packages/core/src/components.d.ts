@@ -186,13 +186,9 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Removes focus from the button.
+          * Sets item as active (used when navigating via arrow keys).
          */
-        "removeFocus": () => Promise<void>;
-        /**
-          * Sets focus on the button.
-         */
-        "setFocus": (options?: FocusOptions) => Promise<void>;
+        "setActive": (value: boolean) => Promise<void>;
         /**
           * A unique value to store in the menu item. This can be used as a way to identify menu items when selected.
          */

@@ -7,14 +7,20 @@
   display: flex;
   align-items: stretch;
   text-align: left;
-  color: var(--fl-color-primary);
+  color: black;
   padding: 5px;
   transition: 0.2s fill;
   user-select: none;
   white-space: nowrap;
   cursor: pointer;
+  background-color: white;
 
-  &.select-item:focus:not(.select-item--disabled) {
+  &.select-item:hover:not(.select-item--disabled) {
+    outline: none;
+    background-color: var(--fl-color-primary-tint);
+  }
+
+  &.select-item--active:not(.select-item--disabled) {
     outline: none;
     background-color: var(--fl-color-primary-tint);
   }

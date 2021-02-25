@@ -8,6 +8,7 @@ import { getTextContent } from "../../utils/slot";
 })
 export class Select {
   isVisible = false;
+  activeItem: number = undefined;
   container: HTMLElement;
   content: HTMLElement;
   display: HTMLElement;
@@ -15,7 +16,6 @@ export class Select {
 
   @Element() host: HTMLFlSelectElement;
 
-  @State() hasFocus = false;
   @State() displayLabel = "";
   @State() displayTags = [];
 
@@ -95,6 +95,7 @@ export class Select {
 
     this.isVisible = true;
     this.open = true;
+    this.activeItem = undefined;
 
     this.content.classList.remove("hidden");
   }
@@ -112,6 +113,7 @@ export class Select {
 
     this.isVisible = false;
     this.open = false;
+    this.activeItem = undefined;
 
     this.content.classList.add("hidden");
     this.container.focus();
@@ -152,9 +154,21 @@ export class Select {
     this.open ? this.hide() : this.show();
   };
 
+  handleMouseOver = (event: MouseEvent) => {
+    const items = this.getItems();
+    const target = event.target as HTMLElement;
+
+    if (target.tagName.toLowerCase() === "fl-select-item") {
+      this.activeItem = items.indexOf(target as HTMLFlSelectItemElement);
+
+      for (const item of items) {
+        item.setActive(false);
+      }
+    }
+  }
+
   handleOnKeyDown = (event: KeyboardEvent) => {
     const items = this.getItems();
-    const activeItem: HTMLFlSelectItemElement = items.find(item => item === document.activeElement);
 
     if (event.key === "Escape") {
       this.hide();
@@ -163,8 +177,8 @@ export class Select {
     }
 
     if (event.key === "Enter") {
-      if (activeItem) {
-        this.updateValue(activeItem);
+      if (this.activeItem !== undefined) {
+        this.updateValue(items[this.activeItem]);
       } else {
         this.open ? this.hide() : this.show();
       }
@@ -187,28 +201,36 @@ export class Select {
 
       if (items.length > 0) {
         event.preventDefault();
-        let index = items.indexOf(activeItem);
 
-        if (index == undefined) {
-          index = 0;
-        } else if (event.key === "ArrowDown") {
-          index++;
+        if (event.key === "ArrowDown") {
+          if (this.activeItem === undefined) {
+            this.activeItem = 0;
+          } else {
+            this.activeItem++;
+          }
         } else if (event.key === "ArrowUp") {
-          index--;
+          if (this.activeItem === undefined) {
+            this.activeItem = -1;
+          } else {
+            this.activeItem--;
+          }
         } else if (event.key === "Home") {
-          index = 0;
+          this.activeItem = 0;
         } else if (event.key === "End") {
-          index = items.length - 1;
+          this.activeItem = items.length - 1;
         }
 
         // Wrap index around options
-        if (index < 0) {
-          index = items.length - 1;
-        } else if (index > items.length - 1) {
-          index = 0;
+        if (this.activeItem < 0) {
+          this.activeItem = items.length - 1;
+        } else if (this.activeItem > items.length - 1) {
+          this.activeItem = 0;
         }
 
-        items[index].setFocus();
+        // Sets all items active state to false except current active item
+        for (const item of items) {
+          item.setActive(item === items[this.activeItem]);
+        }
       }
     }
   };
@@ -323,14 +345,12 @@ export class Select {
     return (
       <div
         class={{
-          select: true,
-          "select--focused": this.hasFocus
+          select: true
         }}
         onKeyDown={this.handleOnKeyDown}
+        onMouseOver={this.handleMouseOver}
         ref={el => (this.container = el)}
         tabIndex={this.disabled ? -1 : 0}
-        onFocus={() => (this.hasFocus = true)}
-        onBlur={() => (this.hasFocus = false)}
       >
         <div class="select__display" onClick={this.handleDisplayClick} ref={el => (this.display = el)}>
           {this.displayTags.length ? (
@@ -338,8 +358,9 @@ export class Select {
               {this.displayTags}
             </span>
           ) : (
-            this.displayLabel || this.placeholder
-          )}
+              this.displayLabel || this.placeholder
+            )
+          }
 
           {/*
               The hidden input tricks the browser's built-in validation so it works as expected. We use an input instead
