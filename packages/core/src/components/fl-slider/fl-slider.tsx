@@ -47,8 +47,8 @@ componentDidLoad() {
     const thing = e.target as HTMLInputElement;
     console.log(thing.value);
   }); 
-  var tickFormat = this.tickFormatter(this.max).toString().split(this.max.toString())
-  console.log(this.tickFormatter(this.max));
+  //var tickFormat = this.tickFormatter(this.max).toString().split(this.max.toString())
+  //console.log(this.tickFormatter(this.max));
   this.element.style.setProperty("--step", this.step.toString());
   this.element.style.setProperty("--max", this.max.toString());
   this.element.style.setProperty("--min", this.min.toString());
