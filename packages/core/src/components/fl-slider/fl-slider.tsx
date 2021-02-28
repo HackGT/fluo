@@ -22,7 +22,7 @@ export class FlSlider {
 @Prop() name = "TEST";
 
 // Orientation of slider which is limited to horizontal and vertical positions
-@Prop() orient: stypes = stypes.VERTICAL;
+@Prop() orient: stypes = stypes.HORIZONTAL;
 
 // Disables slider
 @Prop() disabled = false;
@@ -31,7 +31,7 @@ export class FlSlider {
 @Element() private element: HTMLFlSliderElement;
 /* stylelint-enable */  
 
-@Prop() tickFormatter = (val: number) => val.toString().concat("ts");
+//@Prop() tickFormatter = (val: number) => val.toString().concat("ts");
 
 //@Prop tooltipFormatter = (val: number) => String;
 
@@ -52,16 +52,6 @@ componentDidLoad() {
   this.element.style.setProperty("--step", this.step.toString());
   this.element.style.setProperty("--max", this.max.toString());
   this.element.style.setProperty("--min", this.min.toString());
-  this.element.style.setProperty("--maxTick", this.tickFormatter(this.max).toString());
-  this.element.style.setProperty("--minTick", this.tickFormatter(this.min).toString());
-  if (tickFormat.length > 0) {
-    this.element.style.setProperty("--prefix", tickFormat[0]);
-    this.element.style.setProperty("--suffix", tickFormat[1]);
-  }
-}
-
-componentWillUpdate() {
-  console.log(this.element.shadowRoot.children[1]);
 }
 
 render() {

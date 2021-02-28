@@ -4,28 +4,27 @@
 }
 
 :host(.fl-slider--vert) {
-  .ticks {
-    bottom: -150px;
-    transform: rotate(270deg);
+    .ticks {
+      bottom: -150px;
+      transform: rotate(270deg);
 
-    &::before {
-      top: 40px;
-      transform: rotate(90deg);
-    }
+      &::before {
+        top: 40px;
+        transform: rotate(90deg);
+      }
 
-    &::after {
-      right: -30px;
-      transform: rotate(90deg);
-      padding-left: calc(var(--min) * 1px);
+      &::after {
+        right: -30px;
+        transform: rotate(90deg);
+        padding-left: calc(var(--min) * 1px);
+      }
     }
-  }
 }
 
 .ticks {
   --ticksThickness: 2px;
   --ticksHeight: 30%;
   --ticksColor: silver;
-  $--suffix: var(--suffix);
 
   display: inline-block;
   background: silver;
@@ -37,7 +36,7 @@
   &::before,
   &::after {
     font: 12px monospace;
-    content: '#{counter(x)} #{$--suffix}';
+    content: counter(x);
     position: absolute;
     bottom: -2ch;
   }
