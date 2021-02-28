@@ -4,31 +4,28 @@
 }
 
 :host(.fl-slider--vert) {
-    .ticks {
-      bottom: -150px;
-      transform: rotate(270deg);
+  .ticks {
+    bottom: -150px;
+    transform: rotate(270deg);
 
-      &::before {
-        top: 40px;
-        transform: rotate(90deg);
-        //padding-left: calc(calc(0px + var(--min)) / 10px * 10px);
-      }
-
-      &::after {
-        right: -30px;
-        transform: rotate(90deg);
-        padding-left: calc(var(--min) * 1px);
-      }
+    &::before {
+      top: 40px;
+      transform: rotate(90deg);
     }
+
+    &::after {
+      right: -30px;
+      transform: rotate(90deg);
+      padding-left: calc(var(--min) * 1px);
+    }
+  }
 }
 
 .ticks {
-  //  --step: 10;
-  //  --min: 20;
-  //  --max: 100;
   --ticksThickness: 2px;
   --ticksHeight: 30%;
   --ticksColor: silver;
+  $--suffix: var(--suffix);
 
   display: inline-block;
   background: silver;
@@ -37,11 +34,10 @@
   background-position: 0 bottom;
   position: relative;
 
-  /* min and max labels at the edges */
   &::before,
   &::after {
     font: 12px monospace;
-    content: counter(x);
+    content: '#{counter(x)} #{$--suffix}';
     position: absolute;
     bottom: -2ch;
   }

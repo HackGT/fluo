@@ -31,8 +31,8 @@ export class FlSlider {
 @Element() private element: HTMLFlSliderElement;
 /* stylelint-enable */  
 
-//@Prop tickFormattter = (val: number) => String;
-//
+@Prop() tickFormatter = (val: number) => val.toString().concat("ts");
+
 //@Prop tooltipFormatter = (val: number) => String;
 
 componentDidLoad() {
@@ -46,11 +46,18 @@ componentDidLoad() {
   test.addEventListener("change", function(e) {
     const thing = e.target as HTMLInputElement;
     console.log(thing.value);
-  });
+  }); 
+  var tickFormat = this.tickFormatter(this.max).toString().split(this.max.toString())
+  console.log(this.tickFormatter(this.max));
   this.element.style.setProperty("--step", this.step.toString());
   this.element.style.setProperty("--max", this.max.toString());
   this.element.style.setProperty("--min", this.min.toString());
-//   this.element.style.setProperty("--tickStyle", this.tickFormattter());
+  this.element.style.setProperty("--maxTick", this.tickFormatter(this.max).toString());
+  this.element.style.setProperty("--minTick", this.tickFormatter(this.min).toString());
+  if (tickFormat.length > 0) {
+    this.element.style.setProperty("--prefix", tickFormat[0]);
+    this.element.style.setProperty("--suffix", tickFormat[1]);
+  }
 }
 
 componentWillUpdate() {
