@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Rule } from "./utils/utils";
 export namespace Components {
     interface FlButton {
     }
@@ -28,6 +29,46 @@ export namespace Components {
         /**
           * Value of checkbox
          */
+        "value": string;
+    }
+    interface FlInput {
+        "accept": string;
+        "alt": string;
+        "autocomplete": string;
+        "autofocus": boolean;
+        "disabled": boolean;
+        "errors": string[];
+        "max": number;
+        "maxlength": number;
+        "min": number;
+        "minlength": number;
+        "multiple": boolean;
+        "name": string;
+        "pattern": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "rules": Rule[];
+        "size": number;
+        "src": string;
+        "step": number;
+        "type": | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+        "validity": ValidityState;
         "value": string;
     }
     interface FlItem {
@@ -70,6 +111,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
+    }
+    var HTMLFlInputElement: {
+        prototype: HTMLFlInputElement;
+        new (): HTMLFlInputElement;
+    };
     interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
     }
     var HTMLFlItemElement: {
@@ -91,6 +138,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
@@ -119,6 +167,46 @@ declare namespace LocalJSX {
         /**
           * Value of checkbox
          */
+        "value"?: string;
+    }
+    interface FlInput {
+        "accept"?: string;
+        "alt"?: string;
+        "autocomplete"?: string;
+        "autofocus"?: boolean;
+        "disabled"?: boolean;
+        "errors"?: string[];
+        "max"?: number;
+        "maxlength"?: number;
+        "min"?: number;
+        "minlength"?: number;
+        "multiple"?: boolean;
+        "name"?: string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "rules"?: Rule[];
+        "size"?: number;
+        "src"?: string;
+        "step"?: number;
+        "type"?: | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+        "validity"?: ValidityState;
         "value"?: string;
     }
     interface FlItem {
@@ -154,6 +242,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
+        "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
@@ -165,6 +254,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
