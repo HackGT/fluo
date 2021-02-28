@@ -3,21 +3,23 @@
   place-items: center;
 }
 
-.ticks :host(.fl-slider--vert) {
-  bottom: -150px;
-  transform: rotate(270deg);
+:host(.fl-slider--vert) {
+    .ticks {
+      bottom: -150px;
+      transform: rotate(270deg);
 
-  &::before {
-    top: 40px;
-    transform: rotate(90deg);
-    //padding-left: calc(calc(0px + var(--min)) / 10px * 10px);
-  }
+      &::before {
+        top: 40px;
+        transform: rotate(90deg);
+        //padding-left: calc(calc(0px + var(--min)) / 10px * 10px);
+      }
 
-  &::after {
-    right: -30px;
-    transform: rotate(90deg);
-    padding-left: calc(var(--min) * 1px);
-  }
+      &::after {
+        right: -30px;
+        transform: rotate(90deg);
+        padding-left: calc(var(--min) * 1px);
+      }
+    }
 }
 
 .ticks {

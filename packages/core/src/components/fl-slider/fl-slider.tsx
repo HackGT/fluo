@@ -22,7 +22,7 @@ export class FlSlider {
 @Prop() name = "TEST";
 
 // Orientation of slider which is limited to horizontal and vertical positions
-@Prop() orient: stypes = stypes.HORIZONTAL;
+@Prop() orient: stypes = stypes.VERTICAL;
 
 // Disables slider
 @Prop() disabled = false;
