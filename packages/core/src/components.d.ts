@@ -58,28 +58,6 @@ export namespace Components {
          */
         "submit": () => Promise<boolean>;
     }
-    interface FlFormControl {
-        /**
-          * The help text (if the help-text slot isn't used)
-         */
-        "helpText"?: string;
-        /**
-          * The help text id, used to map the input to the help text
-         */
-        "helpTextId"?: string;
-        /**
-          * The input id, used to map the input to the label
-         */
-        "inputId": string;
-        /**
-          * The label text (if the label slot isn't used)
-         */
-        "label"?: string;
-        /**
-          * The label id, used to map the label to the input
-         */
-        "labelId"?: string;
-    }
     interface FlLink {
         /**
           * Set to true to disable the link.
@@ -222,12 +200,6 @@ declare global {
         prototype: HTMLFlFormElement;
         new (): HTMLFlFormElement;
     };
-    interface HTMLFlFormControlElement extends Components.FlFormControl, HTMLStencilElement {
-    }
-    var HTMLFlFormControlElement: {
-        prototype: HTMLFlFormControlElement;
-        new (): HTMLFlFormControlElement;
-    };
     interface HTMLFlLinkElement extends Components.FlLink, HTMLStencilElement {
     }
     var HTMLFlLinkElement: {
@@ -255,7 +227,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
         "fl-form": HTMLFlFormElement;
-        "fl-form-control": HTMLFlFormControlElement;
         "fl-link": HTMLFlLinkElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
@@ -302,28 +273,6 @@ declare namespace LocalJSX {
           * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute.
          */
         "onFl-submit"?: (event: CustomEvent<{ formData: any; formElements: HTMLElement[] }>) => void;
-    }
-    interface FlFormControl {
-        /**
-          * The help text (if the help-text slot isn't used)
-         */
-        "helpText"?: string;
-        /**
-          * The help text id, used to map the input to the help text
-         */
-        "helpTextId"?: string;
-        /**
-          * The input id, used to map the input to the label
-         */
-        "inputId"?: string;
-        /**
-          * The label text (if the label slot isn't used)
-         */
-        "label"?: string;
-        /**
-          * The label id, used to map the label to the input
-         */
-        "labelId"?: string;
     }
     interface FlLink {
         /**
@@ -444,7 +393,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "fl-button": FlButton;
         "fl-form": FlForm;
-        "fl-form-control": FlFormControl;
         "fl-link": FlLink;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
@@ -457,7 +405,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-form": LocalJSX.FlForm & JSXBase.HTMLAttributes<HTMLFlFormElement>;
-            "fl-form-control": LocalJSX.FlFormControl & JSXBase.HTMLAttributes<HTMLFlFormControlElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;

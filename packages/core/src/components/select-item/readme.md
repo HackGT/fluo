@@ -16,19 +16,9 @@
 
 ## Methods
 
-### `removeFocus() => Promise<void>`
+### `setActive(value: boolean) => Promise<void>`
 
-Removes focus from the button.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `setFocus(options?: FocusOptions) => Promise<void>`
-
-Sets focus on the button.
+Sets item as active (used when navigating via arrow keys).
 
 #### Returns
 
