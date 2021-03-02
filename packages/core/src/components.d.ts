@@ -5,11 +5,23 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { btypes, positions } from "./components/fl-badge/btypes";
 export namespace Components {
+    interface FlBadge {
+        "pill": boolean;
+        "position": positions;
+        "type": btypes;
+    }
     interface FlButton {
     }
 }
 declare global {
+    interface HTMLFlBadgeElement extends Components.FlBadge, HTMLStencilElement {
+    }
+    var HTMLFlBadgeElement: {
+        prototype: HTMLFlBadgeElement;
+        new (): HTMLFlBadgeElement;
+    };
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
     }
     var HTMLFlButtonElement: {
@@ -17,13 +29,20 @@ declare global {
         new (): HTMLFlButtonElement;
     };
     interface HTMLElementTagNameMap {
+        "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
     }
 }
 declare namespace LocalJSX {
+    interface FlBadge {
+        "pill"?: boolean;
+        "position"?: positions;
+        "type"?: btypes;
+    }
     interface FlButton {
     }
     interface IntrinsicElements {
+        "fl-badge": FlBadge;
         "fl-button": FlButton;
     }
 }
@@ -31,6 +50,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
         }
     }
