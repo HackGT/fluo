@@ -33,7 +33,7 @@ render() {
         [`badge--${this.type}`]: true,
         [`badge--${this.position}`]: true,
         "badge-pill": this.pill,
-      }}> {!this.element.innerHTML ? this.type : null}
+      }}> 
       <slot></slot>
     </Host>
   );
