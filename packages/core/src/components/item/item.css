@@ -1,0 +1,29 @@
+:host {
+  display: list-item;
+  list-style: none;
+  
+  padding: 8px 40px;
+  position: relative;
+  color: var(--fl-color-black);
+}
+
+:host(:hover) {
+  background: rgba(51, 194, 255, 0.3);
+  cursor: pointer;
+}
+
+::slotted(fl-menu) {
+  display: none;
+}
+
+:host(:hover) ::slotted(fl-menu) {
+  display: block;
+  position: absolute;
+}
+
+:host span[part=chevron] {
+  position: absolute;
+  right: 20px;
+  transform: translateY(50%);
+}
+

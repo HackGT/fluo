@@ -1,2 +1,5 @@
 {
+  "permalink": "{{ page.filePathStem }}.html",
+  "layout": "layouts/main.njk",
+  "tags": "components"
 }
