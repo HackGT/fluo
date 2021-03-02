@@ -10,13 +10,14 @@ export namespace Components {
     interface FlBadge {
         "pill": boolean;
         "position": positions;
+        "speed": number;
         "type": btypes;
     }
     interface FlButton {
     }
     interface FlSpinner {
         "color": any;
-        "transparant": boolean;
+        "transparent": boolean;
     }
 }
 declare global {
@@ -48,13 +49,14 @@ declare namespace LocalJSX {
     interface FlBadge {
         "pill"?: boolean;
         "position"?: positions;
+        "speed"?: number;
         "type"?: btypes;
     }
     interface FlButton {
     }
     interface FlSpinner {
         "color"?: any;
-        "transparant"?: boolean;
+        "transparent"?: boolean;
     }
     interface IntrinsicElements {
         "fl-badge": FlBadge;

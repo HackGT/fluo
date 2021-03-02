@@ -14,6 +14,9 @@ export class FlBadge {
 
 @Prop() position: positions = positions.NONE;
 
+// Speed of spinner in seconds
+@Prop() speed = 2;
+
 /* stylelint-disable */
 @Element() private element: HTMLFlBadgeElement;
 /* stylelint-enable */
@@ -24,6 +27,7 @@ componentWillLoad() {
   if (!Object.values(btypes).includes(this.type)) {
     this.type = btypes.PRIMARY;
   }
+  this.element.style.setProperty("--speed", this.speed.toString().concat("s"));
 }
 render() {
   return (

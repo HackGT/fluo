@@ -12,7 +12,6 @@ describe("fl-badge", () => {
     expect(page.root).toEqualHtml(`
       <fl-badge class="badge badge-- badge--primary">
         <mock:shadow-root>
-	  primary
           <slot></slot>
         </mock:shadow-root>
       </fl-badge>

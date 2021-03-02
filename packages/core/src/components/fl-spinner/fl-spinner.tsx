@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from "@stencil/core";
+import { Element, Component, Host, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "fl-spinner",
@@ -7,7 +7,7 @@ import { Component, Host, h, Prop } from "@stencil/core";
 })
 export class FlSpinner {
 
-@Prop() transparant = false;
+@Prop() transparent = false;
 
 @Prop() color;
 
@@ -16,7 +16,7 @@ render() {
     <Host
       class={{
         "fl-spinner": true,
-        "fl-spinner--transparant": this.transparant,
+        "fl-spinner--transparent": this.transparent,
         "fl-spinner--colors": this.color
       }}
     >
