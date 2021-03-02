@@ -3,4 +3,8 @@ loader/
 www/
 node_modules/
 .DS_Store
+<<<<<<< HEAD
 _build
+=======
+*.swp
+>>>>>>> 40168b3 (fl-spinner)

@@ -10,6 +10,7 @@ export namespace Components {
     interface FlBadge {
         "pill": boolean;
         "position": positions;
+        "speed": number;
         "type": btypes;
     }
     interface FlButton {
@@ -46,7 +47,7 @@ export namespace Components {
     }
     interface FlSpinner {
         "color": any;
-        "transparant": boolean;
+        "transparent": boolean;
     }
     interface FlSwitch {
         /**
@@ -124,6 +125,7 @@ declare namespace LocalJSX {
     interface FlBadge {
         "pill"?: boolean;
         "position"?: positions;
+        "speed"?: number;
         "type"?: btypes;
     }
     interface FlButton {
@@ -164,7 +166,7 @@ declare namespace LocalJSX {
     }
     interface FlSpinner {
         "color"?: any;
-        "transparant"?: boolean;
+        "transparent"?: boolean;
     }
     interface FlSwitch {
         /**
