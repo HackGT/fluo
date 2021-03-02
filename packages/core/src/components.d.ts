@@ -7,6 +7,34 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled": boolean;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * An optional name for the button.
+         */
+        "name": string;
+        /**
+          * The button's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * The button's type.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button.
+         */
+        "value": string;
+        /**
+          * The button's type
+         */
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlCheckbox {
         /**
@@ -35,6 +63,40 @@ export namespace Components {
           * Boolean attribute used internally to check if an item has a nested menu
          */
         "hasMenu": boolean;
+    }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled": boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlMenu {
     }
@@ -76,6 +138,12 @@ declare global {
         prototype: HTMLFlItemElement;
         new (): HTMLFlItemElement;
     };
+    interface HTMLFlLinkElement extends Components.FlLink, HTMLStencilElement {
+    }
+    var HTMLFlLinkElement: {
+        prototype: HTMLFlLinkElement;
+        new (): HTMLFlLinkElement;
+    };
     interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
     }
     var HTMLFlMenuElement: {
@@ -92,12 +160,41 @@ declare global {
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
         "fl-item": HTMLFlItemElement;
+        "fl-link": HTMLFlLinkElement;
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
     }
 }
 declare namespace LocalJSX {
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * An optional name for the button.
+         */
+        "name"?: string;
+        /**
+          * The button's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * The button's type.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button.
+         */
+        "value"?: string;
+        /**
+          * The button's type
+         */
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
     }
     interface FlCheckbox {
         /**
@@ -127,6 +224,40 @@ declare namespace LocalJSX {
          */
         "hasMenu"?: boolean;
     }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+    }
     interface FlMenu {
         /**
           * Emits event when item is clicked
@@ -155,6 +286,7 @@ declare namespace LocalJSX {
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
         "fl-item": FlItem;
+        "fl-link": FlLink;
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
     }
@@ -166,6 +298,7 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
+            "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
         }
