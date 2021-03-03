@@ -29,7 +29,7 @@ componentWillLoad() {
   render() {
     return (
       <Host>
-        <details> 
+        <details open={this.open}> 
           <slot name="summary">{this.summary}</slot>
           <slot></slot>
         </details>
