@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element } from "@stencil/core";
+import { Component, Host, h, Prop} from "@stencil/core";
 import { btypes, positions } from "./btypes";
 
 @Component({
@@ -14,17 +14,6 @@ export class FlBadge {
 
 @Prop() position: positions = positions.NONE;
 
-/* stylelint-disable */
-@Element() private element: HTMLFlBadgeElement;
-/* stylelint-enable */
-
-componentWillLoad() {
-  this.element.parentElement.style.position = "relative";
-  // Just ensures some default type is set for badge
-  if (!Object.values(btypes).includes(this.type)) {
-    this.type = btypes.PRIMARY;
-  }
-}
 render() {
   return (
     <Host 

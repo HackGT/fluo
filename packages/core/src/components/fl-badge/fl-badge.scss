@@ -43,22 +43,26 @@
 
   // Attributes to shift badge to desired corner.
   :host(&.badge--top-left) {
-    top: -10px;
-    left: -10px;
+    position: relative;
+    top: -84%;
+    left: -60%;
   }
 
   :host(&.badge--top-right) {
-    top: -10px;
-    right: -10px;
+    position: relative;
+    top: -84%;
+    right: -60%;
   }
 
   :host(&.badge--bottom-left) {
-    bottom: -10px;
-    left: -10px;
+    position: relative;
+    bottom: -84%;
+    left: -60%;
   }
 
   :host(&.badge--bottom-right) {
-    bottom: -10px;
-    right: -10px;
+    position: relative;
+    bottom: -84%;
+    right: -60%;
   }
 }
