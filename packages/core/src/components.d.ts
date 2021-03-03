@@ -58,6 +58,9 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlDetails {
+        "open": boolean;
+    }
     interface FlItem {
         /**
           * Boolean attribute used internally to check if an item has a nested menu
@@ -132,6 +135,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlDetailsElement extends Components.FlDetails, HTMLStencilElement {
+    }
+    var HTMLFlDetailsElement: {
+        prototype: HTMLFlDetailsElement;
+        new (): HTMLFlDetailsElement;
+    };
     interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
     }
     var HTMLFlItemElement: {
@@ -159,6 +168,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-details": HTMLFlDetailsElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-menu": HTMLFlMenuElement;
@@ -217,6 +227,9 @@ declare namespace LocalJSX {
           * Value of checkbox
          */
         "value"?: string;
+    }
+    interface FlDetails {
+        "open"?: boolean;
     }
     interface FlItem {
         /**
@@ -285,6 +298,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
+        "fl-details": FlDetails;
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-menu": FlMenu;
@@ -297,6 +311,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-details": LocalJSX.FlDetails & JSXBase.HTMLAttributes<HTMLFlDetailsElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
