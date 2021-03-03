@@ -59,7 +59,18 @@ export namespace Components {
         "value": string;
     }
     interface FlDetails {
+        /**
+          * Disables component
+         */
+        "disables": boolean;
+        /**
+          * Opens the component if set to true
+         */
         "open": boolean;
+        /**
+          * Can be used to set a pure text summary using text
+         */
+        "summary": String;
     }
     interface FlItem {
         /**
@@ -229,7 +240,18 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlDetails {
+        /**
+          * Disables component
+         */
+        "disables"?: boolean;
+        /**
+          * Opens the component if set to true
+         */
         "open"?: boolean;
+        /**
+          * Can be used to set a pure text summary using text
+         */
+        "summary"?: String;
     }
     interface FlItem {
         /**
