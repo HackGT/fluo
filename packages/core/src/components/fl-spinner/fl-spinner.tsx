@@ -7,9 +7,8 @@ import { Component, Host, h, Prop } from "@stencil/core";
 })
 export class FlSpinner {
 
+// Modifies transparancy of spinner
 @Prop() transparent = false;
-
-@Prop() color;
 
 render() {
   return (
@@ -17,7 +16,6 @@ render() {
       class={{
         "fl-spinner": true,
         "fl-spinner--transparent": this.transparent,
-        "fl-spinner--colors": this.color
       }}
     >
       <slot></slot>
