@@ -1,0 +1,18 @@
+---
+tags:
+---
+
+<h1>Components</h1>
+
+<p>Documentation for <code>fluo</code> web components</p>
+
+<h2>Index</h2>
+
+<ul>
+  {% for component in collections.components %}
+    <a href="{{ component.url }}">
+      <li> {{ component.data.title }} </li>
+    </a>
+  {% endfor %}
+</ul>
+

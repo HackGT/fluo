@@ -14,6 +14,98 @@ export namespace Components {
         "type": btypes;
     }
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled": boolean;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * An optional name for the button.
+         */
+        "name": string;
+        /**
+          * The button's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * The button's type.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button.
+         */
+        "value": string;
+        /**
+          * The button's type
+         */
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlCheckbox {
+        /**
+          * Determines is checkbox is checked
+         */
+        "checked": boolean;
+        /**
+          * Determines if checkbox is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Determines if checkbox is in indeterminate state
+         */
+        "indeterminate": boolean;
+        /**
+          * Name of checkbox
+         */
+        "name": string;
+        /**
+          * Value of checkbox
+         */
+        "value": string;
+    }
+    interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
+        "hasMenu": boolean;
+    }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled": boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size": "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant": "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlMenu {
     }
     interface FlSlider {
         "disabled": boolean;
@@ -23,9 +115,23 @@ export namespace Components {
         "orient": stypes;
         "step": number;
     }
-    interface FlSpinner {
-        "color": any;
-        "transparant": boolean;
+    interface FlSwitch {
+        /**
+          * Disables the switch
+         */
+        "disabled": boolean;
+        /**
+          * `name` of the switch
+         */
+        "name": string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
+        "on": boolean;
+        /**
+          * `value` of the switch
+         */
+        "value": string;
     }
 }
 declare global {
@@ -41,23 +147,51 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
+    }
+    var HTMLFlCheckboxElement: {
+        prototype: HTMLFlCheckboxElement;
+        new (): HTMLFlCheckboxElement;
+    };
+    interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
+    }
+    var HTMLFlItemElement: {
+        prototype: HTMLFlItemElement;
+        new (): HTMLFlItemElement;
+    };
+    interface HTMLFlLinkElement extends Components.FlLink, HTMLStencilElement {
+    }
+    var HTMLFlLinkElement: {
+        prototype: HTMLFlLinkElement;
+        new (): HTMLFlLinkElement;
+    };
+    interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
+    }
+    var HTMLFlMenuElement: {
+        prototype: HTMLFlMenuElement;
+        new (): HTMLFlMenuElement;
+    };
     interface HTMLFlSliderElement extends Components.FlSlider, HTMLStencilElement {
     }
     var HTMLFlSliderElement: {
         prototype: HTMLFlSliderElement;
         new (): HTMLFlSliderElement;
     };
-    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
-    var HTMLFlSpinnerElement: {
-        prototype: HTMLFlSpinnerElement;
-        new (): HTMLFlSpinnerElement;
+    var HTMLFlSwitchElement: {
+        prototype: HTMLFlSwitchElement;
+        new (): HTMLFlSwitchElement;
     };
     interface HTMLElementTagNameMap {
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
+        "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-item": HTMLFlItemElement;
+        "fl-link": HTMLFlLinkElement;
+        "fl-menu": HTMLFlMenuElement;
         "fl-slider": HTMLFlSliderElement;
-        "fl-spinner": HTMLFlSpinnerElement;
+        "fl-switch": HTMLFlSwitchElement;
     }
 }
 declare namespace LocalJSX {
@@ -67,6 +201,102 @@ declare namespace LocalJSX {
         "type"?: btypes;
     }
     interface FlButton {
+        /**
+          * Set to true to disable the button.
+         */
+        "disabled"?: boolean;
+        /**
+          * Set to true to draw the button in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * An optional name for the button.
+         */
+        "name"?: string;
+        /**
+          * The button's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * The button's type.
+         */
+        "type"?: "submit" | "reset" | "button";
+        /**
+          * An optional value for the button.
+         */
+        "value"?: string;
+        /**
+          * The button's type
+         */
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlCheckbox {
+        /**
+          * Determines is checkbox is checked
+         */
+        "checked"?: boolean;
+        /**
+          * Determines if checkbox is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Determines if checkbox is in indeterminate state
+         */
+        "indeterminate"?: boolean;
+        /**
+          * Name of checkbox
+         */
+        "name"?: string;
+        /**
+          * Value of checkbox
+         */
+        "value"?: string;
+    }
+    interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
+        "hasMenu"?: boolean;
+    }
+    interface FlLink {
+        /**
+          * Set to true to disable the link.
+         */
+        "disabled"?: boolean;
+        /**
+          * Tells the browser to download the linked file as this filename.
+         */
+        "download"?: string;
+        /**
+          * The link for this link tag.
+         */
+        "href"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        /**
+          * Specifies the relationship of the target object to the link object.
+         */
+        "rel"?: string;
+        /**
+          * The link's size
+         */
+        "size"?: "small" | "medium" | "large";
+        /**
+          * Tells the browser where to open the link.
+         */
+        "target"?: "_blank" | "_parent" | "_self" | "_top";
+        /**
+          * The link's type
+         */
+        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlMenu {
+        /**
+          * Emits event when item is clicked
+         */
+        "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
     interface FlSlider {
         "disabled"?: boolean;
@@ -76,15 +306,33 @@ declare namespace LocalJSX {
         "orient"?: stypes;
         "step"?: number;
     }
-    interface FlSpinner {
-        "color"?: any;
-        "transparant"?: boolean;
+    interface FlSwitch {
+        /**
+          * Disables the switch
+         */
+        "disabled"?: boolean;
+        /**
+          * `name` of the switch
+         */
+        "name"?: string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
+        "on"?: boolean;
+        /**
+          * `value` of the switch
+         */
+        "value"?: string;
     }
     interface IntrinsicElements {
         "fl-badge": FlBadge;
         "fl-button": FlButton;
+        "fl-checkbox": FlCheckbox;
+        "fl-item": FlItem;
+        "fl-link": FlLink;
+        "fl-menu": FlMenu;
         "fl-slider": FlSlider;
-        "fl-spinner": FlSpinner;
+        "fl-switch": FlSwitch;
     }
 }
 export { LocalJSX as JSX };
@@ -93,8 +341,12 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
+            "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
+            "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-slider": LocalJSX.FlSlider & JSXBase.HTMLAttributes<HTMLFlSliderElement>;
-            "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
+            "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
         }
     }
 }

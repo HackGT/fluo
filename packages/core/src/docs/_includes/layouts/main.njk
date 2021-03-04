@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<div id="app">
+  {% include "header.njk" %}
+  
+  {% include "leftnav.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "rightnav.njk" %} 
+
+  {% include "footer.njk" %}
+</div>

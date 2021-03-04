@@ -17,7 +17,9 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "dev": "run-p --print-label dev:*",
+    "dev:stencil": "stencil build --dev --watch",
+    "dev:11ty": "eleventy --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
@@ -29,6 +31,7 @@
     "@stencil/core": "^2.3.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
     "@stencil/eslint-plugin": "^0.3.1",
     "@stencil/react-output-target": "^0.0.9",
     "@stencil/sass": "^1.4.1",
