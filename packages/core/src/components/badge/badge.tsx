@@ -3,10 +3,10 @@ import { btypes, positions } from "./btypes";
 
 @Component({
   tag: "fl-badge",
-  styleUrl: "fl-badge.scss",
+  styleUrl: "badge.scss",
   shadow: true,
 })
-export class FlBadge {
+export class Badge {
 
 @Prop() type: btypes = btypes.PRIMARY;
 

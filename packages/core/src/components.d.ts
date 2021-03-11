@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { btypes, positions } from "./components/fl-badge/btypes";
+import { btypes, positions } from "./components/badge/btypes";
 export namespace Components {
     interface FlBadge {
         "pill": boolean;
