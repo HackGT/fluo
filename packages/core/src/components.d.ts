@@ -5,7 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { btypes, positions } from "./components/badge/btypes";
+import { Rule } from "./utils/utils";
 export namespace Components {
+    interface FlBadge {
+        "pill": boolean;
+        "position": positions;
+        "type": btypes;
+    }
     interface FlButton {
         /**
           * Set to true to disable the button.
@@ -36,6 +43,28 @@ export namespace Components {
          */
         "variant": "default" | "primary" | "success" | "warning" | "danger";
     }
+    interface FlCheckbox {
+        /**
+          * Determines is checkbox is checked
+         */
+        "checked": boolean;
+        /**
+          * Determines if checkbox is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Determines if checkbox is in indeterminate state
+         */
+        "indeterminate": boolean;
+        /**
+          * Name of checkbox
+         */
+        "name": string;
+        /**
+          * Value of checkbox
+         */
+        "value": string;
+    }
     interface FlForm {
         /**
           * Serializes all form controls elements and returns form data.
@@ -57,6 +86,52 @@ export namespace Components {
           * Submits the form. If all controls are valid, the `fl-submit` event will be emitted and the promise will resolve with `true`. If any form control is invalid, the promise will resolve with `false` and no event will be emitted.
          */
         "submit": () => Promise<boolean>;
+    }
+    interface FlInput {
+        "accept": string;
+        "alt": string;
+        "autocomplete": string;
+        "autofocus": boolean;
+        "disabled": boolean;
+        "errors": string[];
+        "max": number;
+        "maxlength": number;
+        "min": number;
+        "minlength": number;
+        "multiple": boolean;
+        "name": string;
+        "pattern": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "rules": Rule[];
+        "size": number;
+        "src": string;
+        "step": number;
+        "type": | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+        "validity": ValidityState;
+        "value": string;
+    }
+    interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
+        "hasMenu": boolean;
     }
     interface FlLink {
         /**
@@ -91,6 +166,8 @@ export namespace Components {
           * The link's type
          */
         "variant": "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlMenu {
     }
     interface FlSelect {
         /**
@@ -172,6 +249,24 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlSwitch {
+        /**
+          * Disables the switch
+         */
+        "disabled": boolean;
+        /**
+          * `name` of the switch
+         */
+        "name": string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
+        "on": boolean;
+        /**
+          * `value` of the switch
+         */
+        "value": string;
+    }
     interface FlTag {
         /**
           * Set to true to make the tag clearable.
@@ -188,11 +283,23 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFlBadgeElement extends Components.FlBadge, HTMLStencilElement {
+    }
+    var HTMLFlBadgeElement: {
+        prototype: HTMLFlBadgeElement;
+        new (): HTMLFlBadgeElement;
+    };
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
     }
     var HTMLFlButtonElement: {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
+    };
+    interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
+    }
+    var HTMLFlCheckboxElement: {
+        prototype: HTMLFlCheckboxElement;
+        new (): HTMLFlCheckboxElement;
     };
     interface HTMLFlFormElement extends Components.FlForm, HTMLStencilElement {
     }
@@ -200,11 +307,29 @@ declare global {
         prototype: HTMLFlFormElement;
         new (): HTMLFlFormElement;
     };
+    interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
+    }
+    var HTMLFlInputElement: {
+        prototype: HTMLFlInputElement;
+        new (): HTMLFlInputElement;
+    };
+    interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
+    }
+    var HTMLFlItemElement: {
+        prototype: HTMLFlItemElement;
+        new (): HTMLFlItemElement;
+    };
     interface HTMLFlLinkElement extends Components.FlLink, HTMLStencilElement {
     }
     var HTMLFlLinkElement: {
         prototype: HTMLFlLinkElement;
         new (): HTMLFlLinkElement;
+    };
+    interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
+    }
+    var HTMLFlMenuElement: {
+        prototype: HTMLFlMenuElement;
+        new (): HTMLFlMenuElement;
     };
     interface HTMLFlSelectElement extends Components.FlSelect, HTMLStencilElement {
     }
@@ -218,6 +343,12 @@ declare global {
         prototype: HTMLFlSelectItemElement;
         new (): HTMLFlSelectItemElement;
     };
+    interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
+    }
+    var HTMLFlSwitchElement: {
+        prototype: HTMLFlSwitchElement;
+        new (): HTMLFlSwitchElement;
+    };
     interface HTMLFlTagElement extends Components.FlTag, HTMLStencilElement {
     }
     var HTMLFlTagElement: {
@@ -225,15 +356,26 @@ declare global {
         new (): HTMLFlTagElement;
     };
     interface HTMLElementTagNameMap {
+        "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
+        "fl-checkbox": HTMLFlCheckboxElement;
         "fl-form": HTMLFlFormElement;
+        "fl-input": HTMLFlInputElement;
+        "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
+        "fl-menu": HTMLFlMenuElement;
         "fl-select": HTMLFlSelectElement;
         "fl-select-item": HTMLFlSelectItemElement;
+        "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
     }
 }
 declare namespace LocalJSX {
+    interface FlBadge {
+        "pill"?: boolean;
+        "position"?: positions;
+        "type"?: btypes;
+    }
     interface FlButton {
         /**
           * Set to true to disable the button.
@@ -264,6 +406,28 @@ declare namespace LocalJSX {
          */
         "variant"?: "default" | "primary" | "success" | "warning" | "danger";
     }
+    interface FlCheckbox {
+        /**
+          * Determines is checkbox is checked
+         */
+        "checked"?: boolean;
+        /**
+          * Determines if checkbox is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Determines if checkbox is in indeterminate state
+         */
+        "indeterminate"?: boolean;
+        /**
+          * Name of checkbox
+         */
+        "name"?: string;
+        /**
+          * Value of checkbox
+         */
+        "value"?: string;
+    }
     interface FlForm {
         /**
           * If true, the form from will not validate inputs before submitting
@@ -273,6 +437,52 @@ declare namespace LocalJSX {
           * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute.
          */
         "onFl-submit"?: (event: CustomEvent<{ formData: any; formElements: HTMLElement[] }>) => void;
+    }
+    interface FlInput {
+        "accept"?: string;
+        "alt"?: string;
+        "autocomplete"?: string;
+        "autofocus"?: boolean;
+        "disabled"?: boolean;
+        "errors"?: string[];
+        "max"?: number;
+        "maxlength"?: number;
+        "min"?: number;
+        "minlength"?: number;
+        "multiple"?: boolean;
+        "name"?: string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "rules"?: Rule[];
+        "size"?: number;
+        "src"?: string;
+        "step"?: number;
+        "type"?: | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+        "validity"?: ValidityState;
+        "value"?: string;
+    }
+    interface FlItem {
+        /**
+          * Boolean attribute used internally to check if an item has a nested menu
+         */
+        "hasMenu"?: boolean;
     }
     interface FlLink {
         /**
@@ -307,6 +517,12 @@ declare namespace LocalJSX {
           * The link's type
          */
         "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlMenu {
+        /**
+          * Emits event when item is clicked
+         */
+        "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
     interface FlSelect {
         /**
@@ -372,6 +588,24 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface FlSwitch {
+        /**
+          * Disables the switch
+         */
+        "disabled"?: boolean;
+        /**
+          * `name` of the switch
+         */
+        "name"?: string;
+        /**
+          * Moves the switch to the on state if set to true
+         */
+        "on"?: boolean;
+        /**
+          * `value` of the switch
+         */
+        "value"?: string;
+    }
     interface FlTag {
         /**
           * Set to true to make the tag clearable.
@@ -391,11 +625,17 @@ declare namespace LocalJSX {
         "type"?: "default" | "primary" | "success" | "info" | "warning" | "danger" | "text";
     }
     interface IntrinsicElements {
+        "fl-badge": FlBadge;
         "fl-button": FlButton;
+        "fl-checkbox": FlCheckbox;
         "fl-form": FlForm;
+        "fl-input": FlInput;
+        "fl-item": FlItem;
         "fl-link": FlLink;
+        "fl-menu": FlMenu;
         "fl-select": FlSelect;
         "fl-select-item": FlSelectItem;
+        "fl-switch": FlSwitch;
         "fl-tag": FlTag;
     }
 }
@@ -403,11 +643,17 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-form": LocalJSX.FlForm & JSXBase.HTMLAttributes<HTMLFlFormElement>;
+            "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
+            "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
+            "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-select": LocalJSX.FlSelect & JSXBase.HTMLAttributes<HTMLFlSelectElement>;
             "fl-select-item": LocalJSX.FlSelectItem & JSXBase.HTMLAttributes<HTMLFlSelectItemElement>;
+            "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
         }
     }

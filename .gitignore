@@ -3,3 +3,6 @@ loader/
 www/
 node_modules/
 .DS_Store
+_build
+*.swp
+*.swo

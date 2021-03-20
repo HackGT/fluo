@@ -72,4 +72,4 @@ Type: `Promise<boolean>`
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

@@ -33,6 +33,11 @@
   --fl-color-success-tint: #22c55e;
   --fl-color-success-shade: #15803d;
   --fl-color-success-text: var(--fl-color-white);
+  // Info Colors
+  --fl-color-info: #4b5563;
+  --fl-color-info-tint: #6b7280;
+  --fl-color-info-shade: #374151;
+  --fl-color-info-text: var(--fl-color-white);
   // Warning Colors
   --fl-color-warning: #d97706;
   --fl-color-warning-tint: #f59e0b;
@@ -116,39 +121,39 @@
   font-family: var(--fl-font-sans);
   line-height: 1.5;
 
-  h1 {
-    font-size: var(--fl-font-size-xxx-large);
-    font-weight: var(--fl-font-weight-semibold);
-  }
+  // h1 {
+  //   font-size: var(--fl-font-size-xxx-large);
+  //   font-weight: var(--fl-font-weight-semibold);
+  // }
 
-  h2 {
-    font-size: var(--fl-font-size-xx-large);
-    font-weight: var(--fl-font-weight-medium);
-  }
+  // h2 {
+  //   font-size: var(--fl-font-size-xx-large);
+  //   font-weight: var(--fl-font-weight-medium);
+  // }
 
-  h3 {
-    font-size: var(--fl-font-size-x-large);
-    font-weight: var(--fl-font-weight-medium);
-  }
+  // h3 {
+  //   font-size: var(--fl-font-size-x-large);
+  //   font-weight: var(--fl-font-weight-medium);
+  // }
 
-  h4 {
-    font-size: var(--fl-font-size-large);
-    font-weight: var(--fl-font-weight-medium);
-  }
+  // h4 {
+  //   font-size: var(--fl-font-size-large);
+  //   font-weight: var(--fl-font-weight-medium);
+  // }
 
-  h5 {
-    font-size: var(--fl-font-size-medium);
-    font-weight: var(--fl-font-weight-medium);
-  }
+  // h5 {
+  //   font-size: var(--fl-font-size-medium);
+  //   font-weight: var(--fl-font-weight-medium);
+  // }
 
-  h6 {
-    font-size: var(--fl-font-size-small);
-    font-weight: var(--fl-font-weight-medium);
-    text-transform: uppercase;
-  }
+  // h6 {
+  //   font-size: var(--fl-font-size-small);
+  //   font-weight: var(--fl-font-weight-medium);
+  //   text-transform: uppercase;
+  // }
 
-  p {
-    font-size: var(--fl-font-size-medium);
-    font-weight: var(--fl-font-weight-regular);
-  }
+  // p {
+  //   font-size: var(--fl-font-size-medium);
+  //   font-weight: var(--fl-font-weight-regular);
+  // }
 }
