@@ -11,6 +11,7 @@ defineCustomElements();
 export const FlBadge = /*@__PURE__*/createReactComponent<JSX.FlBadge, HTMLFlBadgeElement>('fl-badge');
 export const FlButton = /*@__PURE__*/createReactComponent<JSX.FlButton, HTMLFlButtonElement>('fl-button');
 export const FlCheckbox = /*@__PURE__*/createReactComponent<JSX.FlCheckbox, HTMLFlCheckboxElement>('fl-checkbox');
+export const FlDivider = /*@__PURE__*/createReactComponent<JSX.FlDivider, HTMLFlDividerElement>('fl-divider');
 export const FlInput = /*@__PURE__*/createReactComponent<JSX.FlInput, HTMLFlInputElement>('fl-input');
 export const FlItem = /*@__PURE__*/createReactComponent<JSX.FlItem, HTMLFlItemElement>('fl-item');
 export const FlLink = /*@__PURE__*/createReactComponent<JSX.FlLink, HTMLFlLinkElement>('fl-link');

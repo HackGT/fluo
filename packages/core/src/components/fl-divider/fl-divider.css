@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.horizontal {
+  display: flex;
+  width: 150px;
+  height: 2px;
+  background-color: #DDDDDD;
+  position: inherit;
+  top: 0px;
+  left: 50px;
+}
+
+.vertical { 
+  margin: auto;
+  width: 2px;
+  height: 150px;
+  background-color: #DDDDDD;
+  position: inherit;
+  top: 0px;
+  left: 50px;
+}

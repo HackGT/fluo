@@ -65,6 +65,9 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlDivider {
+        "orientation": "vertical" | "horizontal";
+    }
     interface FlInput {
         "accept": string;
         "alt": string;
@@ -185,6 +188,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlDividerElement extends Components.FlDivider, HTMLStencilElement {
+    }
+    var HTMLFlDividerElement: {
+        prototype: HTMLFlDividerElement;
+        new (): HTMLFlDividerElement;
+    };
     interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
     }
     var HTMLFlInputElement: {
@@ -219,6 +228,7 @@ declare global {
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-divider": HTMLFlDividerElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
@@ -283,6 +293,9 @@ declare namespace LocalJSX {
           * Value of checkbox
          */
         "value"?: string;
+    }
+    interface FlDivider {
+        "orientation"?: "vertical" | "horizontal";
     }
     interface FlInput {
         "accept"?: string;
@@ -392,6 +405,7 @@ declare namespace LocalJSX {
         "fl-badge": FlBadge;
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
+        "fl-divider": FlDivider;
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
@@ -406,6 +420,7 @@ declare module "@stencil/core" {
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-divider": LocalJSX.FlDivider & JSXBase.HTMLAttributes<HTMLFlDividerElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
