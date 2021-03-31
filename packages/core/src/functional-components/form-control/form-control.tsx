@@ -20,24 +20,16 @@ export interface FormControlProps {
 const FormControl = (props: FormControlProps, children) => (
   <div class="form-control">
     {props.label && (
-      <label
-        class="form-control__label"
-        htmlFor={props.inputId}
-        onClick={props.onLabelClick}
-      >
+      <label class="form-control__label" htmlFor={props.inputId} onClick={props.onLabelClick}>
         {props.label}
       </label>
     )}
 
     {children}
 
-    {props.helpText && (
-      <div class="form-control__help-text">{props.helpText}</div>
-    )}
+    {props.helpText && <div class="form-control__help-text">{props.helpText}</div>}
 
-    {props.errorMessage && (
-      <div class="form-control__error-message">{props.errorMessage}</div>
-    )}
+    {props.errorMessage && <div class="form-control__error-message">{props.errorMessage}</div>}
   </div>
 );
 
