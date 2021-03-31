@@ -17,15 +17,16 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "dev": "run-p --print-label dev:*",
+    "dev": "npm-run-all -p --print-label dev:*",
     "dev:stencil": "stencil build --dev --watch",
     "dev:11ty": "eleventy --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "lint": "yarn lint:ts; yarn lint:scss",
-    "lint:ts": "eslint src/**/*{.ts,.tsx}",
-    "lint:scss": "stylelint src/**/*.scss"
+    "lint": "yarn lint:ts; yarn lint:scss; yarn lint:prettier",
+    "lint:ts": "eslint src/**/*{.ts,.tsx} --fix",
+    "lint:scss": "stylelint src/**/*.scss --fix",
+    "lint:prettier": "prettier src/ --write"
   },
   "dependencies": {
     "@stencil/core": "^2.3.0"
@@ -46,6 +47,8 @@
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "lint-staged": "^10.5.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
     "puppeteer": "^5.5.0",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0",
