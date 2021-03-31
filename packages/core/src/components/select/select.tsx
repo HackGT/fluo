@@ -1,21 +1,28 @@
 import { Component, h, Prop, Method, State, Element, Watch } from "@stencil/core";
+import FormControl from "../../functional-components/form-control/form-control";
+import { FormComponent } from "../../interfaces/FormComponent";
 import { getTextContent } from "../../utils/slot";
+import { REQUIRED_RULE, Rule } from "../../utils/utils";
+
+let id = 0;
 
 @Component({
   tag: "fl-select",
   styleUrl: "select.scss",
   shadow: true
 })
-export class Select {
+export class Select implements FormComponent {
+  inputId = `select-${++id}`;
+
   isVisible = false;
   activeItem: number = undefined;
   container: HTMLElement;
   content: HTMLElement;
   display: HTMLElement;
-  input: HTMLInputElement;
 
   @Element() host: HTMLFlSelectElement;
 
+  @State() touched = false;
   @State() displayLabel = "";
   @State() displayTags = [];
 
@@ -43,9 +50,6 @@ export class Select {
   /** The value of the control. This will be a string or an array depending on `multiple`. */
   @Prop({ mutable: true }) value: string | Array<string> = "";
 
-  /** The select's label. Alternatively, you can use the label slot. */
-  @Prop() label = "";
-
   /** The select's help text. Alternatively, you can use the help-text slot. */
   @Prop() helpText = "";
 
@@ -57,6 +61,12 @@ export class Select {
 
   /** Closes dropdown when an item is selected. Only applies when multiple is false. */
   @Prop() closeOnSelect = true;
+
+  @Prop() rules: Rule[] = [];
+  /** The select's label. Alternatively, you can use the label slot. */
+  @Prop() label?: string;
+  @Prop({ mutable: true, reflect: true }) invalid = false;
+  @Prop({ mutable: true }) errorMessage?: string;
 
   @Watch("multiple")
   handleMultipleChange() {
@@ -122,12 +132,34 @@ export class Select {
   /** Checks for validity and shows the browser's validation message if the control is invalid. */
   @Method()
   async reportValidity() {
-    return this.input.reportValidity();
+    return this.checkValidity();
   }
 
   connectedCallback() {
     this.handleSlotChange = this.handleSlotChange.bind(this); // Necessary to define function before load
   }
+
+  checkValidity = () => {
+    const rules = this.rules;
+    if (this.required) {
+      rules.unshift(REQUIRED_RULE);
+    }
+
+    const errors = rules
+      .filter(rule => !rule.validate(this.value))
+      .map(rule => rule.errorMessage)
+      .filter(msg => msg.length > 0);
+
+    if (errors.length > 0) {
+      this.errorMessage = errors[0];
+      this.invalid = true;
+      return false;
+    }
+
+    this.errorMessage = undefined;
+    this.invalid = false;
+    return true;
+  };
 
   getItems = () => {
     return Array.from(this.host.querySelectorAll("fl-select-item"));
@@ -140,7 +172,9 @@ export class Select {
 
   updateValue = (item: HTMLFlSelectItemElement) => {
     if (this.multiple) {
-      this.value = this.value.includes(item.value) ? (this.value as []).filter(v => v !== item.value) : [...this.value, item.value];
+      this.value = this.value.includes(item.value)
+        ? (this.value as []).filter(v => v !== item.value)
+        : [...this.value, item.value];
     } else {
       this.value = item.value;
     }
@@ -148,6 +182,7 @@ export class Select {
     if (this.closeOnSelect && !this.multiple) {
       this.hide();
     }
+    this.touched && this.checkValidity();
   };
 
   handleDisplayClick = () => {
@@ -165,7 +200,7 @@ export class Select {
         item.setActive(false);
       }
     }
-  }
+  };
 
   handleOnKeyDown = (event: KeyboardEvent) => {
     const items = this.getItems();
@@ -295,6 +330,11 @@ export class Select {
     }
   };
 
+  handleBlur = () => {
+    this.touched = true;
+    this.checkValidity();
+  };
+
   syncItemsFromValue = () => {
     const items = this.getItems();
     const value = Array.isArray(this.value) ? this.value : [this.value];
@@ -340,45 +380,41 @@ export class Select {
   };
 
   render() {
-    const hasSelection = this.multiple ? this.value.length > 0 : this.value !== "";
-
     return (
-      <div
-        class={{
-          select: true
-        }}
-        onKeyDown={this.handleOnKeyDown}
-        onMouseOver={this.handleMouseOver}
-        ref={el => (this.container = el)}
-        tabIndex={this.disabled ? -1 : 0}
-      >
-        <div class="select__display" onClick={this.handleDisplayClick} ref={el => (this.display = el)}>
-          {this.displayTags.length ? (
-            <span part="tags" class="select__tags">
-              {this.displayTags}
-            </span>
-          ) : (
+      <FormControl inputId={this.inputId} label={this.label} errorMessage={this.errorMessage}>
+        <div
+          ref={el => (this.container = el)}
+          class={{
+            "select": true,
+            "select--invalid": this.invalid
+          }}
+          onKeyDown={this.handleOnKeyDown}
+          onMouseOver={this.handleMouseOver}
+          onBlur={this.handleBlur}
+          tabIndex={this.disabled ? -1 : 0}
+        >
+          <div
+            class="select__display"
+            onClick={this.handleDisplayClick}
+            ref={el => (this.display = el)}
+          >
+            {this.displayTags.length ? (
+              <span part="tags" class="select__tags">
+                {this.displayTags}
+              </span>
+            ) : (
               this.displayLabel || this.placeholder
-            )
-          }
-
-          {/*
-              The hidden input tricks the browser's built-in validation so it works as expected. We use an input instead
-              of a select because, otherwise, iOS will show a list of options during validation.
-            */}
-          <input
-            ref={el => (this.input = el)}
-            class="select__hidden-input"
-            aria-hidden="true"
-            required={this.required}
-            value={hasSelection ? "1" : ""}
-            tabIndex={-1}
-          />
+            )}
+          </div>
+          <div
+            class="select__content hidden"
+            onClick={this.handleContentClick}
+            ref={el => (this.content = el)}
+          >
+            <slot onSlotchange={this.handleSlotChange}></slot>
+          </div>
         </div>
-        <div class="select__content hidden" onClick={this.handleContentClick} ref={el => (this.content = el)}>
-          <slot onSlotchange={this.handleSlotChange}></slot>
-        </div>
-      </div>
+      </FormControl>
     );
   }
 }

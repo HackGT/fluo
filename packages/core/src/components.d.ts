@@ -93,7 +93,9 @@ export namespace Components {
         "autocomplete": string;
         "autofocus": boolean;
         "disabled": boolean;
-        "errors": string[];
+        "errorMessage"?: string;
+        "invalid": boolean;
+        "label"?: string;
         "max": number;
         "maxlength": number;
         "min": number;
@@ -103,6 +105,7 @@ export namespace Components {
         "pattern": string;
         "placeholder": string;
         "readonly": boolean;
+        "reportValidity": () => Promise<boolean>;
         "required": boolean;
         "rules": Rule[];
         "size": number;
@@ -124,7 +127,6 @@ export namespace Components {
     | "time"
     | "url"
     | "week";
-        "validity": ValidityState;
         "value": string;
     }
     interface FlItem {
@@ -182,6 +184,7 @@ export namespace Components {
           * Set to true to disable the select control.
          */
         "disabled": boolean;
+        "errorMessage"?: string;
         /**
           * The select's help text. Alternatively, you can use the help-text slot.
          */
@@ -190,10 +193,11 @@ export namespace Components {
           * Hides the dropdown content
          */
         "hide": () => Promise<void>;
+        "invalid": boolean;
         /**
           * The select's label. Alternatively, you can use the label slot.
          */
-        "label": string;
+        "label"?: string;
         /**
           * The maximum number of tags to show when `multiple` is true. After the maximum, "+n" will be shown to indicate the number of additional items that are selected. Set to -1 to remove the limit.
          */
@@ -222,6 +226,7 @@ export namespace Components {
           * The select's required attribute.
          */
         "required": boolean;
+        "rules": Rule[];
         /**
           * Shows the dropdown content
          */
@@ -436,7 +441,10 @@ declare namespace LocalJSX {
         /**
           * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute.
          */
-        "onFl-submit"?: (event: CustomEvent<{ formData: any; formElements: HTMLElement[] }>) => void;
+        "onFl-submit"?: (event: CustomEvent<{
+    formData: any;
+    formElements: HTMLElement[];
+  }>) => void;
     }
     interface FlInput {
         "accept"?: string;
@@ -444,7 +452,9 @@ declare namespace LocalJSX {
         "autocomplete"?: string;
         "autofocus"?: boolean;
         "disabled"?: boolean;
-        "errors"?: string[];
+        "errorMessage"?: string;
+        "invalid"?: boolean;
+        "label"?: string;
         "max"?: number;
         "maxlength"?: number;
         "min"?: number;
@@ -475,7 +485,6 @@ declare namespace LocalJSX {
     | "time"
     | "url"
     | "week";
-        "validity"?: ValidityState;
         "value"?: string;
     }
     interface FlItem {
@@ -537,10 +546,12 @@ declare namespace LocalJSX {
           * Set to true to disable the select control.
          */
         "disabled"?: boolean;
+        "errorMessage"?: string;
         /**
           * The select's help text. Alternatively, you can use the help-text slot.
          */
         "helpText"?: string;
+        "invalid"?: boolean;
         /**
           * The select's label. Alternatively, you can use the label slot.
          */
@@ -569,6 +580,7 @@ declare namespace LocalJSX {
           * The select's required attribute.
          */
         "required"?: boolean;
+        "rules"?: Rule[];
         /**
           * The value of the control. This will be a string or an array depending on `multiple`.
          */

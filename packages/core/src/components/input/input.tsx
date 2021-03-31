@@ -1,14 +1,22 @@
-import { Element, Component, Prop, Host, h } from "@stencil/core";
+import { Element, Component, Prop, Host, h, Method, State } from "@stencil/core";
+import FormControl from "../../functional-components/form-control/form-control";
+import { FormComponent } from "../../interfaces/FormComponent";
 import { Rule } from "../../utils/utils";
+
+let id = 0;
 
 @Component({
   tag: "fl-input",
   styleUrl: "input.scss",
-  shadow: true,
+  shadow: true
 })
-export class Input {
+export class Input implements FormComponent {
+  inputId = `input-${++id}`;
+
   input: HTMLInputElement;
   @Element() host;
+
+  @State() touched = false;
 
   @Prop() accept: string;
   @Prop() alt: string;
@@ -51,34 +59,54 @@ export class Input {
     | "url"
     | "week";
   @Prop() value: string;
-
   @Prop() rules: Rule[] = [];
-  @Prop({ mutable: true }) errors: string[] = [];
-  @Prop({ mutable: true }) validity: ValidityState;
+  @Prop() label?: string;
+  @Prop({ mutable: true, reflect: true }) invalid = false;
+  @Prop({ mutable: true }) errorMessage?: string;
 
-  connectedCallback() {
-    this.handleChange = this.handleChange.bind(this);
+  @Method()
+  async reportValidity() {
+    return this.checkValidity();
   }
 
-  handleChange() {
-    const { validity, validationMessage } = this.input;
-    this.validity = validity;
+  checkValidity = () => {
+    const { validationMessage } = this.input;
 
-    this.errors = [
+    const errors = [
       validationMessage,
-      ...this.rules
-        .filter((rule) => !rule.validate(this.host))
-        .map((rule) => rule.errorMessage),
-    ].filter((msg) => msg.length > 0);
-  }
+      ...this.rules.filter(rule => !rule.validate(this.value)).map(rule => rule.errorMessage)
+    ].filter(msg => msg.length > 0);
+
+    if (errors.length > 0) {
+      this.errorMessage = errors[0];
+      this.invalid = true;
+      return false;
+    }
+
+    this.errorMessage = undefined;
+    this.invalid = false;
+    return true;
+  };
+
+  handleInput = () => {
+    this.touched && this.checkValidity();
+  };
+
+  handleBlur = () => {
+    this.touched = true;
+    this.checkValidity();
+  };
 
   render() {
     return (
       <Host>
-        <span>
+        <FormControl inputId={this.inputId} label={this.label} errorMessage={this.errorMessage}>
           <slot name="left-icon"></slot>
           <input
-            ref={(e) => (this.input = e)}
+            ref={el => (this.input = el)}
+            class={{
+              "input--invalid": this.invalid
+            }}
             accept={this.accept}
             alt={this.alt}
             autocomplete={this.autocomplete}
@@ -99,19 +127,11 @@ export class Input {
             step={this.step}
             type={this.type}
             value={this.value}
-            onChange={this.handleChange}
+            onBlur={this.handleBlur}
+            onInput={this.handleInput}
           />
           <slot name="right-icon"></slot>
-        </span>
-        <span class="error-msg">
-          {
-            <ul>
-              {this.errors.map((msg) => (
-                <li>{msg}</li>
-              ))}
-            </ul>
-          }
-        </span>
+        </FormControl>
       </Host>
     );
   }

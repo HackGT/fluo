@@ -15,7 +15,10 @@ export class Form {
   /**
    * Emitted when the form is submitted. This event will not be emitted if any form control inside of it is in an invalid state, unless the form has the `novalidate` attribute.
    */
-  @Event({ eventName: "fl-submit" }) flSubmit: EventEmitter<{ formData: any; formElements: HTMLElement[] }>;
+  @Event({ eventName: "fl-submit" }) flSubmit: EventEmitter<{
+    formData: any;
+    formElements: HTMLElement[];
+  }>;
 
   connectedCallback() {
     this.formSerialize = {
@@ -59,7 +62,7 @@ export class Form {
         if (el.name && !el.disabled) {
           formData[el.name] = el.value;
         }
-      },
+      }
 
       // 'fl-switch': (el: HTMLFlSwitchElement, formData) => {
       //   if (el.name && !el.disabled && el.checked) {
@@ -111,14 +114,17 @@ export class Form {
     const formElements = await this.getFormElements();
 
     if (!this.novalidate) {
-      const formElementsThatReport = formElements.filter((el: any) => typeof el.reportValidity === "function") as any[];
+      const formElementsThatReport = formElements.filter(
+        (el: any) => typeof el.reportValidity === "function"
+      ) as any[];
 
+      let isValid = true;
       for (const element of formElementsThatReport) {
-        const isValid = await element.reportValidity();
+        isValid = isValid && (await element.reportValidity());
+      }
 
-        if (!isValid) {
-          return false;
-        }
+      if (!isValid) {
+        return false;
       }
     }
 
@@ -145,7 +151,7 @@ export class Form {
         this.submit();
       }
     }
-  }
+  };
 
   handleKeyUp = (event: KeyboardEvent) => {
     const tag = (event.target as HTMLElement).tagName.toLowerCase();
@@ -153,7 +159,7 @@ export class Form {
     if (tag === "fl-input" && event.key === "Enter" && !event.defaultPrevented) {
       this.submit();
     }
-  }
+  };
 
   render() {
     return (
