@@ -105,6 +105,7 @@ export class Input implements FormComponent {
           <input
             ref={el => (this.input = el)}
             class={{
+              "input": true,
               "input--invalid": this.invalid
             }}
             accept={this.accept}
