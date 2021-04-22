@@ -34,8 +34,8 @@ This is a badge component meant for use as a sort of notification bubble.
 | Property   | Attribute  | Description | Type                                                                                                         | Default          |
 | ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------ | ---------------- |
 | `pill`     | `pill`     |             | `boolean`                                                                                                    | `false`          |
-| `position` | `position` |             | `BOTTOMLEFT, BOTTOMRIGHT, NONE, TOPLEFT, TOPRIGHT`                                                       | `NONE` |
-| `type`     | `type`     |             | `DANGER, INFO, PRIMARY, SUCCESS, WARNING`                                                                | `btypes.PRIMARY` |
+| `position` | `position` |             | `positions.BOTTOMLEFT \| positions.BOTTOMRIGHT \| positions.NONE \| positions.TOPLEFT \| positions.TOPRIGHT` | `positions.NONE` |
+| `type`     | `type`     |             | `btypes.DANGER \| btypes.INFO \| btypes.PRIMARY \| btypes.SUCCESS \| btypes.WARNING`                         | `btypes.PRIMARY` |
 
 
 ----------------------------------------------

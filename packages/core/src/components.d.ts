@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { btypes, positions } from "./components/fl-badge/btypes";
+import { btypes, positions } from "./components/badge/btypes";
+import { Rule } from "./utils/utils";
 export namespace Components {
     interface FlBadge {
         "pill": boolean;
@@ -62,6 +63,46 @@ export namespace Components {
         /**
           * Value of checkbox
          */
+        "value": string;
+    }
+    interface FlInput {
+        "accept": string;
+        "alt": string;
+        "autocomplete": string;
+        "autofocus": boolean;
+        "disabled": boolean;
+        "errors": string[];
+        "max": number;
+        "maxlength": number;
+        "min": number;
+        "minlength": number;
+        "multiple": boolean;
+        "name": string;
+        "pattern": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "required": boolean;
+        "rules": Rule[];
+        "size": number;
+        "src": string;
+        "step": number;
+        "type": | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+        "validity": ValidityState;
         "value": string;
     }
     interface FlItem {
@@ -144,6 +185,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
+    }
+    var HTMLFlInputElement: {
+        prototype: HTMLFlInputElement;
+        new (): HTMLFlInputElement;
+    };
     interface HTMLFlItemElement extends Components.FlItem, HTMLStencilElement {
     }
     var HTMLFlItemElement: {
@@ -172,6 +219,7 @@ declare global {
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-menu": HTMLFlMenuElement;
@@ -234,6 +282,46 @@ declare namespace LocalJSX {
         /**
           * Value of checkbox
          */
+        "value"?: string;
+    }
+    interface FlInput {
+        "accept"?: string;
+        "alt"?: string;
+        "autocomplete"?: string;
+        "autofocus"?: boolean;
+        "disabled"?: boolean;
+        "errors"?: string[];
+        "max"?: number;
+        "maxlength"?: number;
+        "min"?: number;
+        "minlength"?: number;
+        "multiple"?: boolean;
+        "name"?: string;
+        "pattern"?: string;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "required"?: boolean;
+        "rules"?: Rule[];
+        "size"?: number;
+        "src"?: string;
+        "step"?: number;
+        "type"?: | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "search"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+        "validity"?: ValidityState;
         "value"?: string;
     }
     interface FlItem {
@@ -304,6 +392,7 @@ declare namespace LocalJSX {
         "fl-badge": FlBadge;
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
+        "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-menu": FlMenu;
@@ -317,6 +406,7 @@ declare module "@stencil/core" {
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
