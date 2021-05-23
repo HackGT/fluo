@@ -5,9 +5,26 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { atypes } from "./components/alert/atypes";
 import { btypes, positions } from "./components/badge/btypes";
 import { Rule } from "./utils/utils";
 export namespace Components {
+    interface FlAlert {
+        "duration"?: number;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        "text"?: string;
+        /**
+          * The link's type
+         */
+        "type": | atypes.PRIMARY
+    | atypes.INFO
+    | atypes.SUCCESS
+    | atypes.WARNING
+    | atypes.DANGER;
+    }
     interface FlBadge {
         "pill": boolean;
         "position": positions;
@@ -167,6 +184,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFlAlertElement extends Components.FlAlert, HTMLStencilElement {
+    }
+    var HTMLFlAlertElement: {
+        prototype: HTMLFlAlertElement;
+        new (): HTMLFlAlertElement;
+    };
     interface HTMLFlBadgeElement extends Components.FlBadge, HTMLStencilElement {
     }
     var HTMLFlBadgeElement: {
@@ -216,6 +239,7 @@ declare global {
         new (): HTMLFlSwitchElement;
     };
     interface HTMLElementTagNameMap {
+        "fl-alert": HTMLFlAlertElement;
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
@@ -227,6 +251,22 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FlAlert {
+        "duration"?: number;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        "text"?: string;
+        /**
+          * The link's type
+         */
+        "type"?: | atypes.PRIMARY
+    | atypes.INFO
+    | atypes.SUCCESS
+    | atypes.WARNING
+    | atypes.DANGER;
+    }
     interface FlBadge {
         "pill"?: boolean;
         "position"?: positions;
@@ -389,6 +429,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
+        "fl-alert": FlAlert;
         "fl-badge": FlBadge;
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
@@ -403,6 +444,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fl-alert": LocalJSX.FlAlert & JSXBase.HTMLAttributes<HTMLFlAlertElement>;
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;

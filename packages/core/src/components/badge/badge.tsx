@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop} from "@stencil/core";
+import { Component, Host, h, Prop } from "@stencil/core";
 import { btypes, positions } from "./btypes";
 
 @Component({
@@ -7,24 +7,24 @@ import { btypes, positions } from "./btypes";
   shadow: true,
 })
 export class Badge {
+  @Prop() type: btypes = btypes.PRIMARY;
 
-@Prop() type: btypes = btypes.PRIMARY;
+  @Prop() pill = false;
 
-@Prop() pill = false;
+  @Prop() position: positions = positions.NONE;
 
-@Prop() position: positions = positions.NONE;
-
-render() {
-  return (
-    <Host 
-      class={{
-        "badge": true,
-        [`badge--${this.type}`]: true,
-        [`badge--${this.position}`]: true,
-        "badge-pill": this.pill,
-      }}> 
-      <slot></slot>
-    </Host>
-  );
-}
+  render() {
+    return (
+      <Host
+        class={{
+          badge: true,
+          [`badge--${this.type}`]: true,
+          [`badge--${this.position}`]: true,
+          "badge-pill": this.pill,
+        }}
+      >
+        <slot></slot>
+      </Host>
+    );
+  }
 }

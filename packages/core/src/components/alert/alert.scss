@@ -1,0 +1,46 @@
+:host {
+  display: block;
+
+  --fl-alert-border-radius: 16px;
+  --fl-alert-position: absolute;
+}
+
+:host(.alert) {
+  position: relative;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  border-radius: var(--fl-alert-border-radius);
+  text-align: center;
+
+  // Attributes of different badge types.
+  :host(&.alert--primary) {
+    background-color: var(--fl-color-primary);
+    color: var(--fl-color-primary-text);
+  }
+
+  :host(&.alert--success) {
+    background-color: var(--fl-color-success);
+    color: var(--fl-color-success-text);
+  }
+
+  :host(&.alert--danger) {
+    background-color: var(--fl-color-danger);
+    color: var(--fl-color-danger-text);
+  }
+
+  :host(&.alert--info) {
+    background-color: var(--fl-color-info);
+    color: var(--fl-color-info-text);
+  }
+
+  :host(&.alert--warning) {
+    background-color: var(--fl-color-warning);
+    color: var(--fl-color-warning-text);
+  }
+}
