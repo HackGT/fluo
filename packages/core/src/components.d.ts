@@ -11,6 +11,7 @@ import { Rule } from "./utils/utils";
 export namespace Components {
     interface FlAlert {
         "duration"?: number;
+        "heading"?: string;
         /**
           * Set to true to draw the link in a loading state.
          */
@@ -19,11 +20,10 @@ export namespace Components {
         /**
           * The link's type
          */
-        "type": | atypes.PRIMARY
-    | atypes.INFO
+        "type": | atypes.INFO
     | atypes.SUCCESS
     | atypes.WARNING
-    | atypes.DANGER;
+    | atypes.ERROR;
     }
     interface FlBadge {
         "pill": boolean;
@@ -59,6 +59,16 @@ export namespace Components {
           * The button's type
          */
         "variant": "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlCard {
+    }
+    interface FlCardBody {
+    }
+    interface FlCardCover {
+    }
+    interface FlCardFooter {
+    }
+    interface FlCardHeader {
     }
     interface FlCheckbox {
         /**
@@ -202,6 +212,36 @@ declare global {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
     };
+    interface HTMLFlCardElement extends Components.FlCard, HTMLStencilElement {
+    }
+    var HTMLFlCardElement: {
+        prototype: HTMLFlCardElement;
+        new (): HTMLFlCardElement;
+    };
+    interface HTMLFlCardBodyElement extends Components.FlCardBody, HTMLStencilElement {
+    }
+    var HTMLFlCardBodyElement: {
+        prototype: HTMLFlCardBodyElement;
+        new (): HTMLFlCardBodyElement;
+    };
+    interface HTMLFlCardCoverElement extends Components.FlCardCover, HTMLStencilElement {
+    }
+    var HTMLFlCardCoverElement: {
+        prototype: HTMLFlCardCoverElement;
+        new (): HTMLFlCardCoverElement;
+    };
+    interface HTMLFlCardFooterElement extends Components.FlCardFooter, HTMLStencilElement {
+    }
+    var HTMLFlCardFooterElement: {
+        prototype: HTMLFlCardFooterElement;
+        new (): HTMLFlCardFooterElement;
+    };
+    interface HTMLFlCardHeaderElement extends Components.FlCardHeader, HTMLStencilElement {
+    }
+    var HTMLFlCardHeaderElement: {
+        prototype: HTMLFlCardHeaderElement;
+        new (): HTMLFlCardHeaderElement;
+    };
     interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
     }
     var HTMLFlCheckboxElement: {
@@ -242,6 +282,11 @@ declare global {
         "fl-alert": HTMLFlAlertElement;
         "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
+        "fl-card": HTMLFlCardElement;
+        "fl-card-body": HTMLFlCardBodyElement;
+        "fl-card-cover": HTMLFlCardCoverElement;
+        "fl-card-footer": HTMLFlCardFooterElement;
+        "fl-card-header": HTMLFlCardHeaderElement;
         "fl-checkbox": HTMLFlCheckboxElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
@@ -253,6 +298,7 @@ declare global {
 declare namespace LocalJSX {
     interface FlAlert {
         "duration"?: number;
+        "heading"?: string;
         /**
           * Set to true to draw the link in a loading state.
          */
@@ -261,11 +307,10 @@ declare namespace LocalJSX {
         /**
           * The link's type
          */
-        "type"?: | atypes.PRIMARY
-    | atypes.INFO
+        "type"?: | atypes.INFO
     | atypes.SUCCESS
     | atypes.WARNING
-    | atypes.DANGER;
+    | atypes.ERROR;
     }
     interface FlBadge {
         "pill"?: boolean;
@@ -301,6 +346,16 @@ declare namespace LocalJSX {
           * The button's type
          */
         "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+    }
+    interface FlCard {
+    }
+    interface FlCardBody {
+    }
+    interface FlCardCover {
+    }
+    interface FlCardFooter {
+    }
+    interface FlCardHeader {
     }
     interface FlCheckbox {
         /**
@@ -432,6 +487,11 @@ declare namespace LocalJSX {
         "fl-alert": FlAlert;
         "fl-badge": FlBadge;
         "fl-button": FlButton;
+        "fl-card": FlCard;
+        "fl-card-body": FlCardBody;
+        "fl-card-cover": FlCardCover;
+        "fl-card-footer": FlCardFooter;
+        "fl-card-header": FlCardHeader;
         "fl-checkbox": FlCheckbox;
         "fl-input": FlInput;
         "fl-item": FlItem;
@@ -447,6 +507,11 @@ declare module "@stencil/core" {
             "fl-alert": LocalJSX.FlAlert & JSXBase.HTMLAttributes<HTMLFlAlertElement>;
             "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
+            "fl-card-body": LocalJSX.FlCardBody & JSXBase.HTMLAttributes<HTMLFlCardBodyElement>;
+            "fl-card-cover": LocalJSX.FlCardCover & JSXBase.HTMLAttributes<HTMLFlCardCoverElement>;
+            "fl-card-footer": LocalJSX.FlCardFooter & JSXBase.HTMLAttributes<HTMLFlCardFooterElement>;
+            "fl-card-header": LocalJSX.FlCardHeader & JSXBase.HTMLAttributes<HTMLFlCardHeaderElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;

@@ -1,16 +1,38 @@
 :host {
   display: block;
 
-  --fl-alert-border-radius: 16px;
+  --fl-alert-border-radius: 4px;
   --fl-alert-position: absolute;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Alert color tokens
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Success Colors
+  --fl-alert-success-fill: #eeffee;
+  --fl-alert-success-stroke: #27b43b;
+
+  // Warning Colors
+  --fl-alert-warning-fill: #FFFBEE;
+  --fl-alert-warning-stroke: #FEB72C;
+
+  // Error Colors
+  --fl-alert-error-fill: #FFEFEE;
+  --fl-alert-error-stroke: #ED443D;
+
+  // Info Colors
+  --fl-alert-info-fill: #EEF9FF;
+  --fl-alert-info-stroke: #33C2FF;
 }
 
 :host(.alert) {
   position: relative;
-  padding-top: 3px;
-  padding-bottom: 4px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-top: 32px;
+  margin-bottom: 32px;
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
@@ -18,29 +40,23 @@
   border-radius: var(--fl-alert-border-radius);
   text-align: center;
 
-  // Attributes of different badge types.
-  :host(&.alert--primary) {
-    background-color: var(--fl-color-primary);
-    color: var(--fl-color-primary-text);
-  }
-
   :host(&.alert--success) {
-    background-color: var(--fl-color-success);
-    color: var(--fl-color-success-text);
+    background-color: var(--fl-alert-success-fill);
+    border: 1px solid var(--fl-alert-success-stroke);
   }
 
-  :host(&.alert--danger) {
-    background-color: var(--fl-color-danger);
-    color: var(--fl-color-danger-text);
+  :host(&.alert--error) {
+    background-color: var(--fl-alert-error-fill);
+    border: 1px solid var(--fl-alert-error-stroke);
   }
 
   :host(&.alert--info) {
-    background-color: var(--fl-color-info);
-    color: var(--fl-color-info-text);
+    background-color: var(--fl-alert-info-fill);
+    border: 1px solid var(--fl-alert-info-stroke);
   }
 
   :host(&.alert--warning) {
-    background-color: var(--fl-color-warning);
-    color: var(--fl-color-warning-text);
+    background-color: var(--fl-alert-warning-fill);
+    border: 1px solid var(--fl-alert-warning-stroke);
   }
 }

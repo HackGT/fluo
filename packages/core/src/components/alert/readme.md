@@ -9,15 +9,9 @@ This is a alert component meant for use as a sort of notification bubble.
 ## Examples 
 
  <!--Some Badge Examples-->
-  <button style="height: 100px; width: 150px; padding: 20px; border: 2px solid #4CAF50; color: black; background-color: white">
-    <fl-alert>TEXT</fl-alert>
-  </button>
-  <button style="height: 100px; width: 150px; padding: 20px; border: 2px solid #4CAF50; color: black; background-color: white">
-    <fl-alert type='success'>TEXT</fl-alert>
-  </button>
-  <button style="height: 100px; width: 150px; padding: 20px; border: 2px solid #4CAF50; color: black; background-color: white">
-    <fl-alert type='warning'>TEXT</fl-alert>
-  </button>
+<fl-alert>TEXT</fl-alert>
+<fl-alert type='success'>TEXT</fl-alert>
+<fl-alert type='warning'>TEXT</fl-alert>
 
 
 <!-- Auto Generated Below -->

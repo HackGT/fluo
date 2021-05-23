@@ -9,13 +9,14 @@ import { atypes } from "./atypes";
 export class Alert {
   /** The link's type */
   @Prop({ reflect: true }) type:
-    | atypes.PRIMARY
     | atypes.INFO
     | atypes.SUCCESS
     | atypes.WARNING
-    | atypes.DANGER = atypes.PRIMARY;
+    | atypes.ERROR = atypes.INFO;
 
   @Prop() text?: string;
+
+  @Prop() heading?: string;
 
   @Prop() duration?: number = 500;
 
@@ -30,6 +31,7 @@ export class Alert {
           [`alert--${this.type}`]: true,
         }}
       >
+        <slot></slot>
         <slot></slot>
       </Host>
     );
