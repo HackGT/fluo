@@ -147,6 +147,12 @@ export namespace Components {
     }
     interface FlMenu {
     }
+    interface FlModal {
+        /**
+          * The title to be displayed in the modal. "Title" creates a conflict.
+         */
+        "header": string;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -209,6 +215,12 @@ declare global {
         prototype: HTMLFlMenuElement;
         new (): HTMLFlMenuElement;
     };
+    interface HTMLFlModalElement extends Components.FlModal, HTMLStencilElement {
+    }
+    var HTMLFlModalElement: {
+        prototype: HTMLFlModalElement;
+        new (): HTMLFlModalElement;
+    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -223,6 +235,7 @@ declare global {
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-menu": HTMLFlMenuElement;
+        "fl-modal": HTMLFlModalElement;
         "fl-switch": HTMLFlSwitchElement;
     }
 }
@@ -370,6 +383,12 @@ declare namespace LocalJSX {
          */
         "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
+    interface FlModal {
+        /**
+          * The title to be displayed in the modal. "Title" creates a conflict.
+         */
+        "header"?: string;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -396,6 +415,7 @@ declare namespace LocalJSX {
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-menu": FlMenu;
+        "fl-modal": FlModal;
         "fl-switch": FlSwitch;
     }
 }
@@ -410,6 +430,7 @@ declare module "@stencil/core" {
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
+            "fl-modal": LocalJSX.FlModal & JSXBase.HTMLAttributes<HTMLFlModalElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
         }
     }

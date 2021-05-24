@@ -1,0 +1,48 @@
+.modal {
+    position: absolute;
+    background: white;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    width: 50%; /* 6 cols = 50% */
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    padding: 32px;
+}
+
+.modal-root {
+    display: block;
+}
+
+.modal__open-true {
+    display: block; 
+    visibility: visible;
+}
+
+.modal__open-false {
+    display: none;
+    visibility: hidden;
+}
+
+.modal__wrapper-true {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(89, 89, 89, 0.7);
+}
+
+.modal__wrapper-false {
+    display: none;
+}
+
+.modal .modal-title {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 28.8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

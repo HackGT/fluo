@@ -15,4 +15,5 @@ export const FlInput = /*@__PURE__*/createReactComponent<JSX.FlInput, HTMLFlInpu
 export const FlItem = /*@__PURE__*/createReactComponent<JSX.FlItem, HTMLFlItemElement>('fl-item');
 export const FlLink = /*@__PURE__*/createReactComponent<JSX.FlLink, HTMLFlLinkElement>('fl-link');
 export const FlMenu = /*@__PURE__*/createReactComponent<JSX.FlMenu, HTMLFlMenuElement>('fl-menu');
+export const FlModal = /*@__PURE__*/createReactComponent<JSX.FlModal, HTMLFlModalElement>('fl-modal');
 export const FlSwitch = /*@__PURE__*/createReactComponent<JSX.FlSwitch, HTMLFlSwitchElement>('fl-switch');
