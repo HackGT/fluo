@@ -1,6 +1,6 @@
 import { Component, h, Prop, Host } from "@stencil/core";
 import { atypes } from "./atypes";
-import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon } from './icons';
+import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon, CloseIcon } from './icons';
 
 @Component({
   tag: "fl-alert",
@@ -53,7 +53,7 @@ export class Alert {
           <slot></slot>
         </p>
         <button onClick={this.handleOnClose} class="close">
-          &#215;
+          <CloseIcon />
         </button>
       </Host>
     );
