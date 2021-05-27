@@ -1,5 +1,6 @@
 import { Component, h, Prop, Host } from "@stencil/core";
 import { atypes } from "./atypes";
+import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon } from './icons';
 
 @Component({
   tag: "fl-alert",
@@ -23,6 +24,13 @@ export class Alert {
   /** Set to true to draw the link in a loading state. */
   @Prop({ reflect: true }) loading = false;
 
+  icons = {
+    'success': <SuccessIcon />,
+    'warning': <WarningIcon />,
+    'error': <ErrorIcon />,
+    'info': <InfoIcon />
+  }
+
   handleOnClose = () => {
     this.closed = true;
   };
@@ -39,7 +47,7 @@ export class Alert {
           "alert--fixed": this.fixed,
         }}
       >
-        <p class="icon">{this.check}</p>
+        <p class='icon'>{this.icons[this.type]}</p>
         <h3 class="heading">{this.heading}</h3>
         <p class="body">
           <slot></slot>
