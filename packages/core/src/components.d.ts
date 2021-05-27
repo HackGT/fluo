@@ -10,20 +10,19 @@ import { btypes, positions } from "./components/badge/btypes";
 import { Rule } from "./utils/utils";
 export namespace Components {
     interface FlAlert {
+        "body"?: string;
+        "closed"?: boolean;
         "duration"?: number;
+        "fixed": boolean;
         "heading"?: string;
         /**
           * Set to true to draw the link in a loading state.
          */
         "loading": boolean;
-        "text"?: string;
         /**
           * The link's type
          */
-        "type": | atypes.INFO
-    | atypes.SUCCESS
-    | atypes.WARNING
-    | atypes.ERROR;
+        "type": atypes;
     }
     interface FlBadge {
         "pill": boolean;
@@ -297,20 +296,19 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FlAlert {
+        "body"?: string;
+        "closed"?: boolean;
         "duration"?: number;
+        "fixed"?: boolean;
         "heading"?: string;
         /**
           * Set to true to draw the link in a loading state.
          */
         "loading"?: boolean;
-        "text"?: string;
         /**
           * The link's type
          */
-        "type"?: | atypes.INFO
-    | atypes.SUCCESS
-    | atypes.WARNING
-    | atypes.ERROR;
+        "type"?: atypes;
     }
     interface FlBadge {
         "pill"?: boolean;
