@@ -15,8 +15,6 @@ export class Alert {
 
   @Prop() heading?: string;
 
-  @Prop() duration?: number = 500;
-
   @Prop() fixed: boolean = false;
 
   @Prop() closed?: boolean = false;
@@ -35,11 +33,10 @@ export class Alert {
     this.closed = true;
   };
 
-  check = "✅";
-
   render() {
     return (
       <Host
+        id='alert'
         class={{
           alert: true,
           [`alert--${this.type}`]: true,
