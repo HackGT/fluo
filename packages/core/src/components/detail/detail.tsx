@@ -2,11 +2,11 @@ import { Host, Component, Prop, h } from "@stencil/core";
 import { DownArrow } from "./icons";
 
 @Component({
-  tag: "fl-detail",
+  tag: "fl-details",
   styleUrl: "detail.scss",
   shadow: true,
 })
-export class Badge {
+export class Detail {
   @Prop() opened: boolean = false;
 
   @Prop() disabled: boolean = false;

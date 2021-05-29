@@ -1,15 +1,18 @@
 ---
-title: detail
+title: details
 ---
 
-# fl-detail
+# fl-details
 
-This is a badge component meant for use as a sort of notification bubble.
+This is a detail component that holds extra information which can be shown when expanded.
 
 ## Examples 
 
-<fl-detail heading='Panel Header'>This is a test to test the length of the textbox</fl-detail>
-
+<fl-details heading='Standard Detail'>This is a test to test the length of the textbox.</fl-details>
+<fl-details heading='Detail with Heading'>
+<b>Heading</b><br />
+This is a test to test the length of the textbox.
+</fl-details>
 
 <!-- Auto Generated Below -->
 

@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-
-  --fl-badge-border-radius: 4px;
-  --fl-badge-position: absolute;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .detail {
@@ -13,6 +12,7 @@
   border: 1px solid var(--fl-color-light-gray);
   border-radius: var(--fl-badge-border-radius);
   transition: background-color 0.2s ease-in-out;
+  border-radius: 4px 4px 4px 4px;
 
   &.detail--opened {
     background-color: var(--fl-color-light-gray) !important;
@@ -45,16 +45,18 @@
 }
 
 .text-container {
-  transition: max-height 1s linear;
-
   &.text-container--closed {
-    max-height: 0;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top;
+    transform: scaleY(0);
   }
 
   &.text-container--opened {
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top;
+    transform: scaleY(1);
     border: 1px solid var(--fl-color-light-gray);
     border-radius: 0px 0px 4px 4px;
-    max-height: 500px;
     padding-left: 24px;
     padding-right: 24px;
   }
