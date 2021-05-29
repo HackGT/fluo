@@ -45,16 +45,18 @@
 }
 
 .text-container {
-  transition: max-height 1s linear;
-
   &.text-container--closed {
-    max-height: 0;
+    transition: transform 0.1s linear;
+    transform-origin: top;
+    transform: scaleY(0);
   }
 
   &.text-container--opened {
+    transition: transform 0.1s linear;
+    transform-origin: top;
+    transform: scaleY(1);
     border: 1px solid var(--fl-color-light-gray);
     border-radius: 0px 0px 4px 4px;
-    max-height: 500px;
     padding-left: 24px;
     padding-right: 24px;
   }
