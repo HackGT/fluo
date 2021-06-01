@@ -36,6 +36,19 @@ This is a button
 | `"label"` |             |
 
 
+## Dependencies
+
+### Used by
+
+ - [fl-modal](../modal)
+
+### Graph
+```mermaid
+graph TD;
+  fl-modal --> fl-button
+  style fl-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 
