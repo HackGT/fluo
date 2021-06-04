@@ -5,14 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { btypes, positions } from "./components/badge/btypes";
 import { Rule } from "./utils/utils";
 export namespace Components {
-    interface FlBadge {
-        "pill": boolean;
-        "position": positions;
-        "type": btypes;
-    }
     interface FlButton {
         /**
           * Set to true to disable the button.
@@ -167,12 +161,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLFlBadgeElement extends Components.FlBadge, HTMLStencilElement {
-    }
-    var HTMLFlBadgeElement: {
-        prototype: HTMLFlBadgeElement;
-        new (): HTMLFlBadgeElement;
-    };
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
     }
     var HTMLFlButtonElement: {
@@ -216,7 +204,6 @@ declare global {
         new (): HTMLFlSwitchElement;
     };
     interface HTMLElementTagNameMap {
-        "fl-badge": HTMLFlBadgeElement;
         "fl-button": HTMLFlButtonElement;
         "fl-checkbox": HTMLFlCheckboxElement;
         "fl-input": HTMLFlInputElement;
@@ -227,11 +214,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface FlBadge {
-        "pill"?: boolean;
-        "position"?: positions;
-        "type"?: btypes;
-    }
     interface FlButton {
         /**
           * Set to true to disable the button.
@@ -389,7 +371,6 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
-        "fl-badge": FlBadge;
         "fl-button": FlButton;
         "fl-checkbox": FlCheckbox;
         "fl-input": FlInput;
@@ -403,7 +384,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;

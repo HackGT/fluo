@@ -8,7 +8,6 @@ import type { JSX } from '@fluo/core';
 import { defineCustomElements } from '@fluo/core/loader';
 
 defineCustomElements();
-export const FlBadge = /*@__PURE__*/createReactComponent<JSX.FlBadge, HTMLFlBadgeElement>('fl-badge');
 export const FlButton = /*@__PURE__*/createReactComponent<JSX.FlButton, HTMLFlButtonElement>('fl-button');
 export const FlCheckbox = /*@__PURE__*/createReactComponent<JSX.FlCheckbox, HTMLFlCheckboxElement>('fl-checkbox');
 export const FlInput = /*@__PURE__*/createReactComponent<JSX.FlInput, HTMLFlInputElement>('fl-input');
