@@ -39,8 +39,10 @@
 
   --spacing-x-small: var(--base-unit);
   --spacing-small: calc(var(--base-unit) * 2);
-  --spacing-medium: calc(var(--base-unit) * 4);
-  --spacing-large: calc(var(--base-unit) * 6);
-  --spacing-x-large: calc(var(--base-unit) * 8);
+  --spacing-medium: calc(var(--base-unit) * 3);
+  --spacing-large: calc(var(--base-unit) * 4);
+  --spacing-x-large: calc(var(--base-unit) * 5);
+  --spacing-xx-large: calc(var(--base-unit) * 6);
+  --spacing-xxx-large: calc(var(--base-unit) * 7);
 
 }

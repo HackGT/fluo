@@ -1,5 +1,4 @@
 :host button {
-  padding: var(--spacing-small) var(--spacing-large);
   border-radius: var(--base-unit);
   border-style: none;
   color: var(--color-white);
@@ -9,6 +8,10 @@
 
 :host button:active {
   transform: scale(0.95);
+}
+
+:host button:disabled {
+  pointer-events: none;
 }
 
 /*
@@ -28,6 +31,15 @@
   border: none;
 }
 
+// Size
+:host([size="normal"]) button {
+  padding: var(--spacing-small) var(--spacing-xx-large);
+}
+
+:host([size="large"]) button {
+  padding: var(--spacing-medium) var(--spacing-xxx-large);
+}
+
 // Primary
 :host([variant="primary"]) button {
   background: var(--color-primary);
@@ -44,7 +56,6 @@
 :host([variant="primary"]) button:disabled {
   background: var(--color-light-gray);
   color: var(--color-gray);
-  pointer-events: none;
 }
 
 // Secondary
@@ -56,6 +67,16 @@
 
 :host([variant="secondary"]) button:hover {
   background: var(--color-secondary-hover);
+}
+
+:host([variant="secondary"]) button:active {
+  background: var(--color-secondary);
+}
+
+:host([variant="secondary"]) button:disabled {
+  background: var(--color-white);
+  color: var(--color-light-gray);
+  border: 1px solid var(--color-light-gray);
 }
 
 // Success 

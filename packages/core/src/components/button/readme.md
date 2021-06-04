@@ -21,6 +21,12 @@ This is a button
 ### Disabled
 
 <fl-button disabled>Disabled</fl-button>
+<fl-button variant="secondary" disabled>Disabled (secondary)</fl-button>
+
+### Sizes
+
+<fl-button>Normal</fl-button>
+<fl-button size="large">Large</fl-button>
 
 ### Loading
 
