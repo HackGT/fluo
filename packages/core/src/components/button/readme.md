@@ -11,6 +11,15 @@ This is a button
 <fl-button>
   this is another button
 </fl-button>
+<fl-button loading>
+  this is another button
+</fl-button>
+<fl-button disabled>
+  this is another button
+</fl-button>
+<fl-button disabled>
+  this is another button
+</fl-button>
 
 <!-- Auto Generated Below -->
 

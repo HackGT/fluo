@@ -8,7 +8,7 @@ import { Rule } from "../../utils/utils";
 })
 export class Input {
   input: HTMLInputElement;
-  @Element() host;
+  @Element() host: HTMLFlInputElement;
 
   @Prop() accept: string;
   @Prop() alt: string;
