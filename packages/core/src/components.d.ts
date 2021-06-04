@@ -17,25 +17,25 @@ export namespace Components {
          */
         "loading": boolean;
         /**
-          * An optional name for the button.
+          * Button name, used in forms
          */
-        "name": string;
+        "name"?: string;
         /**
-          * The button's size
+          * Button size
          */
-        "size": "small" | "medium" | "large";
+        "size": "normal" | "large";
         /**
-          * The button's type.
+          * Button function
          */
         "type"?: "submit" | "reset" | "button";
         /**
-          * An optional value for the button.
+          * Button value, used in forms
          */
-        "value": string;
+        "value"?: string;
         /**
-          * The button's type
+          * Button variant
          */
-        "variant": "default" | "primary" | "success" | "warning" | "danger";
+        "variant": "primary" | "secondary" | "success" | "warning" | "danger";
     }
     interface FlCheckbox {
         /**
@@ -224,25 +224,25 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
-          * An optional name for the button.
+          * Button name, used in forms
          */
         "name"?: string;
         /**
-          * The button's size
+          * Button size
          */
-        "size"?: "small" | "medium" | "large";
+        "size"?: "normal" | "large";
         /**
-          * The button's type.
+          * Button function
          */
         "type"?: "submit" | "reset" | "button";
         /**
-          * An optional value for the button.
+          * Button value, used in forms
          */
         "value"?: string;
         /**
-          * The button's type
+          * Button variant
          */
-        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+        "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
     }
     interface FlCheckbox {
         /**

@@ -8,9 +8,23 @@ This is a button
 
 ## Examples
 
-<fl-button>
-  this is another button
-</fl-button>
+<fl-button>Press me!</fl-button>
+
+### Variants
+
+<fl-button variant="primary">Primary</fl-button>
+<fl-button variant="secondary">Secondary</fl-button>
+<fl-button variant="success">Success</fl-button>
+<fl-button variant="warning">Warning</fl-button>
+<fl-button variant="danger">Danger</fl-button>
+
+### Disabled
+
+<fl-button disabled>Disabled</fl-button>
+
+### Loading
+
+unimplemented()
 
 <!-- Auto Generated Below -->
 
@@ -26,15 +40,6 @@ This is a button
 | `type`     | `type`     | The button's type.                                 | `"button" \| "reset" \| "submit"`                              | `undefined` |
 | `value`    | `value`    | An optional value for the button.                  | `string`                                                       | `undefined` |
 | `variant`  | `variant`  | The button's type                                  | `"danger" \| "default" \| "primary" \| "success" \| "warning"` | `"default"` |
-
-
-## Shadow Parts
-
-| Part      | Description |
-| --------- | ----------- |
-| `"icon"`  |             |
-| `"label"` |             |
-
 
 ----------------------------------------------
 
