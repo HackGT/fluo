@@ -10,16 +10,17 @@
   justify-content: center;
   width: 100%;
   border-style: solid;
-  border-width: var(--fl-input-border-width);
-  font-family: var(--fl-input-font-family);
+  border-width: 1px;
+  font-family: var(--fl-font-sans);
   font-weight: var(--fl-font-weight-semibold);
   text-decoration: none;
   user-select: none;
   white-space: nowrap;
   vertical-align: middle;
   padding: 0;
-  transition: var(--fl-transition-fast) background-color, var(--fl-transition-fast) color,
-    var(--fl-transition-fast) border, var(--fl-transition-fast) box-shadow;
+  transition: var(--fl-transition-fast) background-color,
+    var(--fl-transition-fast) color, var(--fl-transition-fast) border,
+    var(--fl-transition-fast) box-shadow;
   cursor: inherit;
 
   &::-moz-focus-inner {
@@ -59,7 +60,8 @@
       background-color: var(--fl-color-primary-50);
       border-color: var(--fl-color-primary-300);
       color: var(--fl-color-primary-600);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-primary);
+      box-shadow: 0 0 0 var(--fl-focus-ring-width)
+        var(--fl-focus-ring-color-primary);
     }
 
     &:active:not(.button--disabled) {
@@ -84,7 +86,8 @@
       background-color: var(--fl-color-primary-400);
       border-color: var(--fl-color-primary-400);
       color: var(--fl-color-primary-text);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-primary);
+      box-shadow: 0 0 0 var(--fl-focus-ring-width)
+        var(--fl-focus-ring-color-primary);
     }
 
     &:active:not(.button--disabled) {
@@ -109,7 +112,8 @@
       background-color: var(--fl-color-success-400);
       border-color: var(--fl-color-success-400);
       color: var(--fl-color-success-text);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-success);
+      box-shadow: 0 0 0 var(--fl-focus-ring-width)
+        var(--fl-focus-ring-color-success);
     }
 
     &:active:not(.button--disabled) {
@@ -134,7 +138,8 @@
       background-color: var(--fl-color-warning-400);
       border-color: var(--fl-color-warning-400);
       color: var(--fl-color-warning-text);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-warning);
+      box-shadow: 0 0 0 var(--fl-focus-ring-width)
+        var(--fl-focus-ring-color-warning);
     }
 
     &:active:not(.button--disabled) {
@@ -159,7 +164,8 @@
       background-color: var(--fl-color-danger-400);
       border-color: var(--fl-color-danger-400);
       color: var(--fl-color-danger-text);
-      box-shadow: 0 0 0 var(--fl-focus-ring-width) var(--fl-focus-ring-color-danger);
+      box-shadow: 0 0 0 var(--fl-focus-ring-width)
+        var(--fl-focus-ring-color-danger);
     }
 
     &:active:not(.button--disabled) {
@@ -177,7 +183,9 @@
 .button--small {
   font-size: var(--fl-font-size-small);
   height: var(--fl-input-height-small);
-  line-height: calc(var(--fl-input-height-small) - var(--fl-input-border-width) * 2);
+  line-height: calc(
+    var(--fl-input-height-small) - var(--fl-input-border-width) * 2
+  );
   border-radius: var(--fl-border-radius-small);
 
   .button__label {
@@ -199,7 +207,9 @@
 .button--large {
   font-size: var(--fl-font-size-large);
   height: var(--fl-input-height-large);
-  line-height: calc(var(--fl-input-height-large) - var(--fl-input-border-width) * 2);
+  line-height: calc(
+    var(--fl-input-height-large) - var(--fl-input-border-width) * 2
+  );
   border-radius: var(--fl-border-radius-large);
 
   .button__label {

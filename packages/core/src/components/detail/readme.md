@@ -10,7 +10,7 @@ This is a detail component that holds extra information which can be shown when 
 
 <fl-details heading='Standard Detail'>This is a test to test the length of the textbox.</fl-details>
 <fl-details heading='Detail with Heading'>
-<b>Heading</b><br />
+<h1>Heading</h1>
 This is a test to test the length of the textbox.
 </fl-details>
 

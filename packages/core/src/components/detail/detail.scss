@@ -46,13 +46,13 @@
 
 .text-container {
   &.text-container--closed {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     transform-origin: top;
     transform: scaleY(0);
   }
 
   &.text-container--opened {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     transform-origin: top;
     transform: scaleY(1);
     border: 1px solid var(--fl-color-light-gray);
