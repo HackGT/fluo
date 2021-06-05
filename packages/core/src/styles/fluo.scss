@@ -29,6 +29,7 @@
   // Misc
   --color-focus: #33C2FF;
   --color-purple: #7B69EC;
+  --color-light-purple: #E4E2F9;
   --color-shadow: rgba(52, 27, 213, 0.2); 
   
   // === Base unit === //
@@ -37,12 +38,20 @@
 
   // === Spacing === //
 
-  --spacing-x-small: var(--base-unit);
-  --spacing-small: calc(var(--base-unit) * 2);
-  --spacing-medium: calc(var(--base-unit) * 3);
-  --spacing-large: calc(var(--base-unit) * 4);
-  --spacing-x-large: calc(var(--base-unit) * 5);
-  --spacing-xx-large: calc(var(--base-unit) * 6);
-  --spacing-xxx-large: calc(var(--base-unit) * 7);
+  --spacing-1: var(--base-unit);
+  --spacing-2: calc(var(--base-unit) * 2);
+  --spacing-3: calc(var(--base-unit) * 3);
+  --spacing-4: calc(var(--base-unit) * 4);
+  --spacing-5: calc(var(--base-unit) * 5);
+  --spacing-6: calc(var(--base-unit) * 6);
+  --spacing-7: calc(var(--base-unit) * 7);
+  --spacing-8: calc(var(--base-unit) * 8);
 
+  // === Shadows === //
+
+  --shadow: 
+    0px 
+    var(--base-unit) 
+    calc(var(--base-unit) * 2)
+    rgba(33, 36, 41, 0.1);
 }

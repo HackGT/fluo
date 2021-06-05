@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  box-shadow: var(--shadow);
+  border-radius: var(--base-unit);
+  border: 1px solid var(--color-light-gray);
+
+  max-width: 400px;
+}
+
+:host .content {
+  padding: var(--spacing-2) var(--spacing-8);
+}
+
+::slotted([slot="overline"]),
+::slotted([slot="title"]),
+::slotted([slot="body"]),
+::slotted([slot="actions"]) {
+  margin: var(--spacing-4) 0px;
+}
+
+::slotted([slot="overline"]) {
+  color: var(--color-gray);
+  text-transform: uppercase;
+}
+
+::slotted(h1),
+::slotted(h2),
+::slotted(h3),
+::slotted(h4),
+::slotted(h5),
+::slotted(h6) {
+  font-weight: 400;
+}
+
+::slotted(p) {
+  color: var(--color-gray); 
+}
+
+::slotted([slot="media"]) {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: var(--base-unit);
+  border-top-right-radius: var(--base-unit);
+}
+
+/* === Sizes === */
+
+:host([size="medium"]) {
+  max-width: 500px;
+}
+
+:host([size="large"]) {
+  max-width: 600px;
+}
+
+/* TODO orientation */
