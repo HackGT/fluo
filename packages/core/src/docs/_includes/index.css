@@ -83,37 +83,6 @@ header a:visited {
   color: #e2e2e2;
 }
 
-header fl-switch::part(track) {
-  --track-color-on: yellow;
-  border: 1px solid black;
-}
-
-header fl-switch::part(thumb) {
-  background: white;
-  border: 2px solid black;
-}
-
-header fl-switch::part(thumb)::after {
-  position: absolute;
-  content: "🌞";
-  transform: translate(50%, -50%);
-  font-size: 1rem;
-  top: 55%;
-  left: -40%;
-}
-
-header fl-switch[on]::part(thumb) {
-  background: black;
-}
-
-header fl-switch[on]::part(thumb)::after {
-  content: "🌙";
-  font-size: 0.8rem;
-  top: 50%;
-  left: -30%;
-  transform: translate(50%, -50%);
-}
-
 /* === Tables === */
 
 table {
