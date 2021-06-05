@@ -56,6 +56,19 @@ unimplemented()
 | `"label"` |             |
 
 
+## Dependencies
+
+### Used by
+
+ - [fl-upload](../upload)
+
+### Graph
+```mermaid
+graph TD;
+  fl-upload --> fl-button
+  style fl-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

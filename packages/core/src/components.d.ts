@@ -166,6 +166,11 @@ export namespace Components {
         "removable": boolean;
         "text": string;
     }
+    interface FlTextarea {
+        "errors": string[];
+        "rules": Rule[];
+        "validity": ValidityState;
+    }
     interface FlUpload {
         "files": File[];
     }
@@ -225,6 +230,12 @@ declare global {
         prototype: HTMLFlTagElement;
         new (): HTMLFlTagElement;
     };
+    interface HTMLFlTextareaElement extends Components.FlTextarea, HTMLStencilElement {
+    }
+    var HTMLFlTextareaElement: {
+        prototype: HTMLFlTextareaElement;
+        new (): HTMLFlTextareaElement;
+    };
     interface HTMLFlUploadElement extends Components.FlUpload, HTMLStencilElement {
     }
     var HTMLFlUploadElement: {
@@ -241,6 +252,7 @@ declare global {
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
+        "fl-textarea": HTMLFlTextareaElement;
         "fl-upload": HTMLFlUploadElement;
     }
 }
@@ -408,6 +420,11 @@ declare namespace LocalJSX {
         "removable"?: boolean;
         "text"?: string;
     }
+    interface FlTextarea {
+        "errors"?: string[];
+        "rules"?: Rule[];
+        "validity"?: ValidityState;
+    }
     interface FlUpload {
         "files"?: File[];
     }
@@ -421,6 +438,7 @@ declare namespace LocalJSX {
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
+        "fl-textarea": FlTextarea;
         "fl-upload": FlUpload;
     }
 }
@@ -437,6 +455,7 @@ declare module "@stencil/core" {
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
+            "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;
             "fl-upload": LocalJSX.FlUpload & JSXBase.HTMLAttributes<HTMLFlUploadElement>;
         }
     }

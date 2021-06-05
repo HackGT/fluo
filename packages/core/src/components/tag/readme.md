@@ -33,6 +33,19 @@ title: tag
 | `text`         | `text`      |             | `string`                      | `"<missing text>"`                                          |
 
 
+## Dependencies
+
+### Used by
+
+ - [fl-upload](../upload)
+
+### Graph
+```mermaid
+graph TD;
+  fl-upload --> fl-tag
+  style fl-tag fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

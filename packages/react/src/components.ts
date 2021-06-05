@@ -17,4 +17,5 @@ export const FlLink = /*@__PURE__*/createReactComponent<JSX.FlLink, HTMLFlLinkEl
 export const FlMenu = /*@__PURE__*/createReactComponent<JSX.FlMenu, HTMLFlMenuElement>('fl-menu');
 export const FlSwitch = /*@__PURE__*/createReactComponent<JSX.FlSwitch, HTMLFlSwitchElement>('fl-switch');
 export const FlTag = /*@__PURE__*/createReactComponent<JSX.FlTag, HTMLFlTagElement>('fl-tag');
+export const FlTextarea = /*@__PURE__*/createReactComponent<JSX.FlTextarea, HTMLFlTextareaElement>('fl-textarea');
 export const FlUpload = /*@__PURE__*/createReactComponent<JSX.FlUpload, HTMLFlUploadElement>('fl-upload');
