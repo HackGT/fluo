@@ -6,12 +6,11 @@ import { Component, h, Prop } from "@stencil/core";
   shadow: true
 })
 export class Button {
+  /** Button variant */
+  @Prop({ reflect: true }) variant: "primary" | "secondary" | "success" | "warning" | "danger" = "primary";
 
-  /** The button's type */
-  @Prop({ reflect: true }) variant: "default" | "primary" | "success" | "warning" | "danger" = "default";
-
-  /** The button's size */
-  @Prop({ reflect: true }) size: "small" | "medium" | "large" = "medium";
+  /** Button size */
+  @Prop({ reflect: true }) size: "normal" | "large" = "normal"
 
   /** Set to true to disable the button. */
   @Prop({ reflect: true }) disabled = false;
@@ -19,27 +18,18 @@ export class Button {
   /** Set to true to draw the button in a loading state. */
   @Prop({ reflect: true }) loading = false;
 
-  /** The button's type. */
-  @Prop() type?: "submit" | "reset" | "button";
+  /** Button function */
+  @Prop({ reflect: true }) type?: "submit" | "reset" | "button";
 
-  /** An optional name for the button. */
-  @Prop() name: string;
+  /** Button name, used in forms */
+  @Prop({ reflect: true }) name?: string;
 
-  /** An optional value for the button. */
-  @Prop() value: string;
-
+  /** Button value, used in forms */
+  @Prop({ reflect: true }) value?: string;
 
   render() {
     return (
       <button
-        class={{
-          button: true,
-          [`button--${this.variant}`]: true,
-          [`button--${this.size}`]: true,
-          "button--disabled": this.disabled,
-          "button--loading": this.loading
-        }}
-
         disabled={this.disabled}
         type={this.type}
         name={this.name}

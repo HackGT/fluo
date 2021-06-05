@@ -1,41 +1,39 @@
 :host {
-  display: flex;
-  width: 300px;
-  flex-direction: column;
+  box-sizing: border-box;
+  display: block;
   font-family: Roobert, sans-serif;
 }
 
-input {
-  border-radius: 4px;
-  height: 40px;
-  width: 300px;
-  border: 1px solid black;
-  padding: 8px 12px;
-  font-size: 16px;
+:host * {
+  box-sizing: inherit;
 }
 
-input:active {
+textarea {
+  height: 80px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: var(--base-unit);
+  font-family: Roobert, sans-serif;
+}
+
+textarea:active {
   border: 1px solid red;
 }
 
-input:autofill {
-  background: var(--color-light-purple);
-}
-
-input:disabled {
-  color: var(--color-gray);
-  border: 1px solid var(--color-gray);
-  background: var(--color-light-gray);
-}
-
-input:focus {
+textarea:focus {
   border: 1px solid var(--color-purple);
   outline: none;
   filter: drop-shadow(0px 0px 2px var(--color-purple));
 }
 
-/* TODO add more styles for different states, like error */
-input:invalid {
+textarea:disabled {
+  color: var(--color-gray);
+  border: 1px solid var(--color-gray);
+  background: var(--color-light-gray);
+}
+
+textarea:invalid {
   border: 1px solid #ff6868;
   box-shadow: 0px 0px 3px #ff6b6b;
   filter: none;
@@ -54,4 +52,3 @@ input:invalid {
     list-style: none;
   }
 }
-

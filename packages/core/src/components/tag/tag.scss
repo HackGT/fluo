@@ -1,0 +1,31 @@
+:host {
+  box-sizing: border-box;
+  display: inline-block;
+  background: var(--color-light-gray);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--base-unit);
+}
+
+:host * {
+  box-sizing: inherit;
+}
+
+span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cross {
+  display: inline-flex;
+  margin-left: var(--spacing-1);
+  padding: 4px;
+  border-radius: var(--base-unit);
+}
+
+.cross:hover {
+  background: var(--color-gray);
+}
+
+.cross:hover svg path {
+  fill: var(--color-white);
+}

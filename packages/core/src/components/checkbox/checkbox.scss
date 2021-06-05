@@ -1,5 +1,6 @@
 :host {
   display: inline-block;
+  box-sizing: border-box;
 
   input {
     opacity: 0;
@@ -10,32 +11,55 @@
   .control {
     position: relative;
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    border: 2px solid black;
-    border-radius: 4px;
+    width: calc(var(--base-unit) * 4);
+    height: calc(var(--base-unit) * 4);
+    border: 1px solid var(--color-gray);
+    border-radius: var(--base-unit);
     top: 50%;
-    margin-right: 10px;
+    margin-right: calc(var(--base-unit)*2.5);
   }
   
+}
+
+:host * {
+  box-sizing: inherit;
 }
 
 :host(:hover) * {
   cursor: pointer;
 }
 
+:host(:hover) .control {
+  border: 1px solid var(--color-purple);
+  outline: none;
+  filter: drop-shadow(0px 0px 2px var(--color-purple));
+}
+
 :host([disabled]) {
-  * {
-    cursor: not-allowed;
-  }
+  pointer-events: none;
+}
 
-  .control {
-    opacity: 0.5;
-  }
+:host([disabled]) .control {
+  background: var(--color-light-gray);      
+}
 
-  span[part=label] {
-    opacity: 0.5; 
-  }
+:host([disabled]) span[part=label] {
+  opacity: 0.5; 
+}
+
+:host([checked]) .control, 
+:host([indeterminate]) .control {
+  border: 1px solid var(--color-purple);
+  outline: none;
+  filter: drop-shadow(0px 0px 2px var(--color-purple));
+}
+
+:host([checked]) .control {
+  background: var(--color-purple);
+}
+
+:host([indeterminate]) .control {
+  background: var(--color-light-purple);
 }
 
 .checked, .indeterminate {
@@ -47,3 +71,6 @@
   align-items: center;
 }
 
+
+/* TODO focus styles */
+/* TODO organize style sheet */

@@ -10,6 +10,8 @@ title: input
   type="email"
 />
 
+<fl-input disabled placeholder="Disabled"></fl-input>
+
 
 <!-- Auto Generated Below -->
 
