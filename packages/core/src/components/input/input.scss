@@ -18,18 +18,27 @@ input:active {
   border: 1px solid red;
 }
 
-input:focus {
-  border: 1px solid #7B69EC;
+input:autofill {
+  background: var(--color-light-purple);
 }
 
 input:disabled {
-  background: grey;
+  color: var(--color-gray);
+  border: 1px solid var(--color-gray);
+  background: var(--color-light-gray);
+}
+
+input:focus {
+  border: 1px solid var(--color-purple);
+  outline: none;
+  filter: drop-shadow(0px 0px 2px var(--color-purple));
 }
 
 /* TODO add more styles for different states, like error */
 input:invalid {
   border: 1px solid #ff6868;
   box-shadow: 0px 0px 3px #ff6b6b;
+  filter: none;
 }
 
 .error-msg {
@@ -39,8 +48,10 @@ input:invalid {
 
   ul {
     margin: 0px;
+    padding: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
+    list-style: none;
   }
 }
 

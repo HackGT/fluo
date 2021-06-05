@@ -1,6 +1,5 @@
 html {
   font-family: "Roobert", sans-serif;
-  box-sizing: border-box;
 }
 
 :not(:defined) {
