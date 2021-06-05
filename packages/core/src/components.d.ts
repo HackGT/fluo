@@ -37,6 +37,8 @@ export namespace Components {
          */
         "variant": "primary" | "secondary" | "success" | "warning" | "danger";
     }
+    interface FlCard {
+    }
     interface FlCheckbox {
         /**
           * Determines is checkbox is checked
@@ -159,6 +161,14 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlTag {
+        "handleRemove": (event: MouseEvent) => void;
+        "removable": boolean;
+        "text": string;
+    }
+    interface FlUpload {
+        "files": File[];
+    }
 }
 declare global {
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
@@ -166,6 +176,12 @@ declare global {
     var HTMLFlButtonElement: {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
+    };
+    interface HTMLFlCardElement extends Components.FlCard, HTMLStencilElement {
+    }
+    var HTMLFlCardElement: {
+        prototype: HTMLFlCardElement;
+        new (): HTMLFlCardElement;
     };
     interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
     }
@@ -203,14 +219,29 @@ declare global {
         prototype: HTMLFlSwitchElement;
         new (): HTMLFlSwitchElement;
     };
+    interface HTMLFlTagElement extends Components.FlTag, HTMLStencilElement {
+    }
+    var HTMLFlTagElement: {
+        prototype: HTMLFlTagElement;
+        new (): HTMLFlTagElement;
+    };
+    interface HTMLFlUploadElement extends Components.FlUpload, HTMLStencilElement {
+    }
+    var HTMLFlUploadElement: {
+        prototype: HTMLFlUploadElement;
+        new (): HTMLFlUploadElement;
+    };
     interface HTMLElementTagNameMap {
         "fl-button": HTMLFlButtonElement;
+        "fl-card": HTMLFlCardElement;
         "fl-checkbox": HTMLFlCheckboxElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
+        "fl-tag": HTMLFlTagElement;
+        "fl-upload": HTMLFlUploadElement;
     }
 }
 declare namespace LocalJSX {
@@ -243,6 +274,8 @@ declare namespace LocalJSX {
           * Button variant
          */
         "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
+    }
+    interface FlCard {
     }
     interface FlCheckbox {
         /**
@@ -370,14 +403,25 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface FlTag {
+        "handleRemove"?: (event: MouseEvent) => void;
+        "removable"?: boolean;
+        "text"?: string;
+    }
+    interface FlUpload {
+        "files"?: File[];
+    }
     interface IntrinsicElements {
         "fl-button": FlButton;
+        "fl-card": FlCard;
         "fl-checkbox": FlCheckbox;
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
+        "fl-tag": FlTag;
+        "fl-upload": FlUpload;
     }
 }
 export { LocalJSX as JSX };
@@ -385,12 +429,15 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
+            "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
+            "fl-upload": LocalJSX.FlUpload & JSXBase.HTMLAttributes<HTMLFlUploadElement>;
         }
     }
 }
