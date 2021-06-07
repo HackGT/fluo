@@ -109,6 +109,10 @@ export namespace Components {
     }
     interface FlLink {
         /**
+          * Render the link as a button
+         */
+        "button": boolean;
+        /**
           * Set to true to disable the link.
          */
         "disabled": boolean;
@@ -121,17 +125,13 @@ export namespace Components {
          */
         "href"?: string;
         /**
-          * Set to true to draw the link in a loading state.
-         */
-        "loading": boolean;
-        /**
           * Specifies the relationship of the target object to the link object.
          */
         "rel"?: string;
         /**
           * The link's size
          */
-        "size": "small" | "medium" | "large";
+        "size": "normal" | "large";
         /**
           * Tells the browser where to open the link.
          */
@@ -139,7 +139,7 @@ export namespace Components {
         /**
           * The link's type
          */
-        "variant": "default" | "primary" | "success" | "warning" | "danger";
+        "variant": "primary" | "secondary" | "success" | "warning" | "danger";
     }
     interface FlMenu {
     }
@@ -359,6 +359,10 @@ declare namespace LocalJSX {
     }
     interface FlLink {
         /**
+          * Render the link as a button
+         */
+        "button"?: boolean;
+        /**
           * Set to true to disable the link.
          */
         "disabled"?: boolean;
@@ -371,17 +375,13 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Set to true to draw the link in a loading state.
-         */
-        "loading"?: boolean;
-        /**
           * Specifies the relationship of the target object to the link object.
          */
         "rel"?: string;
         /**
           * The link's size
          */
-        "size"?: "small" | "medium" | "large";
+        "size"?: "normal" | "large";
         /**
           * Tells the browser where to open the link.
          */
@@ -389,7 +389,7 @@ declare namespace LocalJSX {
         /**
           * The link's type
          */
-        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+        "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
     }
     interface FlMenu {
         /**

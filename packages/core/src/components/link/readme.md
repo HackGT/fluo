@@ -1,6 +1,12 @@
+---
+title: link
+---
+
 # fl-link
 
+## Examples
 
+<fl-link>Text</fl-link>
 
 <!-- Auto Generated Below -->
 
