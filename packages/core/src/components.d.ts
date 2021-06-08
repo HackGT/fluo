@@ -102,10 +102,7 @@ export namespace Components {
         "value": string;
     }
     interface FlItem {
-        /**
-          * Boolean attribute used internally to check if an item has a nested menu
-         */
-        "hasMenu": boolean;
+        "collapse": boolean;
     }
     interface FlLink {
         /**
@@ -140,6 +137,8 @@ export namespace Components {
           * The link's type
          */
         "variant": "primary" | "secondary" | "success" | "warning" | "danger";
+    }
+    interface FlList {
     }
     interface FlMenu {
     }
@@ -212,6 +211,12 @@ declare global {
         prototype: HTMLFlLinkElement;
         new (): HTMLFlLinkElement;
     };
+    interface HTMLFlListElement extends Components.FlList, HTMLStencilElement {
+    }
+    var HTMLFlListElement: {
+        prototype: HTMLFlListElement;
+        new (): HTMLFlListElement;
+    };
     interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
     }
     var HTMLFlMenuElement: {
@@ -249,6 +254,7 @@ declare global {
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
+        "fl-list": HTMLFlListElement;
         "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
@@ -352,10 +358,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlItem {
-        /**
-          * Boolean attribute used internally to check if an item has a nested menu
-         */
-        "hasMenu"?: boolean;
+        "collapse"?: boolean;
     }
     interface FlLink {
         /**
@@ -391,11 +394,9 @@ declare namespace LocalJSX {
          */
         "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
     }
+    interface FlList {
+    }
     interface FlMenu {
-        /**
-          * Emits event when item is clicked
-         */
-        "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
     }
     interface FlSwitch {
         /**
@@ -435,6 +436,7 @@ declare namespace LocalJSX {
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
+        "fl-list": FlList;
         "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
@@ -452,6 +454,7 @@ declare module "@stencil/core" {
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
+            "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
             "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;

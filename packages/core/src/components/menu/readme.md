@@ -48,13 +48,6 @@ Nested Menu
 <!-- Auto Generated Below -->
 
 
-## Events
-
-| Event       | Description                      | Type                                        |
-| ----------- | -------------------------------- | ------------------------------------------- |
-| `fl-select` | Emits event when item is clicked | `CustomEvent<{ item: HTMLFlItemElement; }>` |
-
-
 ----------------------------------------------
 
 

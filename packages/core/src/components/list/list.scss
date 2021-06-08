@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+  border-radius: var(--base-unit);
+}
+
+:host * {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0px;
+}
+
+::slotted(fl-item) {
+  border-bottom: 1px solid var(--color-light-gray); 
+}
+

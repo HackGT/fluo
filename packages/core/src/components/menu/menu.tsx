@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, h } from "@stencil/core";
+import { Component, Host, h } from "@stencil/core";
 
 @Component({
   tag: "fl-menu",
@@ -6,40 +6,40 @@ import { Component, Event, EventEmitter, Host, h } from "@stencil/core";
   shadow: true
 })
 export class Menu {
-  menu: HTMLElement;
+  // menu: HTMLElement;
 
-  /** Emits event when item is clicked */
-  @Event({ eventName: "fl-select" }) flSelect: EventEmitter<{ item: HTMLFlItemElement }>;
+  // /** Emits event when item is clicked */
+  // @Event({ eventName: "fl-select" }) flSelect: EventEmitter<{ item: HTMLFlItemElement }>;
 
-  connectedCallback() {
-    this.emitSelected = this.emitSelected.bind(this);
-  }
+  // connectedCallback() {
+  //   this.emitSelected = this.emitSelected.bind(this);
+  // }
 
-  // get all items in the menu (including disabled items)
-  getItems() {
-    const slot = this.menu.querySelector("slot");
+  // // get all items in the menu (including disabled items)
+  // getItems() {
+  //   const slot = this.menu.querySelector("slot");
 
-    // only want to return "fl-item" elements
-    return [...slot.assignedElements()
-      .filter(({ tagName }) => tagName === "fl-item")];
-  }
+  //   // only want to return "fl-item" elements
+  //   return [...slot.assignedElements()
+  //     .filter(({ tagName }) => tagName === "fl-item")];
+  // }
 
-  // get active item
-  getActiveItem() {
-    this.getItems().find(i => i === document.activeElement);
-  }
+  // // get active item
+  // getActiveItem() {
+  //   this.getItems().find(i => i === document.activeElement);
+  // }
 
-  // set focus item
-  setActiveItem(item: HTMLFlItemElement) {
-    item.focus();
-  }
+  // // set focus item
+  // setActiveItem(item: HTMLFlItemElement) {
+  //   item.focus();
+  // }
 
-  // fire custom event when item is selected
-  emitSelected(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    const item = target.closest("fl-item");
-    if (item && !item.hasMenu) this.flSelect.emit({ item });
-  }
+  // // fire custom event when item is selected
+  // emitSelected(event: MouseEvent) {
+  //   const target = event.target as HTMLElement;
+  //   const item = target.closest("fl-item");
+  //   if (item && !item.hasMenu) this.flSelect.emit({ item });
+  // }
 
 
   // keyboard navigation
@@ -49,8 +49,8 @@ export class Menu {
   render() {
     return (
       <Host
-        ref={el => this.menu = el}
-        onClick={this.emitSelected}
+        /* ref={el => this.menu = el} */
+        /* onClick={this.emitSelected} */
       >
         <slot />
       </Host>
