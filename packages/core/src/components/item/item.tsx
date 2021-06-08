@@ -1,4 +1,4 @@
-import { Host, Prop, Component, Element, h } from "@stencil/core";
+import { Host, Prop, Component, Element, State, h } from "@stencil/core";
 
 @Component({
   tag: "fl-item",
@@ -9,14 +9,11 @@ export class Item {
   @Element() host: HTMLFlItemElement;
   listItem: HTMLLIElement; 
   slot: HTMLSlotElement;
-  nested = false;
+
+  
+  @State() nested = false;
 
   @Prop({ reflect: true, mutable: true }) collapse = true;
-  
-  componentWillLoad = () => {
-    this.slot = this.host.shadowRoot.querySelector('slot');
-    console.log(this.slot);
-  }
 
   handleSlotchange = (e) => {
     const slot = e.target as HTMLSlotElement;
