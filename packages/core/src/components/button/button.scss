@@ -52,7 +52,7 @@
 }
 
 :host([variant="primary"]) button:disabled {
-  background: var(--color-light-ray);
+  background: var(--color-light-gray);
   color: var(--color-gray);
 }
 
