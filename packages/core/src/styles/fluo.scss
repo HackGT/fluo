@@ -6,32 +6,28 @@
   // === Colors === //
 
   // Mono
-  --color-white: #FFFFFF;
+  --color-white: #fff;
   --color-gray: #858585;
-  --color-light-gray: #E6E6E6;
+  --color-light-gray: #e6e6e6;
 
   // Variants
-  --color-primary: #7B69EC;
-  --color-primary-hover: #341BD5;
-
-  --color-secondary: #FFFFFF;
-  --color-secondary-hover: #E8E4FF;
-
-  --color-success: #27B43B;
-  --color-success-hover: #0B871D;
-
-  --color-warning: #FEB72C;
-  --color-warning-hover: #BD8311;
-
-  --color-danger: #ED443D;
-  --color-danger-hover: #C12923;
+  --color-primary: #7b69ec;
+  --color-primary-hover: #341bd5;
+  --color-secondary: #fff;
+  --color-secondary-hover: #e8e4ff;
+  --color-success: #27b43b;
+  --color-success-hover: #0b871d;
+  --color-warning: #feb72c;
+  --color-warning-hover: #bd8311;
+  --color-danger: #ed443d;
+  --color-danger-hover: #c12923;
 
   // Misc
-  --color-focus: #33C2FF;
-  --color-purple: #7B69EC;
-  --color-light-purple: #E4E2F9;
-  --color-shadow: rgba(52, 27, 213, 0.2); 
-  
+  --color-focus: #33c2ff;
+  --color-purple: #7b69ec;
+  --color-light-purple: #e4e2f9;
+  --color-shadow: rgba(52, 27, 213, 0.2);
+
   // === Base unit === //
 
   --base-unit: 4px;
@@ -49,9 +45,9 @@
 
   // === Shadows === //
 
-  --shadow: 
-    0px 
-    var(--base-unit) 
+  --shadow:
+    0
+    var(--base-unit)
     calc(var(--base-unit) * 2)
     rgba(33, 36, 41, 0.1);
 

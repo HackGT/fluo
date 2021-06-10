@@ -51,6 +51,6 @@ export class Textarea {
           }
         </span>
       </Host>
-    )
+    );
   }
 }
