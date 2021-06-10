@@ -102,7 +102,7 @@ export namespace Components {
         "value": string;
     }
     interface FlItem {
-        "collapse": boolean;
+        "collapsed": boolean;
     }
     interface FlLink {
         /**
@@ -139,8 +139,8 @@ export namespace Components {
         "variant": "primary" | "secondary" | "success" | "warning" | "danger";
     }
     interface FlList {
-    }
-    interface FlMenu {
+        "float": boolean;
+        "items": HTMLFlItemElement[];
     }
     interface FlSwitch {
         /**
@@ -217,12 +217,6 @@ declare global {
         prototype: HTMLFlListElement;
         new (): HTMLFlListElement;
     };
-    interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
-    }
-    var HTMLFlMenuElement: {
-        prototype: HTMLFlMenuElement;
-        new (): HTMLFlMenuElement;
-    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -255,7 +249,6 @@ declare global {
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-list": HTMLFlListElement;
-        "fl-menu": HTMLFlMenuElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
         "fl-textarea": HTMLFlTextareaElement;
@@ -358,7 +351,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlItem {
-        "collapse"?: boolean;
+        "collapsed"?: boolean;
     }
     interface FlLink {
         /**
@@ -395,8 +388,8 @@ declare namespace LocalJSX {
         "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
     }
     interface FlList {
-    }
-    interface FlMenu {
+        "float"?: boolean;
+        "items"?: HTMLFlItemElement[];
     }
     interface FlSwitch {
         /**
@@ -437,7 +430,6 @@ declare namespace LocalJSX {
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-list": FlList;
-        "fl-menu": FlMenu;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
         "fl-textarea": FlTextarea;
@@ -455,7 +447,6 @@ declare module "@stencil/core" {
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
-            "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
             "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;

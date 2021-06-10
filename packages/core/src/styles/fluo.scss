@@ -54,4 +54,10 @@
     var(--base-unit) 
     calc(var(--base-unit) * 2)
     rgba(33, 36, 41, 0.1);
+
+  // === Elevation === //
+  --elevation-900: 900;
+  --elevation-1000: 1000;
+  --elevation-2000: 2000;
+  --elevation-3000: 3000;
 }

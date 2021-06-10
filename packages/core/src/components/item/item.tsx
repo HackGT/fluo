@@ -7,13 +7,10 @@ import { Host, Prop, Component, Element, State, h } from "@stencil/core";
 })
 export class Item {
   @Element() host: HTMLFlItemElement;
-  listItem: HTMLLIElement; 
-  slot: HTMLSlotElement;
 
-  
   @State() nested = false;
 
-  @Prop({ reflect: true, mutable: true }) collapse = true;
+  @Prop({ reflect: true, mutable: true }) collapsed = true;
 
   handleSlotchange = (e) => {
     const slot = e.target as HTMLSlotElement;
@@ -21,7 +18,7 @@ export class Item {
   }
 
   handleClick = () => {
-    this.collapse = !this.collapse;
+    this.collapsed = !this.collapsed;
   }
 
   render() {
@@ -30,11 +27,10 @@ export class Item {
       >
         <li
           onClick={this.handleClick}
-          ref={(el) => (this.listItem = el)}
         >
           <slot />
           {this.nested ?
-            this.collapse ? (
+            this.collapsed ? (
               <span class="chevron">
                 {chevron_right()}            
               </span>

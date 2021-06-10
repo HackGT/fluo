@@ -6,9 +6,29 @@ title: list
 
 ## Examples
 
-### Default list
+### Float
+<fl-list style="width: 200px;">
+  <fl-item>item 1</fl-item>
+  <fl-item>
+    item 2
+    <fl-list slot="nested" float>
+      <fl-item>nested item 1</fl-item>
+      <fl-item>nested item 2</fl-item>
+      <fl-item>
+        nested item 3
+        <fl-list slot="nested" float>
+          <fl-item>' nested item 1</fl-item>
+          <fl-item>' nested item 2</fl-item>
+        </fl-list>
+      </fl-item>
+    </fl-list>
+  </fl-item>
+  <fl-item>
+    item 3
+  </fl-item>
+</fl-list>
 
-### Nested list (no collapse)
+### Flat
 <fl-list>
   <fl-item>item 1</fl-item>
   <fl-item>
