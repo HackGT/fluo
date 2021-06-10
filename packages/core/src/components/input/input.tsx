@@ -18,8 +18,7 @@ export class Input {
   // @Prop() checked: boolean; // OMIT this in favor of <fl-checkbox>
   @Prop() disabled: boolean;
 
-  // TODO insert attributes i don't quite understand yet
-
+  // Input Attributes
   @Prop() max: number;
   @Prop() maxlength: number;
   @Prop() min: number;
@@ -51,7 +50,9 @@ export class Input {
     | "url"
     | "week";
   @Prop() value: string;
-
+  // TODO Add remaining attributes
+  
+  // Validations
   @Prop() rules: Rule[] = [];
   @Prop({ mutable: true }) errors: string[] = [];
   @Prop({ mutable: true }) validity: ValidityState;
