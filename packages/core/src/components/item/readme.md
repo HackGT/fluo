@@ -11,9 +11,9 @@ title: item
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `collapse` | `collapse` |             | `boolean` | `true`  |
+| Property    | Attribute   | Description | Type      | Default |
+| ----------- | ----------- | ----------- | --------- | ------- |
+| `collapsed` | `collapsed` |             | `boolean` | `true`  |
 
 
 ----------------------------------------------

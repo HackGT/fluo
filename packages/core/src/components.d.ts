@@ -170,6 +170,8 @@ export namespace Components {
         "rules": Rule[];
         "validity": ValidityState;
     }
+    interface FlTooltip {
+    }
     interface FlUpload {
         "files": File[];
     }
@@ -235,6 +237,12 @@ declare global {
         prototype: HTMLFlTextareaElement;
         new (): HTMLFlTextareaElement;
     };
+    interface HTMLFlTooltipElement extends Components.FlTooltip, HTMLStencilElement {
+    }
+    var HTMLFlTooltipElement: {
+        prototype: HTMLFlTooltipElement;
+        new (): HTMLFlTooltipElement;
+    };
     interface HTMLFlUploadElement extends Components.FlUpload, HTMLStencilElement {
     }
     var HTMLFlUploadElement: {
@@ -252,6 +260,7 @@ declare global {
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
         "fl-textarea": HTMLFlTextareaElement;
+        "fl-tooltip": HTMLFlTooltipElement;
         "fl-upload": HTMLFlUploadElement;
     }
 }
@@ -419,6 +428,8 @@ declare namespace LocalJSX {
         "rules"?: Rule[];
         "validity"?: ValidityState;
     }
+    interface FlTooltip {
+    }
     interface FlUpload {
         "files"?: File[];
     }
@@ -433,6 +444,7 @@ declare namespace LocalJSX {
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
         "fl-textarea": FlTextarea;
+        "fl-tooltip": FlTooltip;
         "fl-upload": FlUpload;
     }
 }
@@ -450,6 +462,7 @@ declare module "@stencil/core" {
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
             "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;
+            "fl-tooltip": LocalJSX.FlTooltip & JSXBase.HTMLAttributes<HTMLFlTooltipElement>;
             "fl-upload": LocalJSX.FlUpload & JSXBase.HTMLAttributes<HTMLFlUploadElement>;
         }
     }

@@ -54,6 +54,14 @@ title: list
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description | Type                  | Default |
+| -------- | --------- | ----------- | --------------------- | ------- |
+| `float`  | `float`   |             | `boolean`             | `false` |
+| `items`  | --        |             | `HTMLFlItemElement[]` | `[]`    |
+
+
 ----------------------------------------------
 
 
