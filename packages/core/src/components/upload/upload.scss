@@ -1,0 +1,56 @@
+:host {
+  box-sizing: border-box;
+  display: block;
+  width: 400px;
+}
+
+:host * {
+  box-sizing: inherit;
+}
+
+.drop-zone {
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 3px dashed var(--color-gray);
+  border-radius: var(--base-unit);
+}
+
+.drop-zone:hover {
+  border: 3px dashed var(--color-purple);
+}
+
+.drop-zone fl-button {
+  margin: var(--spacing-4);
+}
+
+.drop-zone span {
+  margin: var(--spacing-2);
+}
+
+.file-input {
+  display: none;
+}
+
+.dragged {
+  background: var(--color-light-purple);
+  border: 3px dashed var(--color-purple);
+}
+
+.files ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.files li {
+  margin: var(--spacing-4) 0px;
+}
+
+.files fl-tag {
+  width: 100%;
+}
