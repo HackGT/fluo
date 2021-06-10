@@ -37,7 +37,7 @@ export class Upload {
 
     this.dropzone.classList.remove("dragged");
 
-    this.files = [...this.files, ...Array.from(e.dataTransfer.files)]
+    this.files = [...this.files, ...Array.from(e.dataTransfer.files)];
 
   }
 
@@ -69,7 +69,7 @@ export class Upload {
             type="file" 
             onChange={this.handleChange}
             multiple
-            />
+          />
         </div>
         <div class="files">
           <ul>

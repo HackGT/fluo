@@ -23,7 +23,7 @@ export class Tag {
           >
             {cross()}
           </span> 
-        : null}
+          : null}
       </span>
     );
   }

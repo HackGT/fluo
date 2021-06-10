@@ -19,6 +19,6 @@ export class Card {
           <slot name="actions"></slot>
         </div>
       </div>
-    )
+    );
   }
 }

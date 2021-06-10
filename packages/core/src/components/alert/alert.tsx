@@ -1,6 +1,6 @@
 import { Component, h, Prop, Host } from "@stencil/core";
 import { atypes } from "./atypes";
-import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon, CloseIcon } from './icons';
+import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon, CloseIcon } from "./icons";
 
 @Component({
   tag: "fl-alert",
@@ -15,7 +15,7 @@ export class Alert {
 
   @Prop() heading?: string;
 
-  @Prop() fixed: boolean = false;
+  @Prop() fixed = false;
 
   @Prop() closed?: boolean = false;
 
@@ -23,10 +23,10 @@ export class Alert {
   @Prop({ reflect: true }) loading = false;
 
   icons = {
-    'success': <SuccessIcon />,
-    'warning': <WarningIcon />,
-    'error': <ErrorIcon />,
-    'info': <InfoIcon />
+    "success": <SuccessIcon />,
+    "warning": <WarningIcon />,
+    "error": <ErrorIcon />,
+    "info": <InfoIcon />
   }
 
   handleOnClose = () => {
