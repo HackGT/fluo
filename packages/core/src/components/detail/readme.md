@@ -8,10 +8,16 @@ This is a detail component that holds extra information which can be shown when 
 
 ## Examples 
 
-<fl-details heading='Standard Detail'>This is a test to test the length of the textbox.</fl-details>
+<fl-details heading='Standard Detail'>Any extra information could go here. It would show whenever the detail is clicked.</fl-details>
 <fl-details heading='Detail with Heading'>
-<h1>Heading</h1>
-This is a test to test the length of the textbox.
+<b>Heading</b><br />
+Along with the heading, other information can be added as well.
+</fl-details>
+<fl-details disabled heading='Disabled Detail'>
+Unless there is a bug, you shouldn't be able to see this.
+</fl-details>
+<fl-details opened heading='Already Opened Detail'>
+You should be able to see this without having to click the detail.
 </fl-details>
 
 <!-- Auto Generated Below -->
@@ -21,9 +27,9 @@ This is a test to test the length of the textbox.
 
 | Property   | Attribute  | Description | Type                                                                                                         | Default          |
 | ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `pill`     | `pill`     |             | `boolean`                                                                                                    | `false`          |
-| `position` | `position` |             | `positions.BOTTOMLEFT \| positions.BOTTOMRIGHT \| positions.NONE \| positions.TOPLEFT \| positions.TOPRIGHT` | `positions.NONE` |
-| `type`     | `type`     |             | `btypes.DANGER \| btypes.INFO \| btypes.PRIMARY \| btypes.SUCCESS \| btypes.WARNING`                         | `btypes.PRIMARY` |
+| `opened`   | `opened`   | `Whether or not detail is already opened.` | `boolean`                                                                     | `false`          |
+| `disabled` | `disabled` | `Whether or not detail can be opened.` | `boolean`                                                                         | `false`          |
+| `heading`  | `heading`  | `Heading that the detail shows regarding` | `string`                                                                       | `undefined`      |          
 
 
 ----------------------------------------------

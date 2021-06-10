@@ -62,8 +62,17 @@ export namespace Components {
         "value": string;
     }
     interface FlDetails {
+        /**
+          * Disables the detail if set to true
+         */
         "disabled": boolean;
+        /**
+          * `heading` of the detail
+         */
         "heading": string;
+        /**
+          * Opens the detail if set to true
+         */
         "opened": boolean;
     }
     interface FlInput {
@@ -332,8 +341,17 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlDetails {
+        /**
+          * Disables the detail if set to true
+         */
         "disabled"?: boolean;
+        /**
+          * `heading` of the detail
+         */
         "heading"?: string;
+        /**
+          * Opens the detail if set to true
+         */
         "opened"?: boolean;
     }
     interface FlInput {

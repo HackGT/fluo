@@ -7,11 +7,14 @@ import { DownArrow } from "./icons";
   shadow: true,
 })
 export class Detail {
-  @Prop() opened: boolean = false;
+  /** Opens the detail if set to true */
+  @Prop() opened = false;
 
-  @Prop() disabled: boolean = false;
+  /** Disables the detail if set to true */
+  @Prop() disabled = false;
 
-  @Prop() heading: string = "";
+  /** `heading` of the detail */
+  @Prop() heading = "";
 
   handleOnOpen = () => {
     this.opened = !this.opened;
@@ -24,6 +27,7 @@ export class Detail {
           class={{
             detail: true,
             "detail--opened": this.opened,
+            "detail--disabled": this.disabled,
           }}
           onClick={this.handleOnOpen}
         >
@@ -42,6 +46,7 @@ export class Detail {
             "text-container": true,
             "text-container--opened": this.opened,
             "text-container--closed": !this.opened,
+            "text-container--disabled": this.disabled,
           }}
         >
           <p
