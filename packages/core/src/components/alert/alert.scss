@@ -1,7 +1,7 @@
 :host {
+  box-sizing: border-box;
   display: block;
 
-  --fl-alert-border-radius: 4px;
   --fl-alert-position: absolute;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,13 +25,33 @@
   --fl-alert-info-stroke: #33c2ff;
 }
 
+:host([variant="success"]) {
+    background-color: var(--fl-alert-success-fill);
+    border: 1px solid var(--fl-alert-success-stroke);
+}
+
+:host([variant="warning"]) {
+    background-color: var(--fl-alert-warning-fill);
+    border: 1px solid var(--fl-alert-warning-stroke);
+}
+
+:host([variant="error"]) {
+    background-color: var(--fl-alert-error-fill);
+    border: 1px solid var(--fl-alert-error-stroke);
+}
+
+:host([variant="info"]) {
+    background-color: var(--fl-alert-info-fill);
+    border: 1px solid var(--fl-alert-info-stroke);
+}
+
 :host(.alert) {
   display: inline-flex;
-  padding-left: 32px;
-  padding-right: 32px;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  border-radius: var(--fl-alert-border-radius);
+  padding-left: var(--spacing-8);
+  padding-right: var(--spacing-8);
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+  border-radius: var(--spacing-1);
 
   :host(&.alert--fixed) {
     position: fixed;
@@ -45,31 +65,10 @@
     display: none;
   }
 
-  :host(&.alert--success) {
-    background-color: var(--fl-alert-success-fill);
-    border: 1px solid var(--fl-alert-success-stroke);
-  }
-
-  :host(&.alert--error) {
-    background-color: var(--fl-alert-error-fill);
-    border: 1px solid var(--fl-alert-error-stroke);
-  }
-
-  :host(&.alert--info) {
-    background-color: var(--fl-alert-info-fill);
-    border: 1px solid var(--fl-alert-info-stroke);
-  }
-
-  :host(&.alert--warning) {
-    background-color: var(--fl-alert-warning-fill);
-    border: 1px solid var(--fl-alert-warning-stroke);
-  }
-
   .icon {
-    font-family: var(--fl-font-sans);
     font-size: 16px;
-    width: 16px;
-    color: var(--fl-color-black);
+    width: var(--spacing-4);
+    color: var(--color-black);
     align-self: center;
   }
 
@@ -77,22 +76,22 @@
     font-family: var(--fl-font-sans);
     font-weight: 600;
     font-size: 16px;
-    color: var(--fl-color-black);
-    margin-right: 16px;
-    margin-left: 16px;
+    color: var(--color-black);
+    margin-right: var(--spacing-4);
+    margin-left: var(--spacing-4);
     overflow-wrap: normal;
   }
 
   .body {
     font-family: var(--fl-font-sans);
     font-size: 16px;
-    color: var(--fl-color-gray);
+    color: var(--color-gray);
   }
 
   .close {
     background: none;
     border: none;
-    color: var(--fl-color-gray);
+    color: var(--color-gray);
     font-size: 25px;
     margin-left: 16px;
     justify-self: flex-end;

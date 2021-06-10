@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { atypes } from "./components/alert/atypes";
 import { Rule } from "./utils/utils";
 export namespace Components {
     interface FlAlert {
@@ -17,10 +16,7 @@ export namespace Components {
           * Set to true to draw the link in a loading state.
          */
         "loading": boolean;
-        /**
-          * The link's type
-         */
-        "type": atypes;
+        "variant": "success" | "info" | "error" | "warning";
     }
     interface FlButton {
         /**
@@ -296,10 +292,7 @@ declare namespace LocalJSX {
           * Set to true to draw the link in a loading state.
          */
         "loading"?: boolean;
-        /**
-          * The link's type
-         */
-        "type"?: atypes;
+        "variant"?: "success" | "info" | "error" | "warning";
     }
     interface FlButton {
         /**

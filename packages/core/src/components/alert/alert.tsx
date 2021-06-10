@@ -1,6 +1,11 @@
 import { Component, h, Prop, Host } from "@stencil/core";
-import { atypes } from "./atypes";
-import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon, CloseIcon } from "./icons";
+import {
+  SuccessIcon,
+  WarningIcon,
+  ErrorIcon,
+  InfoIcon,
+  CloseIcon,
+} from "./icons";
 
 @Component({
   tag: "fl-alert",
@@ -8,8 +13,8 @@ import { SuccessIcon, WarningIcon, ErrorIcon, InfoIcon, CloseIcon } from "./icon
   shadow: true,
 })
 export class Alert {
-  /** The link's type */
-  @Prop({ reflect: true }) type: atypes = atypes.INFO;
+  @Prop({ reflect: true }) variant: "success" | "info" | "error" | "warning" =
+    "info";
 
   @Prop() body?: string;
 
@@ -23,11 +28,11 @@ export class Alert {
   @Prop({ reflect: true }) loading = false;
 
   icons = {
-    "success": <SuccessIcon />,
-    "warning": <WarningIcon />,
-    "error": <ErrorIcon />,
-    "info": <InfoIcon />
-  }
+    success: <SuccessIcon />,
+    warning: <WarningIcon />,
+    error: <ErrorIcon />,
+    info: <InfoIcon />,
+  };
 
   handleOnClose = () => {
     this.closed = true;
@@ -36,15 +41,14 @@ export class Alert {
   render() {
     return (
       <Host
-        id='alert'
+        id="alert"
         class={{
           alert: true,
-          [`alert--${this.type}`]: true,
-          "alert--closed": this.closed,
+          "closed": this.closed,
           "alert--fixed": this.fixed,
         }}
       >
-        <p class='icon'>{this.icons[this.type]}</p>
+        <p class="icon">{this.icons[this.variant]}</p>
         <h3 class="heading">{this.heading}</h3>
         <p class="body">
           <slot></slot>
