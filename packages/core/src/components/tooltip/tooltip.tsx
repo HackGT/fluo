@@ -12,6 +12,6 @@ export class Tooltip {
         <slot name="base"/>
         <slot name="content"/>
       </Host>
-    )
+    );
   }
 }

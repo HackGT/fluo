@@ -7,6 +7,17 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Rule } from "./utils/utils";
 export namespace Components {
+    interface FlAlert {
+        "body"?: string;
+        "closed"?: boolean;
+        "fixed": boolean;
+        "heading"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        "variant": "success" | "info" | "error" | "warning";
+    }
     interface FlButton {
         /**
           * Set to true to disable the button.
@@ -177,6 +188,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLFlAlertElement extends Components.FlAlert, HTMLStencilElement {
+    }
+    var HTMLFlAlertElement: {
+        prototype: HTMLFlAlertElement;
+        new (): HTMLFlAlertElement;
+    };
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
     }
     var HTMLFlButtonElement: {
@@ -250,6 +267,7 @@ declare global {
         new (): HTMLFlUploadElement;
     };
     interface HTMLElementTagNameMap {
+        "fl-alert": HTMLFlAlertElement;
         "fl-button": HTMLFlButtonElement;
         "fl-card": HTMLFlCardElement;
         "fl-checkbox": HTMLFlCheckboxElement;
@@ -265,6 +283,17 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface FlAlert {
+        "body"?: string;
+        "closed"?: boolean;
+        "fixed"?: boolean;
+        "heading"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        "variant"?: "success" | "info" | "error" | "warning";
+    }
     interface FlButton {
         /**
           * Set to true to disable the button.
@@ -434,6 +463,7 @@ declare namespace LocalJSX {
         "files"?: File[];
     }
     interface IntrinsicElements {
+        "fl-alert": FlAlert;
         "fl-button": FlButton;
         "fl-card": FlCard;
         "fl-checkbox": FlCheckbox;
@@ -452,6 +482,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "fl-alert": LocalJSX.FlAlert & JSXBase.HTMLAttributes<HTMLFlAlertElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;

@@ -29,6 +29,6 @@ export class List {
           onSlotchange={(e) => this.handleSlotChange(e)}
         />
       </ul>
-    )
+    );
   }
 }
