@@ -1,48 +1,31 @@
 :host {
   box-sizing: border-box;
-  display: block;
 
   --fl-alert-position: absolute;
-
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Alert color tokens
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  // Success Colors
-  --fl-alert-success-fill: #eeffee;
-  --fl-alert-success-stroke: #27b43b;
-
-  // Warning Colors
-  --fl-alert-warning-fill: #fffbee;
-  --fl-alert-warning-stroke: #feb72c;
-
-  // Error Colors
-  --fl-alert-error-fill: #ffefee;
-  --fl-alert-error-stroke: #ed443d;
-
-  // Info Colors
-  --fl-alert-info-fill: #eef9ff;
-  --fl-alert-info-stroke: #33c2ff;
 }
 
 :host([variant="success"]) {
-    background-color: var(--fl-alert-success-fill);
-    border: 1px solid var(--fl-alert-success-stroke);
+  background-color: var(--color-success-tint);
+  border: 1px solid var(--color-success);
 }
 
 :host([variant="warning"]) {
-    background-color: var(--fl-alert-warning-fill);
-    border: 1px solid var(--fl-alert-warning-stroke);
+  background-color: var(--color-warning-tint);
+  border: 1px solid var(--color-warning);
 }
 
 :host([variant="error"]) {
-    background-color: var(--fl-alert-error-fill);
-    border: 1px solid var(--fl-alert-error-stroke);
+  background-color: var(--color-danger-tint);
+  border: 1px solid var(--color-danger);
 }
 
 :host([variant="info"]) {
-    background-color: var(--fl-alert-info-fill);
-    border: 1px solid var(--fl-alert-info-stroke);
+  background-color: var(--color-info-tint);
+  border: 1px solid var(--color-info);
+}
+
+:host(.closed) {
+  display: none !important;
 }
 
 :host(.alert) {
@@ -59,10 +42,6 @@
     left: 50%;
     transform: translateX(-50%);
     width: 85%;
-  }
-
-  :host(&.alert--closed) {
-    display: none;
   }
 
   .icon {

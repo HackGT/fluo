@@ -42,9 +42,10 @@ export class Alert {
     return (
       <Host
         id="alert"
+        closed={this.closed}
         class={{
           alert: true,
-          "closed": this.closed,
+          closed: this.closed,
           "alert--fixed": this.fixed,
         }}
       >
