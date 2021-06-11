@@ -15,12 +15,17 @@
   --color-primary-hover: #341bd5;
   --color-secondary: #fff;
   --color-secondary-hover: #e8e4ff;
+  --color-success-tint: #efe;
   --color-success: #27b43b;
   --color-success-hover: #0b871d;
+  --color-warning-tint: #fffbee;
   --color-warning: #feb72c;
   --color-warning-hover: #bd8311;
+  --color-danger-tint: #ffefee;
   --color-danger: #ed443d;
   --color-danger-hover: #c12923;
+  --color-info-tint: #eef9ff;
+  --color-info: #33c2ff;
 
   // Misc
   --color-focus: #33c2ff;
@@ -45,11 +50,7 @@
 
   // === Shadows === //
 
-  --shadow:
-    0
-    var(--base-unit)
-    calc(var(--base-unit) * 2)
-    rgba(33, 36, 41, 0.1);
+  --shadow: 0 var(--base-unit) calc(var(--base-unit) * 2) rgba(33, 36, 41, 0.1);
 
   // === Elevation === //
   --elevation-900: 900;
