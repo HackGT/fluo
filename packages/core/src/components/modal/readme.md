@@ -2,6 +2,8 @@
 
 Click on the button reveal a modal. The button is also independent of the modal component.
 
+Note that when using vanilla HTML, the function type properties need to be attached using JavaScript written `<script>` tags.
+
 <script>
   var modal = document.getElementById("demo-modal");
   function openModal() {

@@ -32,6 +32,11 @@
     visibility: visible;
 }
 
+/* Possible solution if scrolling is to be disabled */
+body.modal-open {
+    overflow: hidden;
+}
+
 .modal__open-false {
     visibility: hidden;
 }
