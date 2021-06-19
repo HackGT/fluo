@@ -167,6 +167,10 @@ export namespace Components {
          */
         "header": string;
         /**
+          * Displays modal if state is true, otherwise no render
+         */
+        "open": boolean;
+        /**
           * Optional additional functionality attached to the modal
          */
         "secondary"?: (...args: any[]) => any;
@@ -471,6 +475,10 @@ declare namespace LocalJSX {
           * The title to be displayed in the modal. "Title" creates a conflict.
          */
         "header"?: string;
+        /**
+          * Displays modal if state is true, otherwise no render
+         */
+        "open"?: boolean;
         /**
           * Optional additional functionality attached to the modal
          */

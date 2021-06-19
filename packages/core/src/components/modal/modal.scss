@@ -1,3 +1,15 @@
+/* Sass mixin defined to handle one and two buttons */
+@mixin child-count($num) {
+    @if $num == 1 {
+        &:only-child {
+            @content;
+        }
+    }
+    @else {
+        @content
+    }
+}
+
 .modal {
     position: absolute;
     background: var(--bg-color);
@@ -21,7 +33,6 @@
 }
 
 .modal__open-false {
-    display: none;
     visibility: hidden;
 }
 
@@ -71,9 +82,15 @@
 
 .modal-action {
     display: flex;
-    height: 20px;
     grid-row: 4 / auto;
-    grid-column: 9 / 12;
-    justify-content: space-evenly;
+    grid-column: 1 / 12;
+    justify-content: flex-end;
     flex-direction: row;
+    margin-bottom: 8px;
+
+    @include child-count(2) {
+        :first-child {
+            margin-right: 16px;
+        }
+    }
 }
