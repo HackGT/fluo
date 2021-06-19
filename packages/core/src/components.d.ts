@@ -302,8 +302,8 @@ declare global {
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
-        "fl-modal": HTMLFlModalElement;
         "fl-list": HTMLFlListElement;
+        "fl-modal": HTMLFlModalElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
         "fl-textarea": HTMLFlTextareaElement;
@@ -521,8 +521,8 @@ declare namespace LocalJSX {
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
-        "fl-modal": FlModal;
         "fl-list": FlList;
+        "fl-modal": FlModal;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
         "fl-textarea": FlTextarea;
@@ -541,8 +541,8 @@ declare module "@stencil/core" {
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
-            "fl-modal": LocalJSX.FlModal & JSXBase.HTMLAttributes<HTMLFlModalElement>;
             "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
+            "fl-modal": LocalJSX.FlModal & JSXBase.HTMLAttributes<HTMLFlModalElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
             "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;

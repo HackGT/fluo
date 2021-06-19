@@ -60,7 +60,12 @@ unimplemented()
 
 ### Used by
 
+ - [fl-modal](../modal)
+ - [fl-upload](../upload)
+
+### Graph
 ```mermaid
+graph TD;
   fl-modal --> fl-button
   fl-upload --> fl-button
   style fl-button fill:#f9f,stroke:#333,stroke-width:4px
