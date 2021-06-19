@@ -1,0 +1,59 @@
+$c: #ff8500, #f900a0;
+$rb: 6.25em;
+$ds: .4*$rb;
+$rs: .5*$ds;
+
+:host {
+  --p: 0;
+  --q: 0.7;
+    padding: $rs;
+  .spinner {
+    height: 100px;
+    width: 100px;
+    transform: rotate(calc(var(--p) * 1turn));
+    border-radius: 50%;
+    background: conic-gradient(
+      transparent calc(var(--p, 0.1) * 100%),
+      var(--color-primary) 0%,
+      #f14382 calc(var(--q, 0.75) * 100%),
+      transparent 0%
+    );
+    -webkit-mask: radial-gradient(
+      closest-side,
+      transparent 75%,
+      red calc(75% + 1px)
+    );
+    mask: radial-gradient(closest-side, transparent 75%, red calc(75% + 1px));
+    animation: a 1s infinite;
+    animation-name: spinner;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+:host([size='sm']) {
+  .spinner {
+  height: 50px;
+  width: 50px;
+  }
+}
+:host([size='md']) {
+  .spinner {
+  height: 100px;
+  width: 100px;
+  }
+}
+:host([size='lg']) {
+  .spinner {
+  height: 150px;
+  width: 150px;
+  }
+}
