@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+  border-radius: var(--base-unit);
+  background: var(--color-white);
+  position: relative;
+}
+
+:host * {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0px;
+}
+
+:host([float]) {
+  position: absolute;
+  min-width: 200px;
+}

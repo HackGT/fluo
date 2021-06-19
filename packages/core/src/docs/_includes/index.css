@@ -1,6 +1,5 @@
 html {
   font-family: "Roobert", sans-serif;
-  box-sizing: border-box;
 }
 
 :not(:defined) {
@@ -84,38 +83,40 @@ header a:visited {
   color: #e2e2e2;
 }
 
-header fl-switch::part(track) {
-  --track-color-on: yellow;
-  border: 1px solid black;
+/* === Tables === */
+
+table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+  box-shadow:
+    var(--shadow);
 }
 
-header fl-switch::part(thumb) {
-  background: white;
-  border: 2px solid black;
+thead {
+  background-color: var(--color-purple);
+  color: white;
 }
 
-header fl-switch::part(thumb)::after {
-  position: absolute;
-  content: "🌞";
-  transform: translate(50%, -50%);
-  font-size: 1rem;
-  top: 55%;
-  left: -40%;
+thead > tr > th:first-child {
+  border-top-left-radius: var(--base-unit);
 }
 
-header fl-switch[on]::part(thumb) {
-  background: black;
+thead > tr > th:last-child {
+  border-top-right-radius: var(--base-unit);
 }
 
-header fl-switch[on]::part(thumb)::after {
-  content: "🌙";
-  font-size: 0.8rem;
-  top: 50%;
-  left: -30%;
-  transform: translate(50%, -50%);
+th, td {
+  padding: var(--spacing-3);
 }
 
+td {
+  border-bottom: 1px solid var(--color-light-gray);
+}
 
+tbody tr:hover {
+  background: var(--color-light-purple);
+}
 
 /*
  * LEFT NAV

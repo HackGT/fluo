@@ -7,13 +7,13 @@
   }
 
   // thumb
-  --thumb-size: 20px;
+  --thumb-size: calc(var(--base-unit) * 4);
 
   // track
-  --track-width: 30px;
-  --track-height: 10px;
-  --track-color-on: red;
-  --track-color-off: white;
+  --track-width: 40px;
+  --track-height: calc(var(--base-unit) * 5);
+  --track-color-on: var(--color-purple);
+  --track-color-off: var(--color-gray);
 
   label,
   div {
@@ -28,8 +28,7 @@ div[part=track] {
   z-index: 900;
   width: var(--track-width);
   height: var(--track-height);
-  border: 2px solid red;
-  border-radius: 10px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   background: var(--track-color-off);
@@ -42,14 +41,13 @@ span[part=thumb] {
   height: var(--thumb-size);
   width: var(--thumb-size);
   border-radius: 100%;
-  border: 2px solid black;
-  left: calc(-1 * (var(--thumb-size)/2));
+  left: calc(0px + 2px);
   transition: transform 0.2s ease;
   background: white;
 }
 
 .thumb-on {
-  transform: translateX(calc(var(--track-width) - (var(--thumb-size)/4))) !important;
+  transform: translateX(calc(var(--track-width) - var(--thumb-size) - 4px)) !important;
 }
 
 .track-on {

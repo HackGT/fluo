@@ -6,18 +6,17 @@ import { Component, h, Prop } from "@stencil/core";
   shadow: true
 })
 export class Link {
-
   /** The link's type */
-  @Prop({ reflect: true }) variant: "default" | "primary" | "success" | "warning" | "danger" = "default";
+  @Prop({ reflect: true }) variant: "primary" | "secondary" | "success" | "warning" | "danger" = "primary";
 
   /** The link's size */
-  @Prop({ reflect: true }) size: "small" | "medium" | "large" = "medium";
+  @Prop({ reflect: true }) size: "normal" | "large";
+  
+  /** Render the link as a button */
+  @Prop({ reflect: true}) button = false;
 
   /** Set to true to disable the link. */
   @Prop({ reflect: true }) disabled = false;
-
-  /** Set to true to draw the link in a loading state. */
-  @Prop({ reflect: true }) loading = false;
 
   /** The link for this link tag. */
   @Prop() href?: string;
@@ -34,25 +33,12 @@ export class Link {
   render() {
     return (
       <a
-        class={{
-          link: true,
-          [`link--${this.variant}`]: true,
-          [`link--${this.size}`]: true,
-          "link--disabled": this.disabled,
-          "link--loading": this.loading
-        }}
-
         href={this.href}
         target={this.target}
         download={this.download}
         rel={this.rel}
       >
-        <span part="icon" class="link__icon">
-          <slot name="icon"></slot>
-        </span>
-        <span part="label" class="link__label">
-          <slot></slot>
-        </span>
+        <slot/>
       </a>
     );
   }

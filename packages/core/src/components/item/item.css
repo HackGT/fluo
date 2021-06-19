@@ -1,29 +1,49 @@
 :host {
-  display: list-item;
+  display: block;
+  box-sizing: border-box;
   list-style: none;
-  
-  padding: 8px 40px;
   position: relative;
-  color: var(--fl-color-black);
 }
 
-:host(:hover) {
-  background: rgba(51, 194, 255, 0.3);
+:host * {
+  box-sizing: inherit;
+}
+
+:host > li {
+  padding: var(--spacing-4) var(--spacing-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:host > li:hover {
+  background: var(--color-light-purple);
   cursor: pointer;
 }
 
-::slotted(fl-menu) {
-  display: none;
+:host([collapsed]) ::slotted([slot=nested]) {
+  display: none; 
 }
 
-:host(:hover) ::slotted(fl-menu) {
-  display: block;
+:host(:not([collapsed])) ::slotted([slot=nested][float]) {
+  z-index: var(--elevation-3000);
+}
+
+::slotted(fl-list) {
+  box-shadow: none;
+  padding-left: var(--spacing-4);
+}
+
+::slotted(fl-list[float]) {
+  box-shadow: var(--shadow);
+  padding-left: 0px;
+  left: 100%;
+}
+
+.float {
   position: absolute;
 }
 
-:host span[part=chevron] {
-  position: absolute;
-  right: 20px;
-  transform: translateY(50%);
+.chevron {
+  margin-left: var(--spacing-4);
 }
-

@@ -5,13 +5,18 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { btypes, positions } from "./components/badge/btypes";
 import { Rule } from "./utils/utils";
 export namespace Components {
-    interface FlBadge {
-        "pill": boolean;
-        "position": positions;
-        "type": btypes;
+    interface FlAlert {
+        "body"?: string;
+        "closed"?: boolean;
+        "fixed": boolean;
+        "heading"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading": boolean;
+        "variant": "success" | "info" | "error" | "warning";
     }
     interface FlButton {
         /**
@@ -23,25 +28,27 @@ export namespace Components {
          */
         "loading": boolean;
         /**
-          * An optional name for the button.
+          * Button name, used in forms
          */
-        "name": string;
+        "name"?: string;
         /**
-          * The button's size
+          * Button size
          */
-        "size": "small" | "medium" | "large";
+        "size": "normal" | "large";
         /**
-          * The button's type.
+          * Button function
          */
         "type"?: "submit" | "reset" | "button";
         /**
-          * An optional value for the button.
+          * Button value, used in forms
          */
-        "value": string;
+        "value"?: string;
         /**
-          * The button's type
+          * Button variant
          */
-        "variant": "default" | "primary" | "success" | "warning" | "danger";
+        "variant": "primary" | "secondary" | "success" | "warning" | "danger";
+    }
+    interface FlCard {
     }
     interface FlCheckbox {
         /**
@@ -106,12 +113,13 @@ export namespace Components {
         "value": string;
     }
     interface FlItem {
-        /**
-          * Boolean attribute used internally to check if an item has a nested menu
-         */
-        "hasMenu": boolean;
+        "collapsed": boolean;
     }
     interface FlLink {
+        /**
+          * Render the link as a button
+         */
+        "button": boolean;
         /**
           * Set to true to disable the link.
          */
@@ -125,17 +133,13 @@ export namespace Components {
          */
         "href"?: string;
         /**
-          * Set to true to draw the link in a loading state.
-         */
-        "loading": boolean;
-        /**
           * Specifies the relationship of the target object to the link object.
          */
         "rel"?: string;
         /**
           * The link's size
          */
-        "size": "small" | "medium" | "large";
+        "size": "normal" | "large";
         /**
           * Tells the browser where to open the link.
          */
@@ -143,9 +147,11 @@ export namespace Components {
         /**
           * The link's type
          */
-        "variant": "default" | "primary" | "success" | "warning" | "danger";
+        "variant": "primary" | "secondary" | "success" | "warning" | "danger";
     }
-    interface FlMenu {
+    interface FlList {
+        "float": boolean;
+        "items": HTMLFlItemElement[];
     }
     interface FlModal {
         /**
@@ -187,19 +193,40 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlTag {
+        "handleRemove": (event: MouseEvent) => void;
+        "removable": boolean;
+        "text": string;
+    }
+    interface FlTextarea {
+        "errors": string[];
+        "rules": Rule[];
+        "validity": ValidityState;
+    }
+    interface FlTooltip {
+    }
+    interface FlUpload {
+        "files": File[];
+    }
 }
 declare global {
-    interface HTMLFlBadgeElement extends Components.FlBadge, HTMLStencilElement {
+    interface HTMLFlAlertElement extends Components.FlAlert, HTMLStencilElement {
     }
-    var HTMLFlBadgeElement: {
-        prototype: HTMLFlBadgeElement;
-        new (): HTMLFlBadgeElement;
+    var HTMLFlAlertElement: {
+        prototype: HTMLFlAlertElement;
+        new (): HTMLFlAlertElement;
     };
     interface HTMLFlButtonElement extends Components.FlButton, HTMLStencilElement {
     }
     var HTMLFlButtonElement: {
         prototype: HTMLFlButtonElement;
         new (): HTMLFlButtonElement;
+    };
+    interface HTMLFlCardElement extends Components.FlCard, HTMLStencilElement {
+    }
+    var HTMLFlCardElement: {
+        prototype: HTMLFlCardElement;
+        new (): HTMLFlCardElement;
     };
     interface HTMLFlCheckboxElement extends Components.FlCheckbox, HTMLStencilElement {
     }
@@ -225,11 +252,11 @@ declare global {
         prototype: HTMLFlLinkElement;
         new (): HTMLFlLinkElement;
     };
-    interface HTMLFlMenuElement extends Components.FlMenu, HTMLStencilElement {
+    interface HTMLFlListElement extends Components.FlList, HTMLStencilElement {
     }
-    var HTMLFlMenuElement: {
-        prototype: HTMLFlMenuElement;
-        new (): HTMLFlMenuElement;
+    var HTMLFlListElement: {
+        prototype: HTMLFlListElement;
+        new (): HTMLFlListElement;
     };
     interface HTMLFlModalElement extends Components.FlModal, HTMLStencilElement {
     }
@@ -243,23 +270,58 @@ declare global {
         prototype: HTMLFlSwitchElement;
         new (): HTMLFlSwitchElement;
     };
+    interface HTMLFlTagElement extends Components.FlTag, HTMLStencilElement {
+    }
+    var HTMLFlTagElement: {
+        prototype: HTMLFlTagElement;
+        new (): HTMLFlTagElement;
+    };
+    interface HTMLFlTextareaElement extends Components.FlTextarea, HTMLStencilElement {
+    }
+    var HTMLFlTextareaElement: {
+        prototype: HTMLFlTextareaElement;
+        new (): HTMLFlTextareaElement;
+    };
+    interface HTMLFlTooltipElement extends Components.FlTooltip, HTMLStencilElement {
+    }
+    var HTMLFlTooltipElement: {
+        prototype: HTMLFlTooltipElement;
+        new (): HTMLFlTooltipElement;
+    };
+    interface HTMLFlUploadElement extends Components.FlUpload, HTMLStencilElement {
+    }
+    var HTMLFlUploadElement: {
+        prototype: HTMLFlUploadElement;
+        new (): HTMLFlUploadElement;
+    };
     interface HTMLElementTagNameMap {
-        "fl-badge": HTMLFlBadgeElement;
+        "fl-alert": HTMLFlAlertElement;
         "fl-button": HTMLFlButtonElement;
+        "fl-card": HTMLFlCardElement;
         "fl-checkbox": HTMLFlCheckboxElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
-        "fl-menu": HTMLFlMenuElement;
         "fl-modal": HTMLFlModalElement;
+        "fl-list": HTMLFlListElement;
         "fl-switch": HTMLFlSwitchElement;
+        "fl-tag": HTMLFlTagElement;
+        "fl-textarea": HTMLFlTextareaElement;
+        "fl-tooltip": HTMLFlTooltipElement;
+        "fl-upload": HTMLFlUploadElement;
     }
 }
 declare namespace LocalJSX {
-    interface FlBadge {
-        "pill"?: boolean;
-        "position"?: positions;
-        "type"?: btypes;
+    interface FlAlert {
+        "body"?: string;
+        "closed"?: boolean;
+        "fixed"?: boolean;
+        "heading"?: string;
+        /**
+          * Set to true to draw the link in a loading state.
+         */
+        "loading"?: boolean;
+        "variant"?: "success" | "info" | "error" | "warning";
     }
     interface FlButton {
         /**
@@ -271,25 +333,27 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
-          * An optional name for the button.
+          * Button name, used in forms
          */
         "name"?: string;
         /**
-          * The button's size
+          * Button size
          */
-        "size"?: "small" | "medium" | "large";
+        "size"?: "normal" | "large";
         /**
-          * The button's type.
+          * Button function
          */
         "type"?: "submit" | "reset" | "button";
         /**
-          * An optional value for the button.
+          * Button value, used in forms
          */
         "value"?: string;
         /**
-          * The button's type
+          * Button variant
          */
-        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+        "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
+    }
+    interface FlCard {
     }
     interface FlCheckbox {
         /**
@@ -354,12 +418,13 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface FlItem {
-        /**
-          * Boolean attribute used internally to check if an item has a nested menu
-         */
-        "hasMenu"?: boolean;
+        "collapsed"?: boolean;
     }
     interface FlLink {
+        /**
+          * Render the link as a button
+         */
+        "button"?: boolean;
         /**
           * Set to true to disable the link.
          */
@@ -373,17 +438,13 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Set to true to draw the link in a loading state.
-         */
-        "loading"?: boolean;
-        /**
           * Specifies the relationship of the target object to the link object.
          */
         "rel"?: string;
         /**
           * The link's size
          */
-        "size"?: "small" | "medium" | "large";
+        "size"?: "normal" | "large";
         /**
           * Tells the browser where to open the link.
          */
@@ -391,13 +452,11 @@ declare namespace LocalJSX {
         /**
           * The link's type
          */
-        "variant"?: "default" | "primary" | "success" | "warning" | "danger";
+        "variant"?: "primary" | "secondary" | "success" | "warning" | "danger";
     }
-    interface FlMenu {
-        /**
-          * Emits event when item is clicked
-         */
-        "onFl-select"?: (event: CustomEvent<{ item: HTMLFlItemElement }>) => void;
+    interface FlList {
+        "float"?: boolean;
+        "items"?: HTMLFlItemElement[];
     }
     interface FlModal {
         /**
@@ -439,31 +498,56 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface FlTag {
+        "handleRemove"?: (event: MouseEvent) => void;
+        "removable"?: boolean;
+        "text"?: string;
+    }
+    interface FlTextarea {
+        "errors"?: string[];
+        "rules"?: Rule[];
+        "validity"?: ValidityState;
+    }
+    interface FlTooltip {
+    }
+    interface FlUpload {
+        "files"?: File[];
+    }
     interface IntrinsicElements {
-        "fl-badge": FlBadge;
+        "fl-alert": FlAlert;
         "fl-button": FlButton;
+        "fl-card": FlCard;
         "fl-checkbox": FlCheckbox;
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
-        "fl-menu": FlMenu;
         "fl-modal": FlModal;
+        "fl-list": FlList;
         "fl-switch": FlSwitch;
+        "fl-tag": FlTag;
+        "fl-textarea": FlTextarea;
+        "fl-tooltip": FlTooltip;
+        "fl-upload": FlUpload;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "fl-badge": LocalJSX.FlBadge & JSXBase.HTMLAttributes<HTMLFlBadgeElement>;
+            "fl-alert": LocalJSX.FlAlert & JSXBase.HTMLAttributes<HTMLFlAlertElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
+            "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
-            "fl-menu": LocalJSX.FlMenu & JSXBase.HTMLAttributes<HTMLFlMenuElement>;
             "fl-modal": LocalJSX.FlModal & JSXBase.HTMLAttributes<HTMLFlModalElement>;
+            "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
+            "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
+            "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;
+            "fl-tooltip": LocalJSX.FlTooltip & JSXBase.HTMLAttributes<HTMLFlTooltipElement>;
+            "fl-upload": LocalJSX.FlUpload & JSXBase.HTMLAttributes<HTMLFlUploadElement>;
         }
     }
 }
