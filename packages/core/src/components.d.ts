@@ -72,6 +72,20 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlDetails {
+        /**
+          * Disables the detail if set to true
+         */
+        "disabled": boolean;
+        /**
+          * `heading` of the detail
+         */
+        "heading": string;
+        /**
+          * Opens the detail if set to true
+         */
+        "opened": boolean;
+    }
     interface FlInput {
         "accept": string;
         "alt": string;
@@ -212,6 +226,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlDetailsElement extends Components.FlDetails, HTMLStencilElement {
+    }
+    var HTMLFlDetailsElement: {
+        prototype: HTMLFlDetailsElement;
+        new (): HTMLFlDetailsElement;
+    };
     interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
     }
     var HTMLFlInputElement: {
@@ -271,6 +291,7 @@ declare global {
         "fl-button": HTMLFlButtonElement;
         "fl-card": HTMLFlCardElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-details": HTMLFlDetailsElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
@@ -347,6 +368,20 @@ declare namespace LocalJSX {
           * Value of checkbox
          */
         "value"?: string;
+    }
+    interface FlDetails {
+        /**
+          * Disables the detail if set to true
+         */
+        "disabled"?: boolean;
+        /**
+          * `heading` of the detail
+         */
+        "heading"?: string;
+        /**
+          * Opens the detail if set to true
+         */
+        "opened"?: boolean;
     }
     interface FlInput {
         "accept"?: string;
@@ -467,6 +502,7 @@ declare namespace LocalJSX {
         "fl-button": FlButton;
         "fl-card": FlCard;
         "fl-checkbox": FlCheckbox;
+        "fl-details": FlDetails;
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
@@ -486,6 +522,7 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-details": LocalJSX.FlDetails & JSXBase.HTMLAttributes<HTMLFlDetailsElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
