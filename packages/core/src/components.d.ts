@@ -156,6 +156,9 @@ export namespace Components {
     interface FlSpinner {
         "size": "sm" | "md" | "lg";
     }
+    interface FlSpinner {
+        "transparent": boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -238,6 +241,12 @@ declare global {
     var HTMLFlListElement: {
         prototype: HTMLFlListElement;
         new (): HTMLFlListElement;
+    };
+    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    }
+    var HTMLFlSpinnerElement: {
+        prototype: HTMLFlSpinnerElement;
+        new (): HTMLFlSpinnerElement;
     };
     interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
     }
@@ -441,6 +450,9 @@ declare namespace LocalJSX {
     }
     interface FlSpinner {
         "size"?: "sm" | "md" | "lg";
+    }
+    interface FlSpinner {
+        "transparent"?: boolean;
     }
     interface FlSwitch {
         /**

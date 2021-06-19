@@ -50,3 +50,4 @@ export const FlUpload =
   /*@__PURE__*/ createReactComponent<JSX.FlUpload, HTMLFlUploadElement>(
     "fl-upload"
   );
+export const FlSpinner = /*@__PURE__*/createReactComponent<JSX.FlSpinner, HTMLFlSpinnerElement>('fl-spinner');
