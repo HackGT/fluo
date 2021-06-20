@@ -1,0 +1,28 @@
+.divider {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+}
+
+.divider__solid {
+    border-top: solid 3px;
+    border-color: var(--color-gray);
+}
+
+.divider__dotted {
+    border-top: dotted 3px;
+    border-color: var(--color-gray);
+}
+
+.divider__dashed {
+    border-top: dashed 3px;
+    border-color: var(--color-gray);
+}
+
+.divider__inset {
+    border-top: inset 3px;
+    border-color: var(--color-gray);
+}

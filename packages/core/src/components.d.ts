@@ -72,6 +72,12 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlDivider {
+        /**
+          * Style of divider line
+         */
+        "variant": "solid" | "dashed" | "dotted" | "inset";
+    }
     interface FlInput {
         "accept": string;
         "alt": string;
@@ -212,6 +218,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlDividerElement extends Components.FlDivider, HTMLStencilElement {
+    }
+    var HTMLFlDividerElement: {
+        prototype: HTMLFlDividerElement;
+        new (): HTMLFlDividerElement;
+    };
     interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
     }
     var HTMLFlInputElement: {
@@ -271,6 +283,7 @@ declare global {
         "fl-button": HTMLFlButtonElement;
         "fl-card": HTMLFlCardElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-divider": HTMLFlDividerElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
@@ -347,6 +360,12 @@ declare namespace LocalJSX {
           * Value of checkbox
          */
         "value"?: string;
+    }
+    interface FlDivider {
+        /**
+          * Style of divider line
+         */
+        "variant"?: "solid" | "dashed" | "dotted" | "inset";
     }
     interface FlInput {
         "accept"?: string;
@@ -467,6 +486,7 @@ declare namespace LocalJSX {
         "fl-button": FlButton;
         "fl-card": FlCard;
         "fl-checkbox": FlCheckbox;
+        "fl-divider": FlDivider;
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
@@ -486,6 +506,7 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-divider": LocalJSX.FlDivider & JSXBase.HTMLAttributes<HTMLFlDividerElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
