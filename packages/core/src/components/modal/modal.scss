@@ -1,0 +1,101 @@
+/* Sass mixin defined to handle one and two buttons */
+@mixin child-count($num) {
+    @if $num == 1 {
+        &:only-child {
+            @content;
+        }
+    }
+    @else {
+        @content
+    }
+}
+
+:host {
+    display: block;
+}
+
+.modal {
+    position: absolute;
+    background: var(--bg-color);
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    width: 50%; /* 6 cols = 50% */
+    transform: translate(-50%, -50%);
+    border-radius: var(--spacing-1);
+    padding: var(--spacing-8);
+}
+
+.modal__open-true {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); 
+    visibility: visible;
+}
+
+/* Possible solution if scrolling is to be disabled */
+body.modal--open {
+    overflow: hidden;
+}
+
+.modal__open-false {
+    visibility: hidden;
+}
+
+.modal-content {
+    grid-row: 3 / auto;
+    grid-column: 1 / 12;
+}
+
+.modal__wrapper-true {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(89, 89, 89, 0.7);
+}
+
+.modal__wrapper-false {
+    display: none;
+}
+
+.modal-close {
+    background: transparent;
+    display: flex;
+    grid-row: 1;
+    grid-column: 12;
+    justify-content: center;
+    align-items: center;
+    justify-self: end;
+}
+
+.modal-close:hover {
+    cursor: pointer;
+}
+
+.modal .modal-title {
+    grid-row: 2;
+    grid-column: 1 / 12;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: normal;
+    // line-height: 28.8px;
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4)
+}
+
+.modal-action {
+    display: flex;
+    grid-row: 4 / auto;
+    grid-column: 1 / 12;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-bottom: var(--spacing-2);
+
+    @include child-count(2) {
+        :first-child {
+            margin-right: 16px;
+        }
+    }
+}

@@ -167,6 +167,16 @@ export namespace Components {
         "float": boolean;
         "items": HTMLFlItemElement[];
     }
+    interface FlModal {
+        /**
+          * The title to be displayed in the modal. "Title" creates a conflict.
+         */
+        "header": string;
+        /**
+          * Displays modal if state is true, otherwise no render
+         */
+        "open": boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -256,6 +266,12 @@ declare global {
         prototype: HTMLFlListElement;
         new (): HTMLFlListElement;
     };
+    interface HTMLFlModalElement extends Components.FlModal, HTMLStencilElement {
+    }
+    var HTMLFlModalElement: {
+        prototype: HTMLFlModalElement;
+        new (): HTMLFlModalElement;
+    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -296,6 +312,7 @@ declare global {
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-list": HTMLFlListElement;
+        "fl-modal": HTMLFlModalElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
         "fl-textarea": HTMLFlTextareaElement;
@@ -464,6 +481,16 @@ declare namespace LocalJSX {
         "float"?: boolean;
         "items"?: HTMLFlItemElement[];
     }
+    interface FlModal {
+        /**
+          * The title to be displayed in the modal. "Title" creates a conflict.
+         */
+        "header"?: string;
+        /**
+          * Displays modal if state is true, otherwise no render
+         */
+        "open"?: boolean;
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -507,6 +534,7 @@ declare namespace LocalJSX {
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-list": FlList;
+        "fl-modal": FlModal;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
         "fl-textarea": FlTextarea;
@@ -527,6 +555,7 @@ declare module "@stencil/core" {
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
+            "fl-modal": LocalJSX.FlModal & JSXBase.HTMLAttributes<HTMLFlModalElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
             "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;
