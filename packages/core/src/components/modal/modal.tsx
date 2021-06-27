@@ -14,9 +14,16 @@ export class Modal {
   /** Displays modal if state is true, otherwise no render */
   @Prop() open = false;
 
+  // Opened externally
   @Watch("open")
   toggleModal() {
-    // Some external source opens the modal, internals close it
+    // Prevent scrolling
+    const body = document.querySelector("body");
+    if (this.open) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "";
+    }
     this.host.dispatchEvent(new Event("change"));
   }
 
