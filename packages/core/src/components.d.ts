@@ -155,14 +155,6 @@ export namespace Components {
     }
     interface FlModal {
         /**
-          * Some functionality attached to the modal aside from closing
-         */
-        "action": (...args: any[]) => any;
-        /**
-          * Text to display on the primary button
-         */
-        "actionText": string;
-        /**
           * The title to be displayed in the modal. "Title" creates a conflict.
          */
         "header": string;
@@ -170,14 +162,6 @@ export namespace Components {
           * Displays modal if state is true, otherwise no render
          */
         "open": boolean;
-        /**
-          * Optional additional functionality attached to the modal
-         */
-        "secondary"?: (...args: any[]) => any;
-        /**
-          * Optional text to display on the secondary button. Recommended if secondary is passed
-         */
-        "secondaryText"?: string;
     }
     interface FlSwitch {
         /**
@@ -464,14 +448,6 @@ declare namespace LocalJSX {
     }
     interface FlModal {
         /**
-          * Some functionality attached to the modal aside from closing
-         */
-        "action"?: (...args: any[]) => any;
-        /**
-          * Text to display on the primary button
-         */
-        "actionText"?: string;
-        /**
           * The title to be displayed in the modal. "Title" creates a conflict.
          */
         "header"?: string;
@@ -479,14 +455,6 @@ declare namespace LocalJSX {
           * Displays modal if state is true, otherwise no render
          */
         "open"?: boolean;
-        /**
-          * Optional additional functionality attached to the modal
-         */
-        "secondary"?: (...args: any[]) => any;
-        /**
-          * Optional text to display on the secondary button. Recommended if secondary is passed
-         */
-        "secondaryText"?: string;
     }
     interface FlSwitch {
         /**
