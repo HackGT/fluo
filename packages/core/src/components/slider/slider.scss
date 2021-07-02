@@ -4,10 +4,6 @@ input[type="range"] {
   background: transparent; /* Otherwise white in Chrome */
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
 input[type="range"]:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
@@ -24,12 +20,14 @@ input[type="range"]::-ms-track {
 
 /* Special styling for WebKit/Blink */
 input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   border: 2px solid var(--color-primary);
   height: 16px;
   width: 16px;
   border-radius: 50%;
   background: #ffffff;
   cursor: pointer;
+  margin-top: -6px;
 }
 
 /* All the same stuff for Firefox */
@@ -69,6 +67,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   height: 4px;
   -webkit-appearance: none;
   background-color: var(--color-secondary-hover);
+  border-radius: 2px;
 }
 
 input[type="range"]:focus::-webkit-slider-runnable-track {
