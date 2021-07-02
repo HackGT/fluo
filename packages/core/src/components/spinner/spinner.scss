@@ -1,0 +1,52 @@
+:host {
+  padding: 6.25em;
+  .spinner {
+    height: 100px;
+    width: 100px;
+    transform: rotate(0);
+    border-radius: 50%;
+    background: conic-gradient(
+      transparent 0%,
+      var(--color-purple) 0%,
+      var(--color-pink) 70%,
+      transparent 0%
+    );
+    -webkit-mask: radial-gradient(
+      closest-side,
+      transparent 75%,
+      red calc(75% + 1px)
+    );
+    mask: radial-gradient(closest-side, transparent 75%, red calc(75% + 1px));
+    animation: a 1s infinite;
+    animation-name: spinner;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+:host([size="small"]) {
+  .spinner {
+    height: 50px;
+    width: 50px;
+  }
+}
+:host([size="medium"]) {
+  .spinner {
+    height: 100px;
+    width: 100px;
+  }
+}
+:host([size="large"]) {
+  .spinner {
+    height: 150px;
+    width: 150px;
+  }
+}

@@ -167,6 +167,9 @@ export namespace Components {
         "float": boolean;
         "items": HTMLFlItemElement[];
     }
+    interface FlSpinner {
+        "size": "small" | "medium" | "large";
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -256,6 +259,12 @@ declare global {
         prototype: HTMLFlListElement;
         new (): HTMLFlListElement;
     };
+    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    }
+    var HTMLFlSpinnerElement: {
+        prototype: HTMLFlSpinnerElement;
+        new (): HTMLFlSpinnerElement;
+    };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
     var HTMLFlSwitchElement: {
@@ -296,6 +305,7 @@ declare global {
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-list": HTMLFlListElement;
+        "fl-spinner": HTMLFlSpinnerElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
         "fl-textarea": HTMLFlTextareaElement;
@@ -464,6 +474,9 @@ declare namespace LocalJSX {
         "float"?: boolean;
         "items"?: HTMLFlItemElement[];
     }
+    interface FlSpinner {
+        "size"?: "small" | "medium" | "large";
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -507,6 +520,7 @@ declare namespace LocalJSX {
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-list": FlList;
+        "fl-spinner": FlSpinner;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
         "fl-textarea": FlTextarea;
@@ -527,6 +541,7 @@ declare module "@stencil/core" {
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
+            "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
             "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;
