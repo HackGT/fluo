@@ -7,9 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Rule } from "./utils/utils";
 export namespace Components {
-    interface FSpinner {
-        "transparent": boolean;
-    }
     interface FlAlert {
         "body"?: string;
         "closed"?: boolean;
@@ -157,7 +154,7 @@ export namespace Components {
         "items": HTMLFlItemElement[];
     }
     interface FlSpinner {
-        "size": "sm" | "md" | "lg";
+        "size": "small" | "medium" | "large";
     }
     interface FlSwitch {
         /**
@@ -194,12 +191,6 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLFSpinnerElement extends Components.FSpinner, HTMLStencilElement {
-    }
-    var HTMLFSpinnerElement: {
-        prototype: HTMLFSpinnerElement;
-        new (): HTMLFSpinnerElement;
-    };
     interface HTMLFlAlertElement extends Components.FlAlert, HTMLStencilElement {
     }
     var HTMLFlAlertElement: {
@@ -285,7 +276,6 @@ declare global {
         new (): HTMLFlUploadElement;
     };
     interface HTMLElementTagNameMap {
-        "f-spinner": HTMLFSpinnerElement;
         "fl-alert": HTMLFlAlertElement;
         "fl-button": HTMLFlButtonElement;
         "fl-card": HTMLFlCardElement;
@@ -303,9 +293,6 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface FSpinner {
-        "transparent"?: boolean;
-    }
     interface FlAlert {
         "body"?: string;
         "closed"?: boolean;
@@ -453,7 +440,7 @@ declare namespace LocalJSX {
         "items"?: HTMLFlItemElement[];
     }
     interface FlSpinner {
-        "size"?: "sm" | "md" | "lg";
+        "size"?: "small" | "medium" | "large";
     }
     interface FlSwitch {
         /**
@@ -489,7 +476,6 @@ declare namespace LocalJSX {
         "files"?: File[];
     }
     interface IntrinsicElements {
-        "f-spinner": FSpinner;
         "fl-alert": FlAlert;
         "fl-button": FlButton;
         "fl-card": FlCard;
@@ -510,7 +496,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "f-spinner": LocalJSX.FSpinner & JSXBase.HTMLAttributes<HTMLFSpinnerElement>;
             "fl-alert": LocalJSX.FlAlert & JSXBase.HTMLAttributes<HTMLFlAlertElement>;
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;

@@ -1,16 +1,14 @@
 :host {
-  --p: 0;
-  --q: 0.7;
   padding: 6.25em;
   .spinner {
     height: 100px;
     width: 100px;
-    transform: rotate(calc(var(--p) * 1turn));
+    transform: rotate(0);
     border-radius: 50%;
     background: conic-gradient(
-      transparent calc(var(--p, 0.1) * 100%),
+      transparent 0%,
       var(--color-purple) 0%,
-      var(--color-pink) calc(var(--q, 0.75) * 100%),
+      var(--color-pink) 70%,
       transparent 0%
     );
     -webkit-mask: radial-gradient(
@@ -34,19 +32,19 @@
   }
 }
 
-:host([size="sm"]) {
+:host([size="small"]) {
   .spinner {
     height: 50px;
     width: 50px;
   }
 }
-:host([size="md"]) {
+:host([size="medium"]) {
   .spinner {
     height: 100px;
     width: 100px;
   }
 }
-:host([size="lg"]) {
+:host([size="large"]) {
   .spinner {
     height: 150px;
     width: 150px;

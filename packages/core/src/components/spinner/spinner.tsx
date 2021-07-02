@@ -6,7 +6,7 @@ import { Component, h, Host, Prop } from "@stencil/core";
   shadow: true,
 })
 export class Spinner {
-  @Prop() size: "sm" | "md" | "lg" = "md";
+  @Prop() size: "small" | "medium" | "large" = "medium";
 
   render() {
     return (
