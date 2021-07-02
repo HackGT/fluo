@@ -72,6 +72,20 @@ export namespace Components {
          */
         "value": string;
     }
+    interface FlDetails {
+        /**
+          * Disables the detail if set to true
+         */
+        "disabled": boolean;
+        /**
+          * `heading` of the detail
+         */
+        "heading": string;
+        /**
+          * Opens the detail if set to true
+         */
+        "opened": boolean;
+    }
     interface FlInput {
         "accept": string;
         "alt": string;
@@ -159,6 +173,9 @@ export namespace Components {
         "min": number;
         "value": number;
     }
+    interface FlSpinner {
+        "size": "small" | "medium" | "large";
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -218,6 +235,12 @@ declare global {
         prototype: HTMLFlCheckboxElement;
         new (): HTMLFlCheckboxElement;
     };
+    interface HTMLFlDetailsElement extends Components.FlDetails, HTMLStencilElement {
+    }
+    var HTMLFlDetailsElement: {
+        prototype: HTMLFlDetailsElement;
+        new (): HTMLFlDetailsElement;
+    };
     interface HTMLFlInputElement extends Components.FlInput, HTMLStencilElement {
     }
     var HTMLFlInputElement: {
@@ -247,6 +270,12 @@ declare global {
     var HTMLFlSliderElement: {
         prototype: HTMLFlSliderElement;
         new (): HTMLFlSliderElement;
+    };
+    interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
+    }
+    var HTMLFlSpinnerElement: {
+        prototype: HTMLFlSpinnerElement;
+        new (): HTMLFlSpinnerElement;
     };
     interface HTMLFlSwitchElement extends Components.FlSwitch, HTMLStencilElement {
     }
@@ -283,11 +312,13 @@ declare global {
         "fl-button": HTMLFlButtonElement;
         "fl-card": HTMLFlCardElement;
         "fl-checkbox": HTMLFlCheckboxElement;
+        "fl-details": HTMLFlDetailsElement;
         "fl-input": HTMLFlInputElement;
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-list": HTMLFlListElement;
         "fl-slider": HTMLFlSliderElement;
+        "fl-spinner": HTMLFlSpinnerElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
         "fl-textarea": HTMLFlTextareaElement;
@@ -360,6 +391,20 @@ declare namespace LocalJSX {
           * Value of checkbox
          */
         "value"?: string;
+    }
+    interface FlDetails {
+        /**
+          * Disables the detail if set to true
+         */
+        "disabled"?: boolean;
+        /**
+          * `heading` of the detail
+         */
+        "heading"?: string;
+        /**
+          * Opens the detail if set to true
+         */
+        "opened"?: boolean;
     }
     interface FlInput {
         "accept"?: string;
@@ -448,6 +493,9 @@ declare namespace LocalJSX {
         "min"?: number;
         "value"?: number;
     }
+    interface FlSpinner {
+        "size"?: "small" | "medium" | "large";
+    }
     interface FlSwitch {
         /**
           * Disables the switch
@@ -486,11 +534,13 @@ declare namespace LocalJSX {
         "fl-button": FlButton;
         "fl-card": FlCard;
         "fl-checkbox": FlCheckbox;
+        "fl-details": FlDetails;
         "fl-input": FlInput;
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-list": FlList;
         "fl-slider": FlSlider;
+        "fl-spinner": FlSpinner;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
         "fl-textarea": FlTextarea;
@@ -506,11 +556,13 @@ declare module "@stencil/core" {
             "fl-button": LocalJSX.FlButton & JSXBase.HTMLAttributes<HTMLFlButtonElement>;
             "fl-card": LocalJSX.FlCard & JSXBase.HTMLAttributes<HTMLFlCardElement>;
             "fl-checkbox": LocalJSX.FlCheckbox & JSXBase.HTMLAttributes<HTMLFlCheckboxElement>;
+            "fl-details": LocalJSX.FlDetails & JSXBase.HTMLAttributes<HTMLFlDetailsElement>;
             "fl-input": LocalJSX.FlInput & JSXBase.HTMLAttributes<HTMLFlInputElement>;
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
             "fl-slider": LocalJSX.FlSlider & JSXBase.HTMLAttributes<HTMLFlSliderElement>;
+            "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
             "fl-textarea": LocalJSX.FlTextarea & JSXBase.HTMLAttributes<HTMLFlTextareaElement>;

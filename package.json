@@ -1,9 +1,17 @@
 {
+  "version": "0.0.2",
   "name": "fluo",
   "description": "Fluo mono repo. This package is not published to npm.",
   "private": true,
-  "workspaces": ["packages/core", "packages/react"],
+  "workspaces": [
+    "packages/core",
+    "packages/react"
+  ],
   "scripts": {
+    "release": "standard-version"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "standard-version": "^9.3.0"
+  }
 }
