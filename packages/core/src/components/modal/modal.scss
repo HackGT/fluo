@@ -1,15 +1,3 @@
-/* Sass mixin defined to handle one and two buttons */
-@mixin child-count($num) {
-    @if $num == 1 {
-        &:only-child {
-            @content;
-        }
-    }
-    @else {
-        @content
-    }
-}
-
 :host {
     display: block;
 }
@@ -92,10 +80,4 @@ body.modal--open {
     justify-content: flex-end;
     flex-direction: row;
     margin-bottom: var(--spacing-2);
-
-    @include child-count(2) {
-        :first-child {
-            margin-right: 16px;
-        }
-    }
 }
