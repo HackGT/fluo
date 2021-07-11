@@ -4,50 +4,32 @@ title: slider
 
 # fl-slider
 
-As the name implies, a toggle switch.
+Slider to input a range of values.
 
 ## Showcase
 
-<fl-slider min=-100 max=1000 value=25></fl-slider>
-
-## Use Cases
-
-- Toggling settings and preferences
-
-## Prior Art/Examples
-
-- [material ui](https://material-ui.com/components/switches/#switch)
-- [chakra ui](https://chakra-ui.com/docs/form/switch)
-- [shoelace](https://shoelace.style/components/switch)
-- [fast design](https://www.fast.design/docs/components/switch)
+<fl-slider min=0 max=100 value=25></fl-slider>
+<fl-slider min=0 max=50 value=25 disabled></fl-slider>
 
 ## Example usage
 
 ```html
-<fl-switch></fl-switch>
-<fl-switch on></fl-switch>
-<fl-switch>
-  <fl-icon name="icon_name" slot="thumb"></fl-icon>
-</fl-switch>
+<div>
+  <fl-slider></fl-slider>
+  <fl-slider min="0" max="50" value="25"></fl-slider>
+  <fl-slider min="0" max="50" value="25" disabled></fl-slider>
+</div>
 ```
 
 <!-- Auto Generated Below -->
 
 ## Properties
 
-| Property   | Attribute  | Description                                     | Type      | Default     |
-| ---------- | ---------- | ----------------------------------------------- | --------- | ----------- |
-| `disabled` | `disabled` | Disables the switch                             | `boolean` | `undefined` |
-| `name`     | `name`     | `name` of the switch                            | `string`  | `undefined` |
-| `on`       | `on`       | Moves the switch to the on state if set to true | `boolean` | `undefined` |
-| `value`    | `value`    | `value` of the switch                           | `string`  | `undefined` |
-
-## Shadow Parts
-
-| Part      | Description |
-| --------- | ----------- |
-| `"label"` |             |
-| `"thumb"` |             |
-| `"track"` |             |
+| Property   | Attribute  | Description                                 | Type      | Default |
+| ---------- | ---------- | ------------------------------------------- | --------- | ------- |
+| `min`      | `min`      | Minimum value of the slider                 | `number`  | `0`     |
+| `max`      | `max`      | Maximum value of the slider                 | `number`  | `100`   |
+| `value`    | `value`    | Value of the slider that it is currently on | `number`  | `50`    |
+| `disabled` | `disabled` | Whether or not the slider is disabled       | `boolean` | `false` |
 
 ---

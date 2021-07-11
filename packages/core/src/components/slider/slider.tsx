@@ -9,11 +9,11 @@ export class Slider {
   constructor() {
     this.sliderBar = this.sliderBar.bind(this);
   }
-  @Prop() value: number;
+  @Prop() value = 50;
 
-  @Prop() min: number;
+  @Prop() min = 0;
 
-  @Prop() max: number;
+  @Prop() max = 100;
 
   @Prop() disabled: boolean;
 
@@ -29,7 +29,12 @@ export class Slider {
     return (
       <div class="middle">
         <div class="slider-container">
-          <span class="bar">
+          <span
+            class="bar"
+            style={{
+              backgroundColor: `${this.disabled ? "#E6E6E6" : "#e8e4ff"}`,
+            }}
+          >
             <span
               class="fill"
               ref={(el) => (this.fillRef = el as HTMLSpanElement)}
@@ -37,6 +42,7 @@ export class Slider {
                 width: `${
                   ((+this.value - this.min) * 100) / (this.max - this.min)
                 }%`,
+                backgroundColor: `${this.disabled ? "#858585" : "#7b69ec"}`,
               }}
             ></span>
           </span>
@@ -49,6 +55,7 @@ export class Slider {
             value={this.value}
             ref={(el) => (this.sliderRef = el as HTMLInputElement)}
             onInput={this.sliderBar}
+            disabled={this.disabled}
           />
         </div>
       </div>
