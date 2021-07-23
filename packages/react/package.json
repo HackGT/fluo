@@ -1,6 +1,6 @@
 {
   "name": "@fluo/react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React bindings for the Fluo component library.",
   "private": false,
   "license": "MIT",
