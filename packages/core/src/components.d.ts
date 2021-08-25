@@ -167,6 +167,12 @@ export namespace Components {
         "float": boolean;
         "items": HTMLFlItemElement[];
     }
+    interface FlSlider {
+        "disabled": boolean;
+        "max": number;
+        "min": number;
+        "value": number;
+    }
     interface FlSpinner {
         "size": "small" | "medium" | "large";
     }
@@ -259,6 +265,12 @@ declare global {
         prototype: HTMLFlListElement;
         new (): HTMLFlListElement;
     };
+    interface HTMLFlSliderElement extends Components.FlSlider, HTMLStencilElement {
+    }
+    var HTMLFlSliderElement: {
+        prototype: HTMLFlSliderElement;
+        new (): HTMLFlSliderElement;
+    };
     interface HTMLFlSpinnerElement extends Components.FlSpinner, HTMLStencilElement {
     }
     var HTMLFlSpinnerElement: {
@@ -305,6 +317,7 @@ declare global {
         "fl-item": HTMLFlItemElement;
         "fl-link": HTMLFlLinkElement;
         "fl-list": HTMLFlListElement;
+        "fl-slider": HTMLFlSliderElement;
         "fl-spinner": HTMLFlSpinnerElement;
         "fl-switch": HTMLFlSwitchElement;
         "fl-tag": HTMLFlTagElement;
@@ -474,6 +487,12 @@ declare namespace LocalJSX {
         "float"?: boolean;
         "items"?: HTMLFlItemElement[];
     }
+    interface FlSlider {
+        "disabled"?: boolean;
+        "max"?: number;
+        "min"?: number;
+        "value"?: number;
+    }
     interface FlSpinner {
         "size"?: "small" | "medium" | "large";
     }
@@ -520,6 +539,7 @@ declare namespace LocalJSX {
         "fl-item": FlItem;
         "fl-link": FlLink;
         "fl-list": FlList;
+        "fl-slider": FlSlider;
         "fl-spinner": FlSpinner;
         "fl-switch": FlSwitch;
         "fl-tag": FlTag;
@@ -541,6 +561,7 @@ declare module "@stencil/core" {
             "fl-item": LocalJSX.FlItem & JSXBase.HTMLAttributes<HTMLFlItemElement>;
             "fl-link": LocalJSX.FlLink & JSXBase.HTMLAttributes<HTMLFlLinkElement>;
             "fl-list": LocalJSX.FlList & JSXBase.HTMLAttributes<HTMLFlListElement>;
+            "fl-slider": LocalJSX.FlSlider & JSXBase.HTMLAttributes<HTMLFlSliderElement>;
             "fl-spinner": LocalJSX.FlSpinner & JSXBase.HTMLAttributes<HTMLFlSpinnerElement>;
             "fl-switch": LocalJSX.FlSwitch & JSXBase.HTMLAttributes<HTMLFlSwitchElement>;
             "fl-tag": LocalJSX.FlTag & JSXBase.HTMLAttributes<HTMLFlTagElement>;
