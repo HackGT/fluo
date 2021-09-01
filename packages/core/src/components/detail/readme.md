@@ -25,11 +25,11 @@ You should be able to see this without having to click the detail.
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                                                                                         | Default          |
-| ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `opened`   | `opened`   | `Whether or not detail is already opened.` | `boolean`                                                                     | `false`          |
-| `disabled` | `disabled` | `Whether or not detail can be opened.` | `boolean`                                                                         | `false`          |
-| `heading`  | `heading`  | `Heading that the detail shows regarding` | `string`                                                                       | `undefined`      |          
+| Property   | Attribute  | Description                        | Type      | Default |
+| ---------- | ---------- | ---------------------------------- | --------- | ------- |
+| `disabled` | `disabled` | Disables the detail if set to true | `boolean` | `false` |
+| `heading`  | `heading`  | `heading` of the detail            | `string`  | `""`    |
+| `opened`   | `opened`   | Opens the detail if set to true    | `boolean` | `false` |
 
 
 ----------------------------------------------

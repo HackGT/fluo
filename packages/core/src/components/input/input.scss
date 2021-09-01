@@ -1,16 +1,15 @@
 :host {
   display: flex;
-  width: 300px;
   flex-direction: column;
   font-family: Roobert, sans-serif;
 }
 
 input {
   border-radius: 4px;
-  height: 40px;
-  width: 300px;
+  //height: 40px;
+  width: 100%;
   border: 1px solid black;
-  padding: 8px 12px;
+  padding: 2px 12px;
   font-size: 16px;
 }
 

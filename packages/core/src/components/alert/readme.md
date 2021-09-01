@@ -20,11 +20,14 @@ This is a alert component meant for use as a sort of notification bubble.
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                                                                                         | Default          |
-| ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------ | ---------------- |
-| `type`     | `type`     |             | `info \| success \| warning\| danger`                                                                        | `info`           |
-| `fixed`    | `fixed`    | `Sets whether the alert will have fixed positioning` | `boolean`                                                           | `false`          |
-| `heading`  | `heading`  | `Sets what the heading of the alert will say` | `string`                                                                   | `undefined`      |
+| Property  | Attribute | Description                                      | Type                                          | Default     |
+| --------- | --------- | ------------------------------------------------ | --------------------------------------------- | ----------- |
+| `body`    | `body`    |                                                  | `string`                                      | `undefined` |
+| `closed`  | `closed`  |                                                  | `boolean`                                     | `false`     |
+| `fixed`   | `fixed`   |                                                  | `boolean`                                     | `false`     |
+| `heading` | `heading` |                                                  | `string`                                      | `undefined` |
+| `loading` | `loading` | Set to true to draw the link in a loading state. | `boolean`                                     | `false`     |
+| `variant` | `variant` |                                                  | `"error" \| "info" \| "success" \| "warning"` | `"info"`    |
 
 
 ----------------------------------------------
